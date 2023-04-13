@@ -6,6 +6,8 @@ import Main from './components/Main-1/main-1'
 import Main2 from './components/Main-2/main-2'
 import Companies from './components/Companies/companies'
 import Features from './components/Features/features'
+import Tellmewhy from './components/Tellmewhy/tellmewhy'
+import Features2 from './components/Features-2/features-2'
 import './App.css'
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Main2 />
         <Companies />
         <Features />
+        <Tellmewhy />
+        <Features2 />
       </div>
     </div>
   )
