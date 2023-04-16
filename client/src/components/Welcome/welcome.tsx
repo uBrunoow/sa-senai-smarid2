@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import '../Welcome/welcome.sass'
 import '../Welcome/style.css'
 
 export default function Welcome() {
     return (
         <main className="welcome">
+=======
+import './welcome.sass'
+// import Background from ''
+
+export default function Welcome() {
+    <main className="welcome">
+>>>>>>> 2ae87b1413d09d446d7417c88b0fb3d767afcab0
             <div className="welcome-wrapper">
                 <div className="welcome-content">
                     <div className="title-welcome">
@@ -23,5 +31,8 @@ export default function Welcome() {
                 </div>
             </div>
         </main>
+<<<<<<< HEAD
     )
+=======
+>>>>>>> 2ae87b1413d09d446d7417c88b0fb3d767afcab0
 }
