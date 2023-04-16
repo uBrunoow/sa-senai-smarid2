@@ -17,6 +17,8 @@ $cor10: #111111
 
     
 .tellmewhy 
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 
   height: 100%
   background-color: $cor6
   color: #fff
@@ -50,7 +52,8 @@ $cor10: #111111
   display: flex
   gap: 100px  
 
-.tellmewhy-content 
+.tellmewhy-content
+  grid-column: 2
   padding: 100px 50px
   display: grid
   grid-template-columns: 1fr 1fr

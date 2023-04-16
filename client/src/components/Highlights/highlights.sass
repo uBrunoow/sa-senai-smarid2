@@ -1,0 +1,137 @@
+* 
+  margin: 0
+  padding: 0
+  font-family: 'Poppins', sans-serif
+
+
+$cor1: #A155DB
+$cor2: #44245C
+$cor3: #A156DB
+$cor4: #AB5AE8
+$cor5: #8F4CC2
+$cor6: #121212
+$cor7: #222222
+$cor8: #1A1A1A
+$cor9: #2C2C2C
+$cor10: #111111
+
+.highligths 
+  height: 100%
+  background-color: $cor7
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column  
+
+
+.highligths-content 
+  margin: 100px 0
+  width: 1500px
+  height: 717.97px
+  background: $cor6
+  border-radius: 38px
+  display: grid
+  grid-template-columns: 1fr 1fr
+
+
+.infos-highlights 
+
+  grid-column: 2
+  margin: 30px 0
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+
+
+
+.btnHighligths 
+  display: flex
+
+
+.btnHighligths button 
+  width: 426px
+  height: 97px
+  margin: 50px 200px 200px 200px
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25)
+  cursor: pointer
+  background: $cor1
+  padding: 1em 2em
+  border: none
+  border-radius: 7px
+  font-weight: bold
+  text-transform: uppercase
+  color: $cor2
+  transition: all 1000ms
+  font-size: 15px
+  position: relative
+  overflow: hidden
+  outline: 2px solid $cor2
+  margin: 20px 50px 
+
+
+
+.btnHighligths button:hover 
+  color: #ffffff
+  transform: scale(1.1)
+  outline: 2px solid $cor1
+  box-shadow: 4px 5px 17px -4px $cor1
+
+
+.btnHighligths button::before 
+  content: ""
+  position: absolute
+  left: -50px
+  top: 0
+  width: 0
+  height: 100%
+  background-color: $cor2
+  transform: skewX(45deg)
+  z-index: -1
+  transition: width 1000ms
+
+
+.btnHighligths button:hover::before 
+  width: 250%
+
+
+.btnHighligths a 
+  font-weight: 400
+  font-size: 32px
+  line-height: 39px
+  color: #FFFFFF
+  text-decoration: none
+
+
+.last-letter 
+  color: $cor1
+
+
+.highlight-image 
+  display: flex
+  align-items: center
+  justify-content: center
+
+
+.highlight-image img 
+  margin: 50px
+  width: 500px
+
+
+::-webkit-scrollbar 
+  background-color: $cor9
+  width: 10px    
+
+
+::-webkit-scrollbar-button 
+  background-color: $cor7
+
+
+::-webkit-scrollbar-thumb 
+  background-color: $cor4
+  border-radius: 2px
+
+
+::-webkit-scrollbar-corner 
+  color: red
+  background-color: red

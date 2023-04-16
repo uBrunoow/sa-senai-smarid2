@@ -1,0 +1,181 @@
+* 
+  margin: 0
+  padding: 0
+  font-family: 'Poppins', sans-serif
+
+
+$cor1: #A155DB
+$cor2: #44245C
+$cor3: #A156DB
+$cor4: #AB5AE8
+$cor5: #8F4CC2
+$cor6: #121212
+$cor7: #222222
+$cor8: #1A1A1A
+$cor9: #2C2C2C
+$cor10: #111111
+    
+.pricing 
+  height: 100%
+  background-color: $cor7
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+
+
+.pricing-title 
+  text-align: center
+
+
+.promotions-price 
+  display: flex
+  align-items: center
+  justify-content: space-evenly
+  gap: 50px
+  margin-top: 50px
+
+
+.pricing-content 
+  margin: 200px 0
+
+
+.promo1 
+  width: 528px
+  height: 988px
+  background: $cor9
+  border-radius: 37px
+
+.promo2 
+  width: 528px
+  height: 1062px
+  background: $cor9
+  box-shadow: 0px 8px 1px $cor1
+  border-radius: 37px
+  padding-top: 40px
+
+.promo3 
+  width: 528px
+  height: 988px
+  background: $cor9
+  border-radius: 37px
+
+
+
+.promo1 h1
+  font-weight: 700
+  font-size: 48px
+  line-height: 58px
+  color: $cor1
+  margin:  40px 50px
+
+.promo2 h1
+  font-weight: 700
+  font-size: 48px
+  line-height: 58px
+  color: $cor1
+  margin:  40px 50px
+
+.promo3 h1
+  font-weight: 700
+  font-size: 48px
+  line-height: 58px
+  color: $cor1
+  margin:  40px 50px
+
+.p-promo 
+  width: 450px
+  height: 146px
+  font-weight: 400
+  font-size: 32px
+  line-height: 39px
+  color: #FFFFFF
+  margin:  20px 50px
+
+.rs 
+    width: 55px
+    height: 46px
+    font-weight: 800
+    font-size: 40px
+    line-height: 48px
+    color: #FFFFFF
+    margin:  5px 50px
+
+.price 
+    width: 212px
+    height: 84px
+    font-weight: 800
+    font-size: 64px
+    line-height: 77px
+    color: #FFFFFF
+    margin: 0 100px
+
+
+.btnCart 
+  display: flex
+  align-items: center
+  justify-content: center
+
+
+.btnCart button 
+    width: 400px
+    height: 80px
+    margin: 10px
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25))
+    border-radius: 24px
+    cursor: pointer
+    background: transparent
+    padding: 1em 2em
+    border: none
+    font-weight: bold
+    text-transform: uppercase
+    color: $cor2
+    transition: all 1000ms
+    font-size: 15px
+    position: relative
+    overflow: hidden
+    outline: 2px solid #fff
+
+
+.btnCart button:hover
+  color: #ffffff
+  transform: scale(1.1)
+  outline: 2px solid $cor1
+  box-shadow: 4px 5px 17px -4px $cor1
+
+.btnCart button::before
+  content: ""
+  position: absolute
+  left: -50px
+  top: 0
+  width: 0
+  height: 100%
+  background-color: $cor2
+  transform: skewX(45deg)
+  z-index: -1
+  transition: width 1000ms
+
+.btnCart button:hover::before
+  width: 250%
+
+
+.btnCart a 
+    width: 181px
+    height: 41px
+    font-weight: 400
+    font-size: 32px
+    line-height: 39px
+    text-decoration: none
+    color: #FFFFFF
+
+.purple button 
+  outline: 2px solid $cor1
+
+.purple a 
+  color: $cor1
+
+
+.produtos-imagens 
+  height: 389px
+  background-color: $cor6
+  margin: 18px
