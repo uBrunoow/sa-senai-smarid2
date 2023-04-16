@@ -1,4 +1,5 @@
 import '../Companies/companies.sass'
+import '../Companies/style.css'
 
 export default function Companies () {
 

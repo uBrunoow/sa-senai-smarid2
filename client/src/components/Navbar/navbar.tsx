@@ -1,4 +1,5 @@
 import '../Navbar/navbar.sass'
+import '../Navbar/style.css'
 
 import Sun from '../Navbar/img/sun.svg'
 

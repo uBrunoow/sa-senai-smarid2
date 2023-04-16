@@ -1,4 +1,6 @@
 import '../Main-1/main-1.sass'
+import '../Main-1/style.css'
+
 
 export default function Main () {
 

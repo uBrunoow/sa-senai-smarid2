@@ -1,4 +1,5 @@
 import '../Features/features.sass'
+import '../Features/style.css'
 import img1 from './img/image 1.jpg'
 import img2 from './img/image 2.jpg'
 import img3 from './img/image 4.png'
@@ -8,22 +9,24 @@ export default function Companies () {
 
     return (
 
-<main className="features">
-            <div className="overlay-features"></div>
-            <div className="img-features">
-                <div className="img-1">
-                    <img src={img1} alt=""/>
+        <main className="features">
+            <div className="imagens-features">
+                <div className="overlay-features"></div>
+                <div className="img-features">
+                    <div className="img-1">
+                        <img src={img1} alt=""/>
+                    </div>
+                    <div className="img-2">
+                        <img src={img2} alt=""/>
+                    </div>
                 </div>
-                <div className="img-2">
-                    <img src={img2} alt=""/>
-                </div>
-            </div>
-            <div className="img-features">
-                <div className="img-3">
-                    <img src={img3} alt=""/>
-                </div>
-                <div className="img-4">
-                    <img src={img} alt=""/>
+                <div className="img-features">
+                    <div className="img-3">
+                        <img src={img3} alt=""/>
+                    </div>
+                    <div className="img-4">
+                        <img src={img} alt=""/>
+                    </div>
                 </div>
             </div>
             <div className="content-features">

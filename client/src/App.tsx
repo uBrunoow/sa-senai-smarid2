@@ -6,6 +6,7 @@ import Main from './components/Main-1/main-1'
 import Main2 from './components/Main-2/main-2'
 import Companies from './components/Companies/companies'
 import Features from './components/Features/features'
+import Welcome from './components/Welcome/welcome'
 import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Main2 />
         <Companies />
         <Features />
+        <Welcome />
       </div>
     </div>
   )

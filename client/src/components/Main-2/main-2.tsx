@@ -1,4 +1,6 @@
 import '../Main-2/main-2.sass'
+import '../Main-2/style.css'
+
 
 import Background from '../Main-2/img/image 19.png'
 
