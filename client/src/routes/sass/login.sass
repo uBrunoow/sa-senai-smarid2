@@ -1,0 +1,458 @@
+* 
+  margin: 0
+  padding: 0
+  font-family: 'Poppins', sans-serif
+
+
+$cor1: #A155DB
+$cor2: #44245C
+$cor3: #A156DB
+$cor4: #AB5AE8
+$cor5: #8F4CC2
+$cor6: #121212
+$cor7: #222222
+$cor8: #1A1A1A
+$cor9: #2C2C2C
+$cor10: #111111
+
+
+.f-container 
+  position: relative
+  width: 100%
+  background-color: $cor6
+  min-height: 100vh
+  overflow: hidden
+
+
+.forms-container 
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+
+
+.signin-signup 
+  position: absolute
+  top: 50%
+  transform: translate(-50%, -50%)
+  left: 75%
+  width: 50%
+  transition: 1s 0.7s ease-in-out
+  display: grid
+  grid-template-columns: 1fr
+  z-index: 5
+
+
+form 
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  padding: 0rem 5rem
+  transition: all 0.2s 0.7s
+  overflow: hidden
+  grid-column: 1 / 2
+  grid-row: 1 / 2
+
+
+form.sign-up-form 
+  opacity: 0
+  z-index: 1
+
+
+form.sign-in-form 
+  z-index: 2
+
+
+.title 
+  display: flex
+  align-items: center
+  justify-content: center
+  font-size: 2.2rem
+  color: #ddd
+  margin-bottom: 10px
+
+
+.lines
+    display: flex
+  
+  
+.nome-completo 
+    width: 500px
+  
+
+.password 
+    width: 500px
+  
+.input-box .icon 
+    position: absolute
+    right: 8px
+    width: 30px
+    height: 50px
+    font-size: 1.2em
+    line-height: 57px
+    color: $cor1
+  
+
+.input-box 
+    position: relative
+    height: 50px
+    border-bottom: 2px solid $cor1
+    margin: 25px
+  
+  
+.input-box label 
+    position: absolute
+    top: 50%
+    left: 5px
+    transform: translateY(-50%)
+    font-size: 1rem
+    color: #fff    
+    font-weight: 500
+    pointer-events: none
+    transition: .5s
+  
+  
+.input-box input:focus~label,
+.input-box input:valid~label 
+    top: -5px
+  
+  
+.input-box input 
+    width: 100%
+    height: 100%
+    background: transparent
+    border: none
+    outline: none
+    font-size: .9em
+    color: #ddd
+    font-weight: 600
+    padding: 0 35px 0 5px
+  
+
+.social-text 
+  color: #ddd
+  padding: 0.7rem 0
+  font-size: 1rem
+
+
+.social-media 
+  display: flex
+  justify-content: center
+  margin: 10px
+
+
+.social-icon 
+  height: 46px
+  width: 46px
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 0 0.45rem
+  color: #333
+  border-radius: 50%
+  border: 1px solid #333
+  text-decoration: none
+  font-size: 1.1rem
+  transition: 0.3s
+  box-shadow: 0px 2px 1px  #000
+
+
+.social-icon:hover 
+    transform: scale(1.2)
+    color: $cor1
+    border-color: $cor1
+    transform: translate(-0px, -1px)
+    box-shadow: 0px 7px 1px  $cor1
+    transition: all .2s ease-in
+
+
+.buttn 
+  width: 200px
+  background-color: $cor1
+  border: none
+  outline: none
+  height: 49px
+  border-radius: 49px
+  color: #fff
+  text-transform: uppercase
+  font-weight: 600
+  margin: 10px 0
+  cursor: pointer
+  border: 2px solid $cor4
+  box-shadow: 0px 2px 1px  $cor4
+  transition: all .2s ease
+  font-size: 1rem
+
+
+.buttn:hover 
+  transform: translate(-0px, -1px)
+  box-shadow: 0px 7px 1px  $cor2
+  transition: all .2s ease-in
+
+.panels-container 
+  position: absolute
+  height: 100%
+  width: 100%
+  top: 0
+  left: 0
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+
+
+.f-container:before 
+  content: ""
+  position: absolute
+  height: 2000px
+  width: 2000px
+  top: -10%
+  right: 48%
+  transform: translateY(-50%)
+  background-image: linear-gradient(-45deg, $cor1 0%, $cor2 100%)
+  transition: 1.8s ease-in-out
+  border-radius: 50%
+  z-index: 6
+
+
+.image 
+  width: 100%
+  transition: transform 1.1s ease-in-out
+  transition-delay: 0.4s
+
+
+.image.less-height 
+    width: 600px
+    height: 600px
+
+
+.panel 
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  justify-content: space-around
+  text-align: center
+  z-index: 6
+
+
+.left-panel 
+  pointer-events: all
+  padding: 3rem 17% 2rem 12%
+
+
+.right-panel 
+  pointer-events: none
+  padding: 3rem 12% 2rem 17%
+
+
+.panel .content 
+  color: #fff
+  transition: transform 0.9s ease-in-out
+  transition-delay: 0.6s
+
+
+.panel h3 
+  font-weight: 600
+  line-height: 1
+  font-size: 1.5rem
+
+
+.panel p 
+  font-size: 0.95rem
+  padding: 0.7rem 0
+
+
+.transparent 
+    margin: 0
+    background: none
+    width: 200px
+    height: 41px
+    font-weight: 600
+    font-size: 0.8rem
+    border: 2px solid #fff
+    box-shadow: 0px 2px 1px  #ddd
+    transition: all .2s ease
+
+
+.transparent:hover 
+    transform: translate(-0px, -1px)
+    box-shadow: 0px 7px 1px  #ddd
+    transition: all .2s ease-in
+
+
+.right-panel .image,
+.right-panel .content 
+  transform: translateX(1000px)
+
+
+/* ANIMATION */
+
+.f-container.sign-up-mode:before 
+  transform: translate(100%, -50%)
+  right: 52%
+
+
+.f-container.sign-up-mode .left-panel .image,
+.f-container.sign-up-mode .left-panel .content 
+  transform: translateX(-1000px)
+
+
+.f-container.sign-up-mode .signin-signup 
+  left: 25%
+
+
+.f-container.sign-up-mode form.sign-up-form 
+  opacity: 1
+  z-index: 2
+
+
+.f-container.sign-up-mode form.sign-in-form 
+  opacity: 0
+  z-index: 1
+
+
+.f-container.sign-up-mode .right-panel .image,
+.f-container.sign-up-mode .right-panel .content 
+  transform: translateX(0%)
+
+
+.f-container.sign-up-mode .left-panel 
+  pointer-events: none
+
+
+.f-container.sign-up-mode .right-panel 
+  pointer-events: all
+
+
+.fas 
+    width: 25px
+    height: 50px
+
+
+@media (max-width: 870px) 
+  .f-container 
+    min-height: 800px
+    height: 100vh
+  
+  .signin-signup 
+    width: 100%
+    top: 95%
+    transform: translate(-50%, -100%)
+    transition: 1s 0.8s ease-in-out
+  
+
+  .signin-signup,
+  .f-container.sign-up-mode .signin-signup 
+    left: 50%
+  
+
+  .panels-container 
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr 2fr 1fr
+  
+
+  .panel 
+    flex-direction: row
+    justify-content: space-around
+    align-items: center
+    padding: 2.5rem 8%
+    grid-column: 1 / 2
+  
+
+  .right-panel 
+    grid-row: 3 / 4
+  
+
+  .left-panel 
+    grid-row: 1 / 2
+  
+
+  .image 
+    width: 200px
+    transition: transform 0.9s ease-in-out
+    transition-delay: 0.6s
+  
+
+  .panel .content 
+    padding-right: 15%
+    transition: transform 0.9s ease-in-out
+    transition-delay: 0.8s
+  
+
+  .panel h3 
+    font-size: 1.2rem
+  
+
+  .panel p 
+    font-size: 0.7rem
+    padding: 0.5rem 0
+  
+
+  .buttn.transparent 
+    width: 110px
+    height: 35px
+    font-size: 0.7rem
+  
+
+  .f-container:before 
+    width: 1500px
+    height: 1500px
+    transform: translateX(-50%)
+    left: 30%
+    bottom: 68%
+    right: initial
+    top: initial
+    transition: 2s ease-in-out
+  
+
+  .f-container.sign-up-mode:before 
+    transform: translate(-50%, 100%)
+    bottom: 32%
+    right: initial
+  
+
+  .f-container.sign-up-mode .left-panel .image,
+  .f-container.sign-up-mode .left-panel .content 
+    transform: translateY(-300px)
+  
+
+  .f-container.sign-up-mode .right-panel .image,
+  .f-container.sign-up-mode .right-panel .content 
+    transform: translateY(0px)
+  
+
+  .right-panel .image,
+  .right-panel .content 
+    transform: translateY(300px)
+  
+
+  .f-container.sign-up-mode .signin-signup 
+    top: 5%
+    transform: translate(-50%, 0)
+  
+
+
+@media (max-width: 570px) 
+  form 
+    padding: 0 1.5rem
+  
+
+  .image 
+    display: none
+  
+  .panel .content 
+    padding: 0.5rem 1rem
+  
+  .container 
+    padding: 1.5rem
+  
+
+  .container:before 
+    bottom: 72%
+    left: 50%
+  
+
+  .container.sign-up-mode:before 
+    bottom: 28%
+    left: 50%
+  

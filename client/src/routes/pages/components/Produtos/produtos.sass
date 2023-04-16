@@ -1,0 +1,65 @@
+* 
+  margin: 0
+  padding: 0
+  font-family: 'Poppins', sans-serif
+
+
+$cor1: #A155DB
+$cor2: #44245C
+$cor3: #A156DB
+$cor4: #AB5AE8
+$cor5: #8F4CC2
+$cor6: #121212
+$cor7: #222222
+$cor8: #1A1A1A
+$cor9: #2C2C2C
+$cor10: #111111
+
+.produtos 
+  background-color: $cor7
+
+
+
+.ofertas-container
+  max-width: 1500px
+  width: 100%
+  padding: 40px 0
+
+.ofertas-content
+  margin: 0 40px
+  overflow: hidden
+  border-radius: 25px
+
+
+.card-content-ofertas
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 10px 14px
+
+
+.swiper-navBtn2
+  color: $cor1
+  transition: color 0.3s ease
+
+.swiper-navBtn2:hover
+  color: $cor2
+
+.swiper-navBtn2::before,
+.swiper-navBtn2::after
+  font-size: 35px
+
+.swiper-button-next2
+  right: 0
+
+.swiper-button-prev2
+  left: 0
+
+
+@media screen and (max-width: 768px) 
+  .ofertas-content
+    margin: 0 10px
+  
+  .swiper-navBtn
+    display: none
+  
