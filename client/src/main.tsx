@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Initialpage from './routes/pages/Initial-page'
 import Login from './routes/pages/Login'
+import Desejos from './routes/pages/Desejos'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: 'login',
     element: <Login/>
+  },
+  {
+    path: 'lista-de-desejos',
+    element: <Desejos/>
   },
 ])
 
