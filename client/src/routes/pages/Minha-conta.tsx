@@ -2,11 +2,11 @@ import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
 import Rodape from "./components/Footer/footer";
 import "../sass/conta.sass";
 
-import { MdDataset } from "react-icons/md"
-import { MdLocationOn } from "react-icons/md"
-import { MdHome } from "react-icons/md"
-import { FaHeart } from "react-icons/fa"
-import { HiSortAscending } from "react-icons/hi"
+import { MdDataset } from "react-icons/md";
+import { MdLocationOn } from "react-icons/md";
+import { MdHome } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
+import { HiSortAscending } from "react-icons/hi";
 
 export default function Account() {
     return (
@@ -19,19 +19,19 @@ export default function Account() {
                             <div className="menu-flex">
                                 <div className="home">
                                     <a href="/PAGES/minha-conta.html">
-                                        <MdHome className="IconsConta2"/>
+                                        <MdHome className="IconsConta2" />
                                     </a>
                                     <p className="desc-menu">HOME</p>
                                 </div>
                                 <div className="favs">
                                     <a href="/PAGES/lista-de-desejos.html">
-                                        <FaHeart className="IconsConta2"/>
+                                        <FaHeart className="IconsConta2" />
                                     </a>
                                     <p className="desc-menu">HOME</p>
                                 </div>
                                 <div className="history">
                                     <a href="/PAGES/historico.html">
-                                       <HiSortAscending className="IconsConta2"/>
+                                        <HiSortAscending className="IconsConta2" />
                                     </a>
                                     <p className="desc-menu">HOME</p>
                                 </div>
@@ -73,7 +73,7 @@ export default function Account() {
                             </div>
                         </div>
                         <div className="dados-titulo">
-                            <MdDataset className="IconsConta"/>
+                            <MdDataset className="IconsConta" />
                             <h1>Meus dados</h1>
                         </div>
                         <hr className="line" />
@@ -116,10 +116,10 @@ export default function Account() {
                                 </div>
                                 <div className="enderecos-content">
                                     <div className="enderecos-titulo">
-                                        <MdLocationOn className="IconsConta"/>
+                                        <MdLocationOn className="IconsConta" />
                                         <h1>Endereços</h1>
                                     </div>
-                                    <hr className="line"/>
+                                    <hr className="line" />
                                     <div className="flex-endereco">
                                         <div className="overlay-1"></div>
                                         <div className="endereco-principal">

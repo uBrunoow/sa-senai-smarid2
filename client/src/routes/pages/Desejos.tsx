@@ -1,9 +1,9 @@
-import '../sass/desejos.sass'
+import "../sass/desejos.sass";
 import F1 from "./components/Favorito/favorito";
 import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
 import Footer from "./components/Footer/footer";
 
-import { FaHeart } from "react-icons/fa"
+import { FaHeart } from "react-icons/fa";
 
 export default function Desejos() {
     return (
@@ -12,7 +12,7 @@ export default function Desejos() {
             <main className="favoritos">
                 <div className="favoritos-content">
                     <div className="titulo-favoritos">
-                        <FaHeart id="Coracao"/>
+                        <FaHeart id="Coracao" />
                         <h1>Meus favoritos</h1>
                     </div>
                     <div className="description-favoritos">

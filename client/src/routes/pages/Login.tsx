@@ -1,9 +1,12 @@
+// ESTILOS
 import "../sass/login.sass";
 import "../css/login.css";
 
+// IMAGENS
 import LostOnline from "/src/assets/IMG/lost-online.svg";
 import Programming from "/src/assets/IMG/programming.svg";
 
+// ICONS
 import { BsFillPersonFill } from "react-icons/bs";
 import { IoLockClosed } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa";
@@ -14,7 +17,8 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { IoMail } from "react-icons/io5";
 import { IoMdFingerPrint } from "react-icons/io";
 import { AiFillEye } from "react-icons/ai";
-import { useHref } from "react-router-dom";
+
+// TS
 import { useRef, useEffect } from "react";
 
 export default function Login() {
