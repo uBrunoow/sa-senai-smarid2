@@ -4,9 +4,11 @@ import App from  './App'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+//PAGES
 import Initialpage from './routes/pages/Initial-page'
 import Login from './routes/pages/Login'
 import Desejos from './routes/pages/Desejos'
+import Account from './routes/pages/Minha-conta'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: 'lista-de-desejos',
     element: <Desejos/>
+  },
+  {
+    path: 'conta',
+    element: <Account/>
   },
 ])
 

@@ -15,8 +15,7 @@ import { IoMail } from "react-icons/io5";
 import { IoMdFingerPrint } from "react-icons/io";
 import { AiFillEye } from "react-icons/ai";
 import { useHref } from "react-router-dom";
-import { useRef , useEffect } from "react";
-
+import { useRef, useEffect } from "react";
 
 export default function Login() {
     const sign_in_btn = useRef(null);
@@ -24,23 +23,24 @@ export default function Login() {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        if (sign_up_btn.current && sign_in_btn.current && containerRef.current) {
-            const sign_in = sign_in_btn.current as HTMLDivElement
-            const sign_up = sign_up_btn.current as HTMLDivElement
-            const container = containerRef.current as HTMLDivElement
+        if (
+            sign_up_btn.current &&
+            sign_in_btn.current &&
+            containerRef.current
+        ) {
+            const sign_in = sign_in_btn.current as HTMLDivElement;
+            const sign_up = sign_up_btn.current as HTMLDivElement;
+            const container = containerRef.current as HTMLDivElement;
 
             sign_up.addEventListener("click", () => {
                 container.classList.add("sign-up-mode");
             });
-    
+
             sign_in.addEventListener("click", () => {
                 container.classList.remove("sign-up-mode");
             });
         }
-    
-    }, [])
-
-    
+    }, []);
 
     return (
         <div className="f-container" ref={containerRef}>
@@ -50,7 +50,7 @@ export default function Login() {
                         <h2 className="title">Login</h2>
                         <div className="lines">
                             <div className="nome-completo">
-                                <div className="input-box">
+                                <div className="input-box" id="ib1">
                                     <BsFillPersonFill className="icon" />
                                     <input type="text" required />
                                     <label>Nome Completo</label>
@@ -59,7 +59,7 @@ export default function Login() {
                         </div>
                         <div className="lines">
                             <div className="nome-completo">
-                                <div className="input-box">
+                                <div className="input-box" id="ib2">
                                     <IoLockClosed className="icon" />
                                     <input type="password" required />
                                     <label>Senha</label>
@@ -98,7 +98,7 @@ export default function Login() {
                         <h2 className="title">Registrar</h2>
                         <div className="lines">
                             <div className="nome-completo">
-                                <div className="input-box">
+                                <div className="input-box" id="ib3">
                                     <BsFillPersonFill className="icon" />
                                     <input type="text" required />
                                     <label>Nome Completo</label>
@@ -107,7 +107,7 @@ export default function Login() {
                         </div>
                         <div className="lines">
                             <div className="nome-completo">
-                                <div className="input-box">
+                                <div className="input-box" id="ib4">
                                     <IoMail className="icon" />
                                     <input type="email" required />
                                     <label>Email</label>
@@ -116,16 +116,16 @@ export default function Login() {
                         </div>
                         <div className="lines">
                             <div className="nome-completo">
-                                <div className="input-box">
+                                <div className="input-box" id="ib5">
                                     <IoMdFingerPrint className="icon" />
-                                    <input type="email" required />
+                                    <input type="text" required />
                                     <label>CPF</label>
                                 </div>
                             </div>
                         </div>
                         <div className="lines">
                             <div className="nome-completo">
-                                <div className="input-box">
+                                <div className="input-box" id="ib6">
                                     <AiFillEye className="icon" id="eyes" />
                                     <input
                                         type="password"
@@ -138,7 +138,7 @@ export default function Login() {
                         </div>
                         <div className="lines">
                             <div className="nome-completo">
-                                <div className="input-box">
+                                <div className="input-box" id="ib7">
                                     <IoLockClosed className="icon" />
                                     <input type="password" required />
                                     <label>Confirmar Senha</label>
@@ -208,7 +208,11 @@ export default function Login() {
                             veja as novidades que estão te esperando, corre
                             antes que acabem as promoções.
                         </p>
-                        <button className="buttn transparent" id="sign-in-btn" ref={sign_in_btn}>
+                        <button
+                            className="buttn transparent"
+                            id="sign-in-btn"
+                            ref={sign_in_btn}
+                        >
                             Login
                         </button>
                     </div>

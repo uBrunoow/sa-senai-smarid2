@@ -1,0 +1,527 @@
+* 
+  margin: 0
+  padding: 0
+  font-family: 'Poppins', sans-serif
+
+
+$cor1: #A155DB
+$cor2: #44245C
+$cor3: #A156DB
+$cor4: #AB5AE8
+$cor5: #8F4CC2
+$cor6: #121212
+$cor7: #222222
+$cor8: #1A1A1A
+$cor9: #2C2C2C
+$cor10: #111111
+
+.minha-conta 
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #222222
+
+
+.menu 
+  position: absolute
+  width: 90px
+  height: 231px
+  background: #141414
+  border-radius: 26px  0  0 26px
+  left: 18%
+  z-index: 0
+  transition: all .4s ease
+
+
+.menu-flex 
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  gap: 30px
+
+
+.desc-menu 
+  display: none
+  color: #fff
+  font-weight: 600
+  font-size: 17px
+
+.home, .favs , .history 
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 30px 
+
+
+.home , .favs ,  .history  
+  width: 30px
+  height: 30px
+
+
+.history:hover
+  fill: $cor1
+ 
+.favs:hover 
+  fill: $cor1
+ 
+.home:hover
+  fill: $cor1
+ 
+
+.conta-cupom 
+    display: flex
+    background-color: $cor6
+    border-radius: 26px
+    justify-content: center
+    transition: all .2s ease
+    position: relative
+    z-index: 1
+
+
+.conta-cupom:hover 
+  transform: translate(0px, -2px)
+  box-shadow: 0px 7px 1px  $cor4
+  transition: all .2s ease-in
+
+
+.conta-content 
+    display: grid
+    grid-template-columns: .2fr 1fr .2fr 1.5fr .2fr
+    grid-template-rows: .2fr 1fr .2fr
+    place-items: center
+    width: 100%
+    height: 231px
+
+
+.description-conta 
+    grid-column: 4
+    grid-row: 2
+
+
+.description-conta h1
+  color: #fff
+
+
+.description-conta .email-conta 
+  display: flex
+  background-color: white
+  border-radius: 5px
+  width: 380px
+  padding: 10px
+  font-size: 18px
+  align-items: center
+  color: #444
+
+
+.imagem-conta img 
+    height: 98%
+    width: 98%
+    object-fit: cover
+    border-radius: 50%
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25)
+    border: 2px solid $cor1
+
+
+.imagem-conta 
+    grid-row: 2
+    grid-column: 2
+    position: relative
+    height: 120px
+    width: 120px
+    border-radius: 50%
+    background-color: $cor1
+    padding: 3px
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25)
+    display: flex
+    align-items: center
+    justify-content: center
+
+
+.cupom-content 
+    display: grid
+    grid-template-columns: .2fr 2.7fr .2fr
+    grid-template-rows: .2fr 1fr .2fr
+    place-items: center
+    width: 100%
+
+
+.description-cupom 
+    grid-column: 2
+    grid-row: 2
+
+
+.description-cupom h1
+  color: #fff
+
+
+.input-cupom 
+    display: flex
+    background-color: white
+    border-radius: 5px
+    height: 45px
+  
+  
+.textoBusca 
+    outline: none
+    background-color: transparent
+    padding-left: 15px
+    font-size: 18px
+    border: none
+    height: 45px
+    width: 380px
+    border-radius: 5px
+  
+  
+.textoBusca::placeholder 
+    color: #444
+  
+
+.imgCupons 
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100px
+    background: $cor1
+    border: none
+    outline: none
+    border-radius: 5px
+    transition: all .2s ease-in-out
+    margin-left: -100px
+
+  
+
+.imgCupons a
+    text-decoration: none
+    color: #fff
+    font-weight:700 
+  
+
+.dados-content 
+    margin: 50px
+    padding: 20px 
+  
+
+.dados-titulo 
+    display: flex
+    justify-content: left
+    align-items: center
+    margin-bottom: 10px
+    margin-top: 50px
+  
+
+.dados-titulo h1 
+    color: #fff
+    margin: 10px
+    font-size: 22px
+  
+
+.dados-titulo img 
+    width: 35px
+    height: 35px
+  
+
+.enderecos-titulo 
+    display: flex
+    justify-content: left
+    align-items: center
+    margin-bottom: 10px
+  
+
+.enderecos-titulo h1 
+    color: #fff
+    margin: 10px
+    font-size: 22px
+  
+
+.enderecos-titulo img 
+    width: 35px
+    height: 35px
+  
+
+.line   
+    width: 1200px 
+    margin: 0
+    opacity: .5
+    border: 1px solid #aeaeae93
+  
+
+.flex-endereco 
+    display: flex
+    gap: 30px
+    margin: 30px
+
+
+
+.endereco-principal
+    color: #fff
+    width: 100%
+    height: 220px
+    margin-left: -30px
+    background: rgba(92, 49, 125, 0.21)
+    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25)
+    border-radius: 0px 5px 5px 0px
+
+
+.endereco-outros 
+    color: #fff
+    background: #2C2C2C
+    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25)
+    border-radius: 0px 5px 5px 0px
+    width: 100%
+    height: 220px
+
+
+.enderecos-infos 
+    margin-left: 10px
+    margin-top: 10px
+    margin-right: 10px
+    display: flex
+    justify-content: space-between
+
+
+.enderecos-infos h2 
+    font-weight: 600
+    font-size: 18px
+    line-height: 29px
+    color: #A155DB
+
+
+.enderecos-subinfos 
+    margin-top: 10px
+    margin-left: 10px
+    height: 115px
+
+
+.enderecos-subinfos p 
+    margin-top: 10px
+    margin-left: 10px
+    color: #C5C5C5
+
+
+
+.endereco-editar 
+    margin-top: 10px
+    margin-left: 10px
+    margin-right: 10px
+    display: flex
+    justify-content: flex-end
+    gap: 20px   
+
+
+.endereco-editar a 
+    color: #686868
+    font-style: italic
+    text-decoration: none
+    transition: .7s ease
+
+
+.endereco-editar a:hover 
+    transform: scale(1.1)
+
+
+.endereco-editar .padrao 
+    color: #A155DB
+    font-style: italic
+    text-decoration: none
+    font-weight: 600
+
+
+.overlay-1 
+    background-color: #5C317D
+    width: 10px
+    height: 220px
+    position: relative
+    border-radius: 20px 0px 0px 20px
+
+
+.overlay-2
+    background-color: #AEAEAE
+    width: 10px
+    height: 220px
+    position: relative
+    left: 30px
+    border-radius: 20px 0px 0px 20px
+
+
+.lines
+    display: flex
+  
+  
+.nome-completo 
+    width: 600px
+  
+.cpf 
+    width: 500px
+  
+  
+.data-de-nasc 
+    width: 500px
+  
+  
+.telefone 
+    width: 500px
+  
+  
+.password 
+    width: 500px
+  
+.confirm-password 
+    width: 500px
+  
+  
+.email 
+    width: 500px
+  
+  
+.input-box .icon 
+    position: absolute
+    right: 8px
+    font-size: 1.2em
+    line-height: 57px
+  
+
+  
+.input-box 
+    position: relative
+    height: 50px
+    border-bottom: 2px solid $cor1
+    margin: 25px
+  
+  
+.input-box label 
+    position: absolute
+    top: 50%
+    left: 5px
+    transform: translateY(-50%)
+    font-size: 1rem
+    color: #fff    
+    font-weight: 500
+    pointer-events: none
+    transition: .5s
+  
+  
+.input-box input:focus~label,
+.input-box input:valid~label 
+      top: -5px
+  
+  
+.input-box input 
+    width: 100%
+    height: 100%
+    background: transparent
+    border: none
+    outline: none
+    font-size: .9em
+    color: #ddd
+    font-weight: 600
+    padding: 0 35px 0 5px
+  
+
+.btn-repassword button 
+    width: 250px
+    height: 50px
+    background: $cor1
+    border: none
+    margin: 20px
+    border-radius: 5px
+    color: #fff 
+    font-weight: 800
+    font-size: 1rem
+    cursor: pointer
+    border: 2px solid $cor1
+    box-shadow: 2px 2px 1px  $cor2
+    transition: all .2s ease
+  
+
+.btn-repassword button:hover 
+    transform: translate(-2px, -1px)
+    box-shadow: 5px 5px 1px  $cor2
+    transition: all .2s ease-in
+  
+
+.btn-save button 
+    width: 250px
+    height: 50px
+    background: $cor1
+    border: none
+    margin: 20px
+    border-radius: 5px
+    color: #fff 
+    font-weight: 800
+    font-size: 1rem
+    cursor: pointer
+    border: 2px solid $cor1
+    box-shadow: 2px 2px 1px  $cor2
+    transition: all .2s ease
+  
+
+.btn-save button:hover
+    transform: translate(-2px, -1px)
+    box-shadow: 5px 5px 1px  $cor2
+    transition: all .2s ease-in
+  
+
+.btn-reset button 
+    width: 50px
+    height: 50px
+    background: #fff
+    border: 3px solid #D2042D
+    margin: 20px
+    border-radius: 5px
+    color: #fff 
+    font-weight: 500
+    font-size: 20px
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    border: 2px solid #44020f
+    box-shadow: 2px 2px 1px  #D2042D
+    transition: all .2s ease
+  
+
+.btn-reset button:hover 
+    background: #D2042D
+    transform: translate(-2px, -1px)
+    box-shadow: 5px 5px 1px  #44020f
+    transition: all .2s ease-in
+  
+
+.refresh-button
+    width: 30px 
+    height: 30px
+  
+
+.btn-reset button:hover .refresh-button path 
+    stroke: #fff
+  
+
+
+
+.buttons 
+    display: flex
+    justify-content: flex-end
+    align-items: center
+  
+
+.IconsConta
+    width: 50px
+    height: 50px    
+    color: #fff 
+
+.IconsConta2
+    width: 35px
+    height: 35px    
+    color: #fff 
+    transition: all 0.2s ease
+    margin-right: 15px
+
+
+.IconsConta2:hover
+    color: $cor1
+    transform: scale(1.1)
+    
+
