@@ -1,7 +1,7 @@
 import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
 import Rodape from "./components/Footer/footer";
 import "../sass/conta.sass";
-
+import { useEffect } from "react";
 import { MdDataset } from "react-icons/md";
 import { MdLocationOn } from "react-icons/md";
 import { MdHome } from "react-icons/md";
