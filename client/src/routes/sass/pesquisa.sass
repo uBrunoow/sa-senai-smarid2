@@ -1,0 +1,415 @@
+*
+    margin: 0
+    padding: 0
+    font-family: 'Poppins', sans-serif
+
+$cor1: #A155DB
+$cor2: #44245C
+$cor3: #A156DB
+$cor4: #AB5AE8
+$cor5: #8F4CC2
+$cor6: #121212
+$cor7: #222222
+$cor8: #1A1A1A
+$cor9: #2C2C2C
+$cor10: #111111
+
+.pesquisa-content
+    width: 100%
+    height: 100%
+    background: $cor7
+    display: grid
+    grid-template-columns: .1fr 1fr
+    grid-template-rows: .1fr 1fr
+    padding: 30px
+
+.produtos-pesquisa
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    grid-column: 2
+    grid-row: 2
+
+.p-container
+    height: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+.flex-box-container
+    display: flex
+    gap: 10px
+
+    & p
+        color: #fff
+
+.check
+    cursor: pointer
+    position: relative
+    margin: 20px
+    width: 270px
+    height: 0px
+    -webkit-tap-highlight-color: transparent
+    transform: translate3d(0, 0, 0)
+
+    &:before
+        content: ""
+        position: absolute
+        top: -15px
+        left: -15px
+        width: 48px
+        height: 48px
+        border-radius: 50%
+        background: rgba(34, 50, 84, 0.03)
+        opacity: 0
+        transition: opacity 0.2s ease
+
+    & svg
+        position: relative
+        z-index: 1
+        fill: none
+        stroke-linecap: round
+        stroke-linejoin: round
+        stroke: #c8ccd4
+        stroke-width: 1.5
+        transform: translate3d(0, 0, 0)
+        transition: all 0.2s ease
+
+    & svg path
+        stroke-dasharray: 60
+        stroke-dashoffset: 0
+
+    & svg polyline
+        stroke-dasharray: 22
+        stroke-dashoffset: 66
+
+    &:hover:before
+        opacity: 1
+
+    &:hover svg
+        stroke: $cor1
+
+#cbx2:checked + .check svg
+    stroke: $cor1
+
+#cbx2:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx2:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+#cbx3:checked + .check svg
+    stroke: $cor1
+
+#cbx3:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx3:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+#cbx4:checked + .check svg
+    stroke: $cor1
+
+#cbx4:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx4:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+#cbx5:checked + .check svg
+    stroke: $cor1
+
+#cbx5:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx5:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+#cbx6:checked + .check svg
+    stroke: $cor1
+
+#cbx6:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx6:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+#cbx7:checked + .check svg
+    stroke: $cor1
+
+#cbx7:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx7:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+#cbx8:checked + .check svg
+    stroke: $cor1
+
+#cbx8:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx8:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+#cbx9:checked + .check svg
+    stroke: $cor1
+
+#cbx9:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx9:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+#cbx10:checked + .check svg
+    stroke: $cor1
+
+#cbx10:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx10:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+.cbnone
+    display: none
+
+// FILTROS */
+
+.filtros
+    grid-column: 1
+    grid-row: 2
+
+.filtro-box
+    margin: 10px
+    width: 315px
+    height: 99%
+    border-radius: 10px
+    padding: 20px
+    background: #222
+    box-shadow: 0px 0px 10px 10px rgb(0 0 0 / 10%)
+
+.price-extension input
+    width: 280px
+
+.zero-max
+    display: flex
+    justify-content: space-between
+    color: #fff
+
+.tipo-de-produto
+    height: 230px
+
+.marcas
+    height: 230px
+
+.categorias
+    height: 230px
+
+.tipo-de-produto  h1
+    color: #fff
+    position: relative
+    top: 30px
+    font-size: 1rem
+
+.marcas  h1
+    color: #fff
+    position: relative
+    top: 30px
+    font-size: 1rem
+
+.categorias h1
+    color: #fff
+    position: relative
+    top: 30px
+    font-size: 1rem
+
+.tipo-de-produto a
+    position: relative
+    top: 30px
+    color: $cor1
+    text-decoration: underline
+    font-size: .7rem
+
+.marcas a
+    position: relative
+    top: 30px
+    color: $cor1
+    text-decoration: underline
+    font-size: .7rem
+
+.categorias a
+    position: relative
+    top: 30px
+    color: $cor1
+    text-decoration: underline
+    font-size: .7rem
+
+// PESUISA 
+
+.titulo-pesquisa
+    display: flex
+    justify-content: space-between
+    border-bottom: 1px solid #fff
+
+.titulo-do-filtro
+    margin: 20px
+
+    & h1
+        font-size: 1rem
+        margin-bottom: 10px
+        color: #fff
+
+    & p
+        color: #fff
+
+.titulo-pesquisa
+    margin: 20px
+    color: #fff
+
+.titulo-filtro
+    color: #fff
+    display: flex
+    gap: 10px
+    align-items: center
+
+.ordenar-por
+    display: flex
+    gap: 10px
+    justify-content: center
+    align-items: center
+    margin-bottom: 10px
+
+    & p
+        font-weight: 600
+        font-size: 20px
+        line-height: 24px
+        color: #fff
+
+.order-for
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 200px
+    height: 40px
+    background-color: transparent
+    border: 1px solid $cor1
+    outline: none
+    font-size: 1.2rem
+    border-radius: 5px
+    font-weight: 500
+    line-height: 130%
+    color: #fff
+
+#flecha2
+    width: 30px
+    height: 30px
+
+#checkbox
+    opacity: 0
+
+#optOrderFor
+    display: none
+
+.opts
+    overflow-y: scroll
+    overflow-x: hidden
+    background-color: #fff
+    position: absolute
+    right: 51px
+    width: 236px
+    top: 213px
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.24)
+    border-radius: 8px
+    flex: none
+    order: 1
+    align-self: stretch
+    flex-grow: 0
+    height: 250px
+
+    & p
+        font-weight: 500
+        font-size: 17px
+        line-height: 130%
+        color: #000000
+        flex: none
+        order: 1
+        flex-grow: 1
+        width: 248px
+        height: 44px
+        padding: 10px
+
+    & p:hover
+        background-color: #ddd
+        width: 248px
+        height: 44px
+
+// personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical
+
+.opts::-webkit-scrollbar
+    width: 10px
+    height: 5px
+
+// aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro
+    &::-webkit-scrollbar-track
+        background: #ddd
+
+// aqui é a alça da barra, que demonstra a altura que você está na página
+
+    &::-webkit-scrollbar-thumb
+        background: $cor1
+        border-radius: 5px
+
+input[type=range]
+    -webkit-appearance: none
+    margin: 10px 0
+    width: 100%
+
+input[type=range]:focus
+    outline: none
+
+input[type=range]::-webkit-slider-runnable-track
+    width: 100%
+    height: 5px
+    cursor: pointer
+    animate: 0.2s
+    background: $cor1
+    border-radius: 25px
+    border: 0px solid #000101
+
+input[type=range]::-webkit-slider-thumb
+    height: 13px
+    width: 13px
+    border-radius: 50%
+    background: $cor1
+    cursor: pointer
+    -webkit-appearance: none
+    margin-top: -3.6px
