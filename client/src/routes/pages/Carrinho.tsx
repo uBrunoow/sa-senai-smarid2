@@ -57,18 +57,18 @@ export default function Carrinho() {
                                     </div>
                                 </div>
                             </div>
-                            <hr />
+                            <hr className="Algumalinhaaleatoria"/>
                             <div className="clean-address">
                                 <div className="address">
-                                    <button>
-                                        <IoLocationSharp/>
-                                        <a href="">Selecione o seu endereço</a>
+                                    <button className="Address-button">
+                                        <IoLocationSharp className="Location"/>
+                                        <a href="" className="Link-address">Selecione o seu endereço</a>
                                     </button>
                                 </div>
                                 <div className="clean-products">
-                                    <button>
-                                        <TbTrashXFilled className="bx bx-trash trexi"/>
-                                        <a href="">Remover todos os produtos</a>
+                                    <button className="clean-button">
+                                        <TbTrashXFilled className="trexi"/>
+                                        <a href="" className="UmlinkQuAlquer">Remover todos os produtos</a>
                                     </button>
                                 </div>
                             </div>
@@ -94,8 +94,8 @@ export default function Carrinho() {
                                 </p>
                             </div>
                             <div className="finalizar-pedido">
-                                <button>
-                                    <a href="">FINALIZAR PEDIDO</a>
+                                <button className="Fim-button">
+                                    <a href="" className="Finalize">FINALIZAR PEDIDO</a>
                                 </button>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ export default function Carrinho() {
                         <form action="">
                             <div className="textInputWrapper">
                                 <input
-                                    placeholder="Cupom de descontocarrinho"
+                                    placeholder="Cupom de desconto"
                                     type="text"
                                     className="textInput"
                                 />

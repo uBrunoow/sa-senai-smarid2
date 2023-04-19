@@ -19,7 +19,7 @@ $cor10: #111111
     align-items: center
     justify-content: center
     flex-direction: column
-    background-color: var(--cor7)
+    background-color: $cor7
 
 .carrinho-resumo
     display: grid
@@ -55,7 +55,7 @@ $cor10: #111111
         font-size: 24px
         line-height: 29px
         text-align: center
-        color: var(--cor1)
+        color: $cor1
 
 .title-img h1
     width: 250px
@@ -102,7 +102,7 @@ $cor10: #111111
         font-size: 25px
         line-height: 39px
         text-align: center
-        color: var(--cor1)
+        color: $cor1
 
     & img
         width: 204px
@@ -113,7 +113,7 @@ $cor10: #111111
     align-items: center
 
 .bxs-discount
-    color: var(--cor1)
+    color: $cor1
     font-size: 30px
 
 .cupom-desconto
@@ -131,7 +131,7 @@ $cor10: #111111
         font-size: 24px
         line-height: 29px
         text-align: center
-        color: var(--cor1)
+        color: $cor1
         margin: 30px 0
 
 .textInputWrapper
@@ -156,18 +156,18 @@ $cor10: #111111
     width: 100%
 
 .textInputWrapper:focus-within:before
-    border-bottom: 1px solid var(--accent-color)
+    border-bottom: 1px solid $cor1
 
 .textInputWrapper:before
     transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
     border-bottom: 1px solid rgba(0, 0, 0, 0.42)
 
 .textInputWrapper:focus-within:before
-    border-bottom: 1px solid var(--accent-color)
+    border-bottom: 1px solid $cor1
     transform: scaleX(1)
 
 .textInputWrapper:focus-within:after
-    border-bottom: 2px solid var(--accent-color)
+    border-bottom: 2px solid $cor1
     transform: scaleX(1)
 
 .textInputWrapper:after
@@ -175,8 +175,8 @@ $cor10: #111111
     transform: scaleX(0)
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms
     will-change: transform
-    border-bottom: 2px solid var(--accent-color)
-    border-bottom-color: var(--accent-color)
+    border-bottom: 2px solid $cor1
+    border-bottom-color: $cor1
 
 .textInput::placeholder
     transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms
@@ -223,7 +223,7 @@ $cor10: #111111
 .input-submit
     width: 39.5%
     height: 69px
-    background: var(--cor1)
+    background: $cor1
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
     border: none
     outline: none
@@ -238,14 +238,14 @@ $cor10: #111111
     flex-direction: column
     width: 498px
     height: 611px
-    background: var(--cor7)
+    background: $cor7
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25)
     margin-left: 15px
 
 .resumo-title
     width: 498px
     height: 74px
-    background: var(--cor1)
+    background: $cor1
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25)
     display: flex
     align-items: center
@@ -268,9 +268,6 @@ $cor10: #111111
         font-size: 20px
         line-height: 24px
         color: #919191
-
-    & hr
-        margin: 0 20px
 
 .resumo-resumo
     width: 100%
@@ -300,7 +297,7 @@ $cor10: #111111
     margin: 10px
 
 .resumo-resumo h1
-    color: var(--cor1)
+    color: $cor1
     width: 159px
     height: 25px
     font-weight: 800
@@ -311,7 +308,7 @@ $cor10: #111111
 .resumo-resumo .purple-line
     width: 255px
     height: 9px
-    background: var(--cor1)
+    background: $cor1
 
 .resumo-resumo h3
     width: 159px
@@ -320,7 +317,7 @@ $cor10: #111111
     font-size: 24px
     line-height: 29px
     text-align: center
-    color: var(--cor1)
+    color: $cor1
     margin: 10px
 
 .finalizar-pedido button
@@ -329,6 +326,8 @@ $cor10: #111111
     background: #18AD00
     border: none
     outline: none
+    box-shadow: 0px 5px 1px green
+
 
 .finalizar-pedido a
     width: 361px
@@ -345,45 +344,67 @@ $cor10: #111111
 
 .clean-address
     display: flex
+    flex-direction: column 
     justify-content: space-between
     margin: 25px 20px
 
 .address button
+    display: flex
+    align-items: center
+    justify-content: center
     width: 389px
-    height: 49px
-    background: transparent
-    border: 2px solid var(--cor1)
-    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25)
-    border-radius: 8px
-    outline: none
+    height: 70px
+    background: #fff
+    border-radius: 5px
+    margin: 20px 0
+    color: #fff
+    font-weight: 500
+    font-size: 20px
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    border: 2px solid $cor2
+    box-shadow: 2px 2px 1px $cor1
+    transition: all .2s ease
+    gap: 25px
 
     & a
-        width: 249px
-        height: 29px
         font-weight: 500
         font-size: 20px
         line-height: 24px
-        color: #fFFFFF
+        color: $cor1
         text-decoration: none
 
 .clean-products button
+    display: flex
+    align-items: center
+    justify-content: center
     width: 389px
-    height: 49px
-    background: #C5C5C5
-    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25)
-    border-radius: 8px
-    outline: none
-    border: none
+    height: 70px
+    background: #fff        
+    border: 3px solid #D2042D
+    border-radius: 5px
+    margin: 20px 0
+    color: #fff
+    font-weight: 500
+    font-size: 20px
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    border: 2px solid #44020f
+    box-shadow: 2px 2px 1px #D2042D
+    transition: all .2s ease
+    gap: 25px
 
     & a
-        width: 274px
-        height: 31px
         font-weight: 500
         font-size: 20px
         line-height: 24px
         text-align: center
         text-decoration: none
-        color: #FFFFFF
+        color: #D2042D
 
 .up-down
     display: flex
@@ -393,7 +414,7 @@ $cor10: #111111
 .numero
     width: 56.32px
     height: 56.32px
-    background: var(--cor6)
+    background: $cor6
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25)
     border-radius: 8px
     font-weight: 700
@@ -407,7 +428,7 @@ $cor10: #111111
 
 .bx-chevron-left
     font-size: 30px
-    color: var(--cor1)
+    color: $cor1
 
 .remove
     display: flex
@@ -415,7 +436,7 @@ $cor10: #111111
     justify-content: center
     align-items: center
     gap: 12px
-    background: #D9D9D9
+    background: red
     border-radius: 8px
     margin-top: 20px
     width: 160px
@@ -428,6 +449,50 @@ $cor10: #111111
     align-items: center
 
 .trexi
-    color: #fff
+    color: #D2042D
     width: 20px
     height: 20px
+
+.Location 
+    color: $cor1
+    width: 20px
+    height: 20px  
+
+.Algumalinhaaleatoria
+    border: 1px solid #000
+    opacity: .5   
+
+.clean-button:hover
+    background: #D2042D
+    transform: translate(-2px, -1px)
+    box-shadow: 5px 5px 1px #44020f
+    transition: all .2s ease-in
+
+.clean-button:hover .trexi
+    color: #fff 
+
+.clean-button:hover .UmlinkQuAlquer
+    color: #fff 
+
+
+.Address-button:hover
+    background: $cor1
+    transform: translate(-2px, -1px)
+    box-shadow: 5px 5px 1px $cor2
+    transition: all .2s ease-in
+
+.Address-button:hover .Location
+    color: #fff 
+
+.Address-button:hover .Link-address
+    color: #fff 
+
+.Fim-button:hover
+    background: #008912
+    transform: translate(0px, -2px)
+    box-shadow: 0px 5px 1px green
+    transition: all .2s ease-in
+
+.Fim-button:hover .Finalize
+    color: #fff 
+
