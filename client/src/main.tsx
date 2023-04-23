@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         element: <App />,
     },
     {
-        path: "Initialpage",
+        path: "initialpage",
         element: <Initialpage />,
     },
 
