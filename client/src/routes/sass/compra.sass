@@ -53,7 +53,8 @@ $cor10: #111111
 .Grid_compra
     display: grid
     grid-template-columns: .5fr 1fr
-    grid-template-rows: 1fr 1fr
+    grid-template-rows: 1fr .5fr
+    place-items: center
 
 .Produto_compra
     padding: 70px
@@ -113,6 +114,7 @@ $cor10: #111111
     font-size: 20px
     line-height: 24px
     color: #484848
+    margin: 0 20px
 
 .Grid_infos
     display: grid
@@ -130,20 +132,20 @@ $cor10: #111111
     font-size: 20px
     line-height: 24px
     color: #484848
-    margin: 10px 0
+    margin: 20px 0
 
 .PurpleLine_compra
     width: 255px
     height: 9px
     background: $cor1
-    margin: 10px 0
+    margin: 20px 0
 
 .Cartao_compra
     font-weight: 700
     font-size: 24px
     line-height: 24px
     color: $cor1
-    margin: 10px 0
+    margin: 20px 0
 
 .InfoCartao_compra
     font-weight: 500
@@ -156,7 +158,7 @@ $cor10: #111111
     font-size: 20px
     line-height: 24px
     color: $cor1
-    margin: 10px 0
+    margin: 0 5px
 
 .Comprar_compra
     width: 426px
@@ -172,19 +174,106 @@ $cor10: #111111
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
     text-transform: uppercase
 
-.Compartilhar_compra
-    width: 426px
-    height: 92px
+// COMPARTILHAR BOTÃO
+
+.btn-cssbuttons
     background: $cor2
+    position: relative
+    padding: 16px 32px
+    font-family: Roboto, sans-serif
+    font-weight: 500
+    font-size: 16px
+    line-height: 1
+    color: white
+    background: none
     border: none
     outline: none
-    border-radius: 0px 0px 12px 12px
+    overflow: hidden
+    cursor: pointer
+    filter: drop-shadow(0 0px 0px $cor2)
+    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)
+    width: 426px
+    height: 80px
     font-weight: 800
-    font-size: 30px
+    font-size: 18px
     line-height: 48px
     color: #FFFFFF
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
     text-transform: uppercase
+
+    &::before
+        position: absolute
+        content: ""
+        top: 0
+        left: 0
+        z-index: -1
+        width: 100%
+        height: 100%
+        background: $cor2
+        border-radius: 0 0 12px 12px
+        transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)
+
+.btn-cssbuttons span,
+.btn-cssbuttons span span
+    display: inline-flex
+    vertical-align: middle
+    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)
+
+.btn-cssbuttons span
+    transition-delay: 0.05s
+
+    &:first-child
+        padding-right: 7px
+
+    & span
+        margin-left: 8px
+        transition-delay: 0.1s
+
+.btn-cssbuttons ul
+    position: absolute
+    top: 50%
+    left: 0
+    right: 0
+    display: flex
+    margin: 0
+    padding: 0
+    list-style-type: none
+    transform: translateY(-50%)
+
+    & li
+        flex: 1
+
+    & li a
+        display: inline-flex
+        vertical-align: middle
+        transform: translateY(55px)
+        transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1)
+
+    & li a:hover
+        opacity: 0.5
+
+.btn-cssbuttons:hover::before
+    transform: scale(1.2)
+
+.btn-cssbuttons:hover span,
+.btn-cssbuttons:hover span span
+    transform: translateY(-55px)
+
+.btn-cssbuttons:hover ul li a
+    transform: translateY(0)
+
+.btn-cssbuttons:hover ul li:nth-child(1) a
+    transition-delay: 0.15s
+
+.btn-cssbuttons:hover ul li:nth-child(2) a
+    transition-delay: 0.2s
+
+.btn-cssbuttons:hover ul li:nth-child(3) a
+    transition-delay: 0.25s
+
+.Icon_compartilhar
+    font-size: 25px
+    color: #fff
 
 .Calc_cep
     display: flex
@@ -196,9 +285,12 @@ $cor10: #111111
     height: 51px
     background: $cor7
     border: 1px solid rgba(130, 130, 130, 0.79)
+    outline: none
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
     border-radius: 5px
     padding-left: 15px
+    font-size: 18px
+    color: #757575
 
 .Ok_cep
     color: $cor1
@@ -207,3 +299,71 @@ $cor10: #111111
     background: $cor7
     border: 3px solid $cor1
     border-radius: 5px
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 10px
+
+.Check_cep
+    font-size: 25px
+
+.Produtos_similares
+    padding: 70px
+    width: 100%
+    height: 100%
+    grid-row: 2
+    grid-column: 2
+
+.Produtos_similares_compra
+    width: 990px
+    height: 177px
+    background: #D9D9D9
+
+.Titulo_produtos_similares
+    font-weight: 800
+    font-size: 24px
+    line-height: 29px
+    color: #FFFFFF
+    margin: 15px 0
+    display: flex
+    align-items: center
+
+.Icons_produtos_similares
+    font-size: 24px
+    color: #fff
+    margin: 0px 10px
+
+.Descricao_compra
+    width: 100%
+    padding: 70px
+
+.titleDesc
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin: 20px
+
+.Title_descricao
+    font-weight: 800
+    font-size: 24px
+    line-height: 29px
+    color: #FFFFFF
+
+.Icon_desc
+    margin: 0 10px
+
+.Arrow_up
+    font-size: 35px
+    color: #fff
+
+.Desc_line
+    border: 1px solid #AEAEAE
+
+.Text_desc
+    height: 167px
+    font-weight: 500
+    font-size: 18px
+    line-height: 29px
+    text-align: justify
+    color: #DDDDDD
+    margin: 20px 0
