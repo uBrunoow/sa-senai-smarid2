@@ -11,6 +11,7 @@ import Desejos from "./routes/pages/Desejos";
 import Account from "./routes/pages/Minha-conta";
 import Carrinho from "./routes/pages/Carrinho";
 import Pesquisa from "./routes/pages/Pesquisa";
+import Compra from "./routes/pages/Compra";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
     {
         path: "pesquisa",
         element: <Pesquisa />,
+    },
+    {
+        path: "compra",
+        element: <Compra />,
     },
 ]);
 
