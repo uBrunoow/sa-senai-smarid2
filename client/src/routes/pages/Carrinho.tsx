@@ -29,7 +29,7 @@ export default function Carrinho() {
                             <img src="" alt="" />
                         </div>
                     </div>
-                    <hr className="linha" />
+                    <hr className="Linha_carrinho" />
                     <div className="carrinho-resumo">
                         <div className="carrinho-produto">
                             <div className="produto">
