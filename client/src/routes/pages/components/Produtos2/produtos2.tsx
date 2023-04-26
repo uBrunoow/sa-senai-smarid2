@@ -1,58 +1,47 @@
-import "./produtos2.sass";
+import Stars from '/src/assets/IMG/img-produtos/Stars.svg'
+import Produtos from '/src/assets/IMG/img-produtos/produto1.svg'
+import { MdShoppingCart } from "react-icons/md"
 
-import Stars from "/src/assets/IMG/img-produtos/Stars.svg";
-import Prods from "/src/assets/IMG/img-produtos/produto1.svg";
-import { MdShoppingCart } from "react-icons/md";
+// SASS É O MESMO ARQUIVO DO PRODUTOS 1
 
-export default function Produtos() {
-    return (
-        <main className="produtos">
-            <div className="segundo-produto">
-                <div className="promos2">
-                    <div className="stars2">
-                        <img src={Stars} alt="" />
-                    </div>
-                    <div className="produtos-restantes2">
-                        <p>
-                            {" "}
-                            Restam <br />
-                            <span>30</span> <br />
-                            unid.
-                        </p>
-                    </div>
-                    <div className="descontos2">
-                        <p>
-                            30% <br />
-                            OFF
-                        </p>
-                    </div>
-                </div>
-                <div className="img2">
-                    <div className="produto-imagem">
-                        <img src={Prods} alt="" />
-                    </div>
-                </div>
-                <div className="infos2">
-                    <div className="produto-nome2">
-                        <p>
-                            Óculos Realidade Virtual VR Oculus Meta Quest 2
-                            256gb
-                        </p>
-                    </div>
-                    <div className="produto-preco2">
-                        <p>R$ 3.799,99</p>
-                    </div>
-                </div>
-                <div className="comprar2">
-                    <div className="btnComprar2">
-                        <button type="submit">
-                            <a href="#">
-                                <MdShoppingCart className="CarrinhoComprar"/>
-                            </a>
-                        </button>
-                    </div>
-                </div>
+
+export default function Produtos2() {
+    return(
+        <div className="Primeiro_produto">
+        <div className="Promos">
+            <div className="Stars_produto">
+                <img src={Stars} alt=""/>
             </div>
-        </main>
-    );
+            <div className="Produtos_restantes">
+                <p> Restam <br/>
+                    <span>30</span> <br/>
+                    unid.</p>
+            </div>
+            <div className="Descontos">
+                <p>30% <br/>
+                    OFF</p>
+            </div>
+        </div>
+        <div className="Imagem_do_produto">
+            <div className="produto-imagem">
+                <img src={Produtos} alt=""/>
+            </div>
+        </div>
+        <div className="InformacoesProduto">
+            <div className="Produto_nome">
+                <p>Óculos Realidade Virtual VR Oculus Meta Quest 2 256gb</p>
+            </div>
+            <div className="Preco_produto">
+                <p>R$ 3.799,99</p>
+            </div>
+        </div>
+        <div className="Botao_comprar">
+            <div className="btnComprar">
+                <button type="submit" className='BtnFlexComprar'>
+                      <a href="#"> <MdShoppingCart className='Cart_Shopping_produto'/> </a>
+                </button>
+            </div>
+        </div>
+      </div>
+    )
 }

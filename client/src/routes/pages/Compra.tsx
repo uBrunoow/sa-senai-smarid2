@@ -13,6 +13,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { AiFillFileText } from "react-icons/ai"
 import { MdQuestionAnswer } from "react-icons/md"
 import { MdAssessment } from "react-icons/md"
+import { MdShoppingCart } from "react-icons/md"
 
 export default function Compra() {
     return (
@@ -80,11 +81,10 @@ export default function Compra() {
                                 </p>
                             </div>
                             <div className="Button_compra">
-                                <input
-                                    type="submit"
-                                    value="Comprar"
-                                    className="Comprar_compra"
-                                />
+                                <button className="Comprar_compra">
+                                    <MdShoppingCart/>
+                                    <span>Comprar</span>
+                                </button>
                                 {/* BOTÃO DE COMPARTILHAR */}
 
                                 <button className="btn-cssbuttons">

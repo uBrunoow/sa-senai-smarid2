@@ -4,6 +4,8 @@ import '../sass/pesquisa.sass'
 import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
 import Rodape from "./components/Footer/footer";
 import Footer from './components/Footer/footer';
+import { IoMdArrowDropdown } from "react-icons/io";
+import { BsFillFilterSquareFill } from "react-icons/bs"
 
 export default function Pesquisa() {
     return (
@@ -19,7 +21,7 @@ export default function Pesquisa() {
                         <div className="filtros">
                             <div className="filtro-box">
                                 <div className="titulo-filtro">
-                                    <img src="/IMG/Timeline.svg" alt=""/>
+                                    <BsFillFilterSquareFill className='Filter_icon'/>
                                     <h1>Filtrar por:</h1>
                                 </div>
                                 <div className="price-extension">
@@ -155,14 +157,14 @@ export default function Pesquisa() {
                             <h1>Pesquisa relacionada a: tal produto</h1>
                             <div className="ordenar-por">
                                 <img src="/IMG/ordenar.svg" alt=""/>
-                                <p>Ordenar por: <img src="" alt=""/> </p>
+                                <p>Ordenar por:</p>
                                 <button className="order-for">
                                     Mais recente
                                     <input type="checkbox" name="" id="checkbox" 
                                     // onclick="clickInfo2()"
                                     /> 
                                 <label htmlFor="checkbox" className="checkbox-abrir">
-                                    <img src="/IMG/caret-down.svg" alt="" id="flecha2"/>
+                                    <IoMdArrowDropdown id="flecha2"/>
                                 </label>
                                 </button>
                                 <div id="optOrderFor">

@@ -15,7 +15,7 @@ export default function Welcome() {
                         </div>
                         <div className="btnWelcome">
                             <button>
-                                <a href="">
+                                <a href={`/login`}>
                                     Get started
                                 </a>
                             </button>

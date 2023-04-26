@@ -13,7 +13,7 @@ export default function Main () {
             <p className="p-branco">Virtual reality is a computer-generated environment with <br/> scenes and objects that appear to be real.</p>
             <div className="buttons-initial-1">
                 <button className="btn-initial-1">
-                    <a href="">
+                    <a href={`/login`}>
                         Get started
                     </a>
                 </button>

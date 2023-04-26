@@ -14,7 +14,7 @@ export default function Highlights() {
                         <p className="p-branco">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
                         <div className="btnHighligths">
                             <button>
-                                <a href="">
+                                <a href={`/initialpage`}>
                                     GO FOR SHOP
                                 </a>
                             </button>

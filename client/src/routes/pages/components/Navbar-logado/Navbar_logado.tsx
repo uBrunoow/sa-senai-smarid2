@@ -36,13 +36,13 @@ export default function Navbar_logado() {
             </div>
 
             <div className="cart-button">
-                <a href="">
+                <a href={`/carrinho`}>
                 <IoCart className="input3"/>
                 </a>
             </div>
             <div className="account-button">
                 <div className="account-img">
-                <a href="/Minha-conta.tsx">
+                <a href={`/conta`}>
                     <img src={Conta}/> 
                 </a>
                 </div>

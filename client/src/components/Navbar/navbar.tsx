@@ -17,20 +17,20 @@ export default function Navbar () {
                 </div>
                 <div className="logo">Logo</div>
                 <div className="navbar">
-                    <a href="">Home</a>
-                    <a href="">Products</a>
+                    <a href={`/`}>Home</a>
+                    <a href={`/initialpage`}>Products</a>
                     <a href="">Games</a>
                     <a href="">About</a>
                 </div>
                 <div className="sign-in-up">
                     <div className="sign-in">
                         <button type="submit">
-                            <a href="/PAGES/login-register.html">Sign-in</a>
+                            <a href={`/login`}>Sign-in</a>
                         </button>
                     </div>
                     <div className="sign-up">
                         <button type="submit">
-                            <a href="/PAGES/login-register.html">Sign-up</a>
+                            <a href={`/login`}>Sign-up</a>
                         </button>
                     </div>
                 </div>
