@@ -17,6 +17,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { IoMail } from "react-icons/io5";
 import { IoMdFingerPrint } from "react-icons/io";
 import { AiFillEye } from "react-icons/ai";
+import { AiFillEyeInvisible } from "react-icons/ai"
 
 // TS
 import { useRef, useEffect } from "react";
@@ -45,6 +46,9 @@ export default function Login() {
             });
         }
     }, []);
+
+    function ShowHide() {
+    }
 
     return (
         <div className="f-container" ref={containerRef}>
@@ -130,7 +134,11 @@ export default function Login() {
                         <div className="lines">
                             <div className="nome-completo">
                                 <div className="input-box" id="ib6">
-                                    <AiFillEye className="icon" id="eyes" />
+                                    <AiFillEye
+                                        className="icon"
+                                        id="eyes"
+                                        onClick={ShowHide}
+                                    />
                                     <input
                                         type="password"
                                         required

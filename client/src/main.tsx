@@ -12,6 +12,8 @@ import Account from "./routes/pages/Minha-conta";
 import Carrinho from "./routes/pages/Carrinho";
 import Pesquisa from "./routes/pages/Pesquisa";
 import Compra from "./routes/pages/Compra";
+import Pagamento from "./routes/pages/Pagamento";
+import Historico from "./routes/pages/Historico"
 
 const router = createBrowserRouter([
     {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
     {
         path: "compra",
         element: <Compra />,
+    },
+    {
+        path: "pagamento",
+        element: <Pagamento/>,
+    },
+    {
+        path:"historico",
+        element: <Historico />,
     },
 ]);
 

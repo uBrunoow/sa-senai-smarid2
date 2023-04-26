@@ -3,7 +3,6 @@ import '../sass/pesquisa.sass'
 
 import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
 import Rodape from "./components/Footer/footer";
-import Footer from './components/Footer/footer';
 import { IoMdArrowDropdown } from "react-icons/io";
 import { BsFillFilterSquareFill } from "react-icons/bs"
 
@@ -197,7 +196,7 @@ export default function Pesquisa() {
                     </div>
                 </div>
             </main>
-            <Footer/>
+            <Rodape/>
         </div>
         
     )

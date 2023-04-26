@@ -1,0 +1,139 @@
+* 
+  margin: 0
+  padding: 0
+  font-family: 'Poppins', sans-serif
+
+
+$cor1: #A155DB
+$cor2: #44245C
+$cor3: #A156DB
+$cor4: #AB5AE8
+$cor5: #8F4CC2
+$cor6: #121212
+$cor7: #222222
+$cor8: #1A1A1A
+$cor9: #2C2C2C
+$cor10: #111111
+
+header 
+  display: grid
+  grid-template-columns: .3fr 1fr 2fr 1fr .5fr 5fr  .5fr 1fr 2fr 1fr .3fr
+  align-items: center
+  background: $cor6
+  height: 120px
+  border-bottom: 5px solid $cor2
+  place-items: center
+
+
+  /* Sanduiche-menu */
+
+.container 
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: left
+  grid-column: 2
+
+
+.logo 
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  border: 1px solid #fff
+  grid-column: 3
+
+
+#checkbox-menu 
+  position: absolute
+  opacity: 0
+
+
+.container label 
+  cursor: pointer
+  position: relative
+  display: block
+  height: 22px
+  width: 45px
+
+
+.container label span 
+  position: absolute
+  display: block
+  height: 5px
+  width: 100%
+  border-radius: 30px
+  background: $cor1
+  transition: .2s ease-in-out
+
+
+.container label span:nth-child(1) 
+  top: 0px
+
+
+.container label span:nth-child(2) 
+  top: 8px
+
+
+.container label span:nth-child(3) 
+  top: 16px
+
+
+#checkbox-menu:checked+label span:nth-child(1) 
+  transform: rotate(-45deg)
+  top: 8px
+
+
+#checkbox-menu:checked+label span:nth-child(2) 
+  opacity: 0
+
+
+#checkbox-menu:checked+label span:nth-child(3) 
+  transform: rotate(45deg)
+  top: 8px
+
+
+
+.account-button
+  display: flex
+  grid-column: 9
+  gap: 30px
+  justify-content: end
+  align-items: center
+
+
+.light-dark 
+  height: 50px
+  width: 50px
+  border: 1px solid #fff
+  border-radius: 50%
+  color: #fff
+  grid-column: 10
+  display: flex
+  align-items: center
+  justify-content: center
+
+
+.light-dark img 
+  width: 30px 
+  height: 30px
+
+.account-img 
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 70px
+  height: 70px
+  border-radius: 50%
+  background-color: white
+
+.account-img img
+  width: 68px
+  height: 68px
+  border-radius: 50%
+  background-color: white
+
+.account-img a
+  width: 68px
+  height: 68px
+  border-radius: 50%
+  background-color: white
