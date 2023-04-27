@@ -19,8 +19,8 @@ export default function Navbar_logado() {
             </div>
             <div className="logo">Logo</div>
             <div className="navbar">
-                <a href="">Home</a>
-                <a href="">Products</a>
+                <a href={`/initialpage`}>Home</a>
+                <a href={`/pesquisa`}>Products</a>
                 <a href="">Games</a>
                 <a href="">About</a>
             </div>

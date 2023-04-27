@@ -25,7 +25,7 @@ export default function Swiper1() {
         pagination={{
           dynamicBullets: true,
         }}
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
         className="ofertas-container"
       >
       <SwiperSlide>

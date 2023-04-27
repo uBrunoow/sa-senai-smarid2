@@ -18,19 +18,19 @@ export default function Account() {
                         <div className="menu">
                             <div className="menu-flex">
                                 <div className="home">
-                                    <a href="/PAGES/minha-conta.html">
+                                    <a href={`/conta`}>
                                         <MdHome className="IconsConta2" />
                                     </a>
                                     <p className="desc-menu">HOME</p>
                                 </div>
                                 <div className="favs">
-                                    <a href="/PAGES/lista-de-desejos.html">
+                                    <a href={`/lista-de-desejos`}>
                                         <FaHeart className="IconsConta2" />
                                     </a>
                                     <p className="desc-menu">HOME</p>
                                 </div>
                                 <div className="history">
-                                    <a href="/PAGES/historico.html">
+                                    <a href={`/historico`}>
                                         <HiSortAscending className="IconsConta2" />
                                     </a>
                                     <p className="desc-menu">HOME</p>

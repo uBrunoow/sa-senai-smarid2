@@ -64,7 +64,7 @@ export default function Historico() {
                                     />
                                 </div>
                                 <div className="infos">
-                                    <div className="produto-nome">
+                                    <div className="Nome_produto_historico">
                                         <p>
                                             Óculos Realidade Virtual VR Oculus
                                             Meta Quest 2 256gb
