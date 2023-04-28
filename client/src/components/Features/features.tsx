@@ -5,6 +5,8 @@ import img2 from './img/image 2.jpg'
 import img3 from './img/image 4.png'
 import img from './img/image.jpg'
 
+import { BsFillPlayFill } from "react-icons/bs"
+
 export default function Companies () {
 
     return (
@@ -12,7 +14,9 @@ export default function Companies () {
         <main className="f-main">
             <div className='features'>
                 <div className="imagens-features">
-                    <div className="overlay-features"></div>
+                    <div className="overlay-features">
+                        <BsFillPlayFill className='Icons_features'/>
+                    </div>
                     <div className="img-features">
                         <div className="img-1">
                             <img src={img1} alt=""/>

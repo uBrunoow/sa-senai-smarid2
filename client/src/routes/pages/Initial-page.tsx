@@ -7,6 +7,7 @@ import Departamentos from "./components/Departamentos/departamentos";
 import Destaques from "./components/Destaques/destaques-1";
 import Extra_promotion2 from "./components/Extra-promotion2/extra-promotion2";
 import Rodape from "./components/Footer/footer";
+import Popup from "./components/Popup/popup";
 
 export default function Initialpage() {
     return (
@@ -19,6 +20,7 @@ export default function Initialpage() {
             <Departamentos />
             <Destaques />
             <Extra_promotion2 />
+            <Popup/>
             <Rodape />
         </div>
     );
