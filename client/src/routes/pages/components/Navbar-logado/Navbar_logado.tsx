@@ -1,11 +1,14 @@
 import './Navbar_logado.sass'
-
+import { useState } from 'react';
 import { IoCart } from 'react-icons/io5'
 import Sun from '/src/assets/IMG/sun.svg'
 import Conta from  '/src/assets/IMG/Rectangle 335.svg'
 
 
 export default function Navbar_logado() {
+
+    const [searchValue, setSearchValue] = useState('');
+
     return (
     <nav>
       <header>
@@ -32,13 +35,21 @@ export default function Navbar_logado() {
                     <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff" d="M22 22L20 20"></path>
                     </svg>
                 </button>
-                <input placeholder="search.." className="input2" name="text" type="text"/>
+                <input 
+                    placeholder="search.." 
+                    className="input2" 
+                    name="text" 
+                    type="text"
+                    onChange={( {target}) => setSearchValue(target.value)}
+                    value={searchValue}
+                    />
             </div>
 
             <div className="cart-button">
                 <a href={`/carrinho`}>
                 <IoCart className="input3"/>
                 </a>
+                <span className="cart-status">1</span>
             </div>
             <div className="account-button">
                 <div className="account-img">
