@@ -194,7 +194,7 @@ export default function Login() {
                     <div className="content">
                         <h3>Novo por aqui ?</h3>
                         <p>
-                            A VirtualSkins é uma e-commerce especializada em
+                            A SmartID é uma e-commerce especializada em
                             vendas de Óculos Virtuais onde o cliente pode
                             personalizar o seu VR da forma de desejar. Esta é
                             uma empresa onde você consegue expressar sua
