@@ -7,7 +7,7 @@ import { FaHeart } from "react-icons/fa";
 
 export default function Desejos() {
     return (
-        <div>
+        <div className="Body_page">
             <Navbar_logado />
             <main className="favoritos">
                 <div className="favoritos-content">

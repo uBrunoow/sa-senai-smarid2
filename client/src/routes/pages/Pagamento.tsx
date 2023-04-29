@@ -5,14 +5,16 @@ import Rodape from "./components/Footer/footer";
 
 export default function Pagamento() {
     return (
-        <main>
-            <Navbar_pag />
-            <div className="flex">
-                <div className="teste">
-                    <button >OK</button>
-                    <div id="res">BRUH</div>
+        <div className="Body_page">
+            <main>
+                <Navbar_pag />
+                <div className="flex">
+                    <div className="teste">
+                        <button>OK</button>
+                        <div id="res">BRUH</div>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     );
 }

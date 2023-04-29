@@ -10,7 +10,7 @@ import { HiSortAscending } from "react-icons/hi";
 
 export default function Account() {
     return (
-        <div>
+        <div className="Body_page">
             <Navbar_logado />
             <main className="minha-conta">
                 <div className="conta-wrapper">

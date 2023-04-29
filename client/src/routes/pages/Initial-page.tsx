@@ -11,7 +11,7 @@ import Popup from "./components/Popup/popup";
 
 export default function Initialpage() {
     return (
-        <div>
+        <div className="Body_page">
             <Navbar_logado />
             <Promoções />
             <Countdown />

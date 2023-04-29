@@ -231,6 +231,11 @@ $cor10: #111111
     font-size: 24px
     line-height: 29px
     color: #FFFFFF
+    cursor: pointer
+    transition: all .5s ease
+
+.input-submit:hover
+    background: $cor2
 
 .produto-resumo
     display: flex
@@ -327,6 +332,7 @@ $cor10: #111111
     border: none
     outline: none
     box-shadow: 0px 5px 1px green
+    cursor: pointer
 
 .finalizar-pedido a
     width: 361px
@@ -436,10 +442,15 @@ $cor10: #111111
     justify-content: center
     align-items: center
     gap: 12px
-    background: red
+    background: #D2042D
     border-radius: 8px
     margin-top: 20px
     width: 160px
+    transition: all .5s ease
+    cursor: pointer
+
+.remove:hover 
+    background: #44020f
 
 .quantidade-produto
     width: 50%
@@ -493,9 +504,8 @@ $cor10: #111111
 
 .Fim-button:hover
     background: #008912
-    transform: translate(0px, -2px)
     box-shadow: 0px 5px 1px green
-    transition: all .2s ease-in
+    transition: all .5s ease
 
 .Fim-button:hover .Finalize
     color: #fff

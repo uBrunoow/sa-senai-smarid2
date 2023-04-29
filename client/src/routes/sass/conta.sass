@@ -228,50 +228,53 @@ $cor10: #111111
     height: 220px
     margin-left: -30px
     background: rgba(92, 49, 125, 0.21)
-    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25)
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1)
     border-radius: 0px 5px 5px 0px
+    position: relative
 
-.endereco-principal::after 
+.endereco-principal::after
     content: ''
     position: absolute
     background: #a155db3d
     z-index: 0
     width: 546.11px
     height: 220px
-    top: 98.3%
+    top: 0%
     transform-origin: left
     transform: scaleX(0)
     transition: transform .5s
+    border-radius: 0px 5px 5px 0px
 
-.endereco-principal:hover::after 
-  transform: scaleX(1)
-  transform-origin: left
-
+.endereco-principal:hover::after
+    transform: scaleX(1)
+    transform-origin: left
 
 .endereco-outros
     color: #fff
     background: #2C2C2C
-    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25)
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1)
     border-radius: 0px 5px 5px 0px
     width: 100%
     height: 220px
+    position: relative
 
-.endereco-outros::after 
+.endereco-outros::after
     content: ''
     position: absolute
     background: #171717b4
     z-index: 0
     width: 546.11px
     height: 220px
-    top: 98.3%
-    left: 51.8%
+    top: 0%
+    left: 0%
     transform-origin: left
     transform: scaleX(0)
     transition: transform .5s
+    border-radius: 0px 5px 5px 0px
 
-.endereco-outros:hover::after 
-  transform: scaleX(1)
-  transform-origin: left
+.endereco-outros:hover::after
+    transform: scaleX(1)
+    transform-origin: left
 
 .enderecos-infos
     position: relative
@@ -499,10 +502,7 @@ $cor10: #111111
     transform: scale(1.1)
     transform: translateY(-5px)
 
-
 .favs:hover .IconsConta2
     color: $cor1
     transform: scale(1.1)
     transform: translateY(-5px)
-
-

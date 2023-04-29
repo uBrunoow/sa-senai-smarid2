@@ -12,7 +12,7 @@ import { TbDiscount } from "react-icons/tb"
 
 export default function Carrinho() {
     return (
-        <div>
+        <div className="Body_page">
             <Navbar_logado />
             <main className="carrinho">
                 <div className="carrinho-content">

@@ -17,7 +17,7 @@ import { MdShoppingCart } from "react-icons/md"
 
 export default function Compra() {
     return (
-        <div>
+        <div className="Body_page">
             <main className="Compra">
                 <Navbar_logado />
                 <div className="Title_compra">
