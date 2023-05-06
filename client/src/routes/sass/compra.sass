@@ -295,6 +295,10 @@ $cor10: #111111
     padding-left: 15px
     font-size: 18px
     color: #757575
+    transition: all .2s ease-in-out
+
+.Input_cep:hover , .Input_cep:focus
+    background: #0000004b
 
 .Ok_cep
     color: $cor1
@@ -307,9 +311,29 @@ $cor10: #111111
     align-items: center
     justify-content: center
     gap: 10px
+    cursor: pointer
+    transition: all .2s ease-in-out
+
+.Text_ok_cep
+    color: $cor1
+    transition: all .2s ease-in-out
+
+.Ok_cep:hover .Text_ok_cep
+    color: #fff
+    transform: translateY(3px)
+
+.Ok_cep:hover
+    color: #fff
+    background: $cor1
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.8)
+
+.Ok_cep:hover .Check_cep
+    transform: translateY(3px)
+    color: #fff
 
 .Check_cep
     font-size: 25px
+    transition: all .2s ease-in-out
 
 .Produtos_similares
     padding: 70px
@@ -352,6 +376,7 @@ $cor10: #111111
     font-size: 24px
     line-height: 29px
     color: #FFFFFF
+    cursor: pointer
 
 .Icon_desc
     margin: 0 10px
@@ -371,3 +396,12 @@ $cor10: #111111
     text-align: justify
     color: #DDDDDD
     margin: 20px 0
+
+#Texto_avaliacao
+    display: none
+
+#Texto_perguntas
+    display: none
+
+#Texto_descricao
+    display: none

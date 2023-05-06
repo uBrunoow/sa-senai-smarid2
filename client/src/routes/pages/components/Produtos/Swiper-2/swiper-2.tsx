@@ -21,11 +21,7 @@ export default function Swiper1() {
     <>
       <Swiper
         slidesPerView={4}
-        spaceBetween={30}
-        pagination={{
-          dynamicBullets: true,
-        }}
-        modules={[Pagination, Autoplay]}
+        spaceBetween={20}
         className="ofertas-container"
       >
       <SwiperSlide>

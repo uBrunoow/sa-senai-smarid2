@@ -24,9 +24,6 @@ import { useRef, useEffect } from "react";
 
 export default function Login() {
 
-    function login() {
-        
-    }
     const sign_in_btn = useRef(null);
     const sign_up_btn = useRef(null);
     const containerRef = useRef(null);
@@ -51,7 +48,18 @@ export default function Login() {
         }
     }, []);
 
-    function ShowHide() {}
+    function ShowHide() {
+        const password = document.getElementById("password") as HTMLInputElement
+        const eyes = document.getElementById("eyes") as HTMLImageElement 
+
+        if (password.type === "password") {
+            password.setAttribute("type", "text");
+            eyes.classList.add("hide");
+        } else {
+            password.setAttribute("type", "password");
+            eyes.classList.remove("hide");
+        }   
+    }
 
     return (
         <div className="Body_page">
@@ -73,7 +81,7 @@ export default function Login() {
                                 <div className="nome-completo">
                                     <div className="input-box" id="ib2">
                                         <IoLockClosed className="icon" />
-                                        <input type="password" required />
+                                        <input type="password" required id="password" />
                                         <label>Senha</label>
                                     </div>
                                 </div>

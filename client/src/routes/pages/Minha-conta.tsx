@@ -7,6 +7,7 @@ import { MdLocationOn } from "react-icons/md";
 import { MdHome } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import { HiSortAscending } from "react-icons/hi";
+import { HiPencilAlt } from "react-icons/hi"
 
 export default function Account() {
     return (
@@ -42,6 +43,9 @@ export default function Account() {
                                 <div className="imagem-conta">
                                     {" "}
                                     <img src="https://i1.sndcdn.com/artworks-bEMhExX1BoD6F5Tu-atmOiw-t500x500.jpg" />
+                                </div>
+                                <div className="Pencil">
+                                    <HiPencilAlt className="Pencil_icon"/>
                                 </div>
                                 <div className="description-conta">
                                     <h1 className="nome-conta">Olá, Cliente</h1>
