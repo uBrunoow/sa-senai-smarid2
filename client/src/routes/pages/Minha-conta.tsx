@@ -7,7 +7,10 @@ import { MdLocationOn } from "react-icons/md";
 import { MdHome } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import { HiSortAscending } from "react-icons/hi";
-import { HiPencilAlt } from "react-icons/hi"
+import { HiPencilAlt } from "react-icons/hi";
+import { IoMdCamera } from "react-icons/io";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { AiOutlineCloudUpload } from "react-icons/ai";
 
 export default function Account() {
     return (
@@ -38,15 +41,36 @@ export default function Account() {
                                 </div>
                             </div>
                         </div>
+                        <div id="Choose_img">
+                            <div className="title_choose">
+                                <div className="Title_icons">
+                                    <IoMdCamera className="Icon_choose" />
+                                    <h1 className="Chosse_h1">
+                                        Atualizar sua foto de perfil
+                                    </h1>
+                                </div>
+                                <div className="Close_icons">
+                                    <AiFillCloseCircle className="icon_fechar" />
+                                </div>
+                            </div>
+                            <hr className="Choose_line" />
+                            <div className="fotos_perfil">
+                                <AiOutlineCloudUpload className="Cloud_icon"/>
+                                <p>Faça o upload da imagem que deseja adicionar ao seu perfil.</p>
+                                <label className="File_upload" htmlFor="arquivo">Carregar foto</label>
+                                <input type="file" name="arquivo" id="arquivo" />
+                            </div>
+                        </div>
+
                         <div className="conta-cupom">
                             <div className="conta-content">
-                                <div className="imagem-conta">
-                                    {" "}
+                                <div className="imagem-conta" id="Imagem_hover">
                                     <img src="https://i1.sndcdn.com/artworks-bEMhExX1BoD6F5Tu-atmOiw-t500x500.jpg" />
+                                    <div className="Pencil" id="Pencil_id">
+                                        <HiPencilAlt className="Pencil_icon" />
+                                    </div>
                                 </div>
-                                <div className="Pencil">
-                                    <HiPencilAlt className="Pencil_icon"/>
-                                </div>
+
                                 <div className="description-conta">
                                     <h1 className="nome-conta">Olá, Cliente</h1>
                                     <p className="email-conta">
