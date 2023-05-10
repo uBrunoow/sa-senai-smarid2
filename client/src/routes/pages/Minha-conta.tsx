@@ -14,32 +14,47 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import { MdOutlinePassword } from "react-icons/md";
 
 export default function Account() {
+    var MinhaConta = document.getElementById("Conta_id") as HTMLDivElement;
     var BlackBack = document.createElement("div");
     BlackBack.style.width = "100%";
-    BlackBack.style.height = "100vh";
+    BlackBack.style.height = "100%";
     BlackBack.style.background = "#00000090";
     BlackBack.style.position = "absolute";
     BlackBack.style.zIndex = "999";
 
     function ChangePhoto() {
         var ChooseImg = document.getElementById("Choose_id") as HTMLDivElement;
-        var MinhaConta = document.getElementById("Conta_id") as HTMLDivElement;
 
         if (ChooseImg.style.display == "none") {
             ChooseImg.style.display = "block";
             MinhaConta.prepend(BlackBack);
-            MinhaConta.style.overflowY = "hidden";
         } else {
             ChooseImg.style.display = "block";
         }
     }
+
     function FecharAba() {
         var ChooseImg = document.getElementById("Choose_id") as HTMLDivElement;
         ChooseImg.style.display = "none";
         BlackBack.remove();
     }
 
-    function MudarSenha() {}
+    function MudarSenha() {
+        var redSenha = document.getElementById('MudarSenha') as HTMLDivElement
+
+        if (redSenha.style.display == "none") {
+            redSenha.style.display = "block";
+            MinhaConta.prepend(BlackBack);
+        } else {
+            redSenha.style.display = "block";
+        }
+    }
+
+    function FecharSenha() {
+        var redSenha = document.getElementById("MudarSenha") as HTMLDivElement;
+        redSenha.style.display = "none";
+        BlackBack.remove();
+    }
 
     return (
         <div className="Body_page" id="Conta_id">
@@ -164,7 +179,7 @@ export default function Account() {
                                 <div
                                     className="Close_icons"
                                     id="Close_img"
-                                    onClick={FecharAba}
+                                    onClick={FecharSenha}
                                 >
                                     <AiFillCloseCircle className="icon_fechar" />
                                 </div>
