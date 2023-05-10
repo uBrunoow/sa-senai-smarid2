@@ -11,10 +11,38 @@ import { HiPencilAlt } from "react-icons/hi";
 import { IoMdCamera } from "react-icons/io";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import { MdOutlinePassword } from "react-icons/md";
 
 export default function Account() {
+    var BlackBack = document.createElement("div");
+    BlackBack.style.width = "100%";
+    BlackBack.style.height = "100vh";
+    BlackBack.style.background = "#00000090";
+    BlackBack.style.position = "absolute";
+    BlackBack.style.zIndex = "999";
+
+    function ChangePhoto() {
+        var ChooseImg = document.getElementById("Choose_id") as HTMLDivElement;
+        var MinhaConta = document.getElementById("Conta_id") as HTMLDivElement;
+
+        if (ChooseImg.style.display == "none") {
+            ChooseImg.style.display = "block";
+            MinhaConta.prepend(BlackBack);
+            MinhaConta.style.overflowY = "hidden";
+        } else {
+            ChooseImg.style.display = "block";
+        }
+    }
+    function FecharAba() {
+        var ChooseImg = document.getElementById("Choose_id") as HTMLDivElement;
+        ChooseImg.style.display = "none";
+        BlackBack.remove();
+    }
+
+    function MudarSenha() {}
+
     return (
-        <div className="Body_page">
+        <div className="Body_page" id="Conta_id">
             <Navbar_logado />
             <main className="minha-conta">
                 <div className="conta-wrapper">
@@ -41,7 +69,7 @@ export default function Account() {
                                 </div>
                             </div>
                         </div>
-                        <div id="Choose_img">
+                        <div id="Choose_id" className="Choose_img">
                             <div className="title_choose">
                                 <div className="Title_icons">
                                     <IoMdCamera className="Icon_choose" />
@@ -49,16 +77,32 @@ export default function Account() {
                                         Atualizar sua foto de perfil
                                     </h1>
                                 </div>
-                                <div className="Close_icons">
+                                <div
+                                    className="Close_icons"
+                                    id="Close_img"
+                                    onClick={FecharAba}
+                                >
                                     <AiFillCloseCircle className="icon_fechar" />
                                 </div>
                             </div>
                             <hr className="Choose_line" />
                             <div className="fotos_perfil">
-                                <AiOutlineCloudUpload className="Cloud_icon"/>
-                                <p>Faça o upload da imagem que deseja adicionar ao seu perfil.</p>
-                                <label className="File_upload" htmlFor="arquivo">Carregar foto</label>
-                                <input type="file" name="arquivo" id="arquivo" />
+                                <AiOutlineCloudUpload className="Cloud_icon" />
+                                <p>
+                                    Faça o upload da imagem que deseja adicionar
+                                    ao seu perfil.
+                                </p>
+                                <label
+                                    className="File_upload"
+                                    htmlFor="arquivo"
+                                >
+                                    Carregar foto
+                                </label>
+                                <input
+                                    type="file"
+                                    name="arquivo"
+                                    id="arquivo"
+                                />
                             </div>
                         </div>
 
@@ -66,7 +110,11 @@ export default function Account() {
                             <div className="conta-content">
                                 <div className="imagem-conta" id="Imagem_hover">
                                     <img src="https://i1.sndcdn.com/artworks-bEMhExX1BoD6F5Tu-atmOiw-t500x500.jpg" />
-                                    <div className="Pencil" id="Pencil_id">
+                                    <div
+                                        className="Pencil"
+                                        id="Pencil_id"
+                                        onClick={ChangePhoto}
+                                    >
                                         <HiPencilAlt className="Pencil_icon" />
                                     </div>
                                 </div>
@@ -105,6 +153,67 @@ export default function Account() {
                             <h1>Meus dados</h1>
                         </div>
                         <hr className="line" />
+                        <div className="re-password" id="MudarSenha">
+                            <div className="re-titulo">
+                                <div className="Title-icon">
+                                    <MdOutlinePassword className="Re_icon" />
+                                    <h1 className="reh1">
+                                        Redefinir sua senha
+                                    </h1>
+                                </div>
+                                <div
+                                    className="Close_icons"
+                                    id="Close_img"
+                                    onClick={FecharAba}
+                                >
+                                    <AiFillCloseCircle className="icon_fechar" />
+                                </div>
+                            </div>
+                            <div className="re-form">
+                                <form>
+                                    <p className="ReP">Preencha os campos abaixo para redefinir a sua senha</p>
+                                    <div className="lines">
+                                        <div className="nome-completo">
+                                            <div className="input-box">
+                                                <input
+                                                    type="password"
+                                                    required
+                                                />
+                                                <label>
+                                                    Digite sua nova senha
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="lines">
+                                        <div className="nome-completo">
+                                            <div className="input-box">
+                                                <input
+                                                    type="password"
+                                                    required
+                                                />
+                                                <label>
+                                                    Confirmar sua nova senha
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="Flex-button-repass">
+                                        <label
+                                            className="Redefine_pass"
+                                            htmlFor="repass"
+                                        >
+                                            Redefinir
+                                        </label>
+                                        <input
+                                            type="submit"
+                                            name="repass"
+                                            id="repass"
+                                        />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         <div className="wrapper">
                             <div className="form-box login">
                                 <form>
@@ -138,7 +247,7 @@ export default function Account() {
                                     </div>
                                 </form>
                                 <div className="btn-repassword">
-                                    <button type="submit">
+                                    <button type="submit" onClick={MudarSenha}>
                                         REDEFINIR SENHA
                                     </button>
                                 </div>

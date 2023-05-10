@@ -114,6 +114,7 @@ $cor10: #111111
     object-fit: cover
     border-radius: 50%
     border: 2px solid $cor1
+    user-select: none
 
 .imagem-conta
     grid-row: 2
@@ -129,6 +130,7 @@ $cor10: #111111
     display: flex
     align-items: center
     justify-content: center
+    user-select: none
 
 .cupom-content
     display: grid
@@ -324,8 +326,6 @@ $cor10: #111111
     color: #686868
     text-decoration: none
     transition: .7s ease
-
-.endereco-editar a:hover
 
 .endereco-editar .padrao
     color: #A155DB
@@ -526,6 +526,7 @@ $cor10: #111111
     background: #000
     border-radius: 50%
     opacity: .8
+    user-select: none
 
 .Pencil_icon
     color: #fff
@@ -536,15 +537,19 @@ $cor10: #111111
 .imagem-conta:hover #Pencil_id
     display: flex
 
-#Choose_img
-    position: absolute
+#Choose_id
+    display: none
+
+.Choose_img
+    position: fixed
     width: 600px
     height: 700px
     background: $cor8
     top: 13%
     left: 50%
-    z-index: 999
+    z-index: 1000
     transform: translate(-50%)
+    box-shadow: 5px 5px 1px #000
 
 .title_choose
     width: 100%
@@ -599,17 +604,79 @@ $cor10: #111111
     font-size: 20px
     margin: 20px
 
-input[type="file"] 
+input[type="file"]
     display: none
 
-.File_upload 
+.File_upload
     padding: 20px
     width: 400px
     border-radius: 10px
     background: $cor1
-    color: #fff 
+    color: #fff
     text-align: center
     text-transform: uppercase
     display: block
     margin-top: 10px
     cursor: pointer
+
+.re-password
+    position: fixed
+    width: 600px
+    height: 700px
+    background: $cor8
+    top: 13%
+    left: 50%
+    z-index: 1000
+    transform: translate(-50%)
+    box-shadow: 5px 5px 1px #000
+
+.re-titulo
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin: 40px 0 20px 0
+
+.Title-icon
+    display: flex
+    align-items: center
+    width: 100%
+
+.reh1
+    color: #fff
+    font-size: 25px
+    text-transform: uppercase
+
+.Re_icon
+    color: $cor1
+    width: 40px
+    height: 40px
+    margin-left: 50px
+    margin-right: 20px
+
+.Flex-button-repass
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+
+#repass
+    display: none
+
+.Redefine_pass
+    padding: 20px
+    width: 400px
+    border-radius: 10px
+    background: $cor1
+    color: #fff
+    text-align: center
+    text-transform: uppercase
+    display: block
+    margin-top: 50px
+    cursor: pointer
+
+.ReP
+    text-align: center
+    color: #aaa
+    font-size: 20px
+    margin: 50px 100px
