@@ -1,7 +1,7 @@
 import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
 import Rodape from "./components/Footer/footer";
 import "../sass/conta.sass";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MdDataset } from "react-icons/md";
 import { MdLocationOn } from "react-icons/md";
 import { MdHome } from "react-icons/md";
@@ -12,6 +12,11 @@ import { IoMdCamera } from "react-icons/io";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { MdOutlinePassword } from "react-icons/md";
+import { AiFillEye } from "react-icons/ai";
+import { HiLockClosed } from "react-icons/hi";
+import { FaLocationArrow } from "react-icons/fa";
+
+import PopupSave from "./components/popup_save/popup";
 
 export default function Account() {
     var MinhaConta = document.getElementById("Conta_id") as HTMLDivElement;
@@ -40,7 +45,7 @@ export default function Account() {
     }
 
     function MudarSenha() {
-        var redSenha = document.getElementById('MudarSenha') as HTMLDivElement
+        var redSenha = document.getElementById("MudarSenha") as HTMLDivElement;
 
         if (redSenha.style.display == "none") {
             redSenha.style.display = "block";
@@ -54,6 +59,40 @@ export default function Account() {
         var redSenha = document.getElementById("MudarSenha") as HTMLDivElement;
         redSenha.style.display = "none";
         BlackBack.remove();
+    }
+
+    function AdicionarEnd() {
+        var newAddress = document.getElementById(
+            "Address_id"
+        ) as HTMLDivElement;
+
+        if (newAddress.style.display == "none") {
+            newAddress.style.display = "block";
+            MinhaConta.prepend(BlackBack);
+        } else {
+            newAddress.style.display = "block";
+        }
+    }
+
+    function FecharAddress() {
+        var newAddress = document.getElementById(
+            "Address_id"
+        ) as HTMLDivElement;
+        newAddress.style.display = "none";
+        BlackBack.remove();
+    }
+
+    const [showPopUp, setShowPopUp] = useState(false);
+    const showPopupHandler = () => setShowPopUp(true);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowPopUp(false);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, [showPopUp]);
+    let popup = null;
+    if (showPopUp) {
+        popup = <PopupSave />;
     }
 
     return (
@@ -184,12 +223,17 @@ export default function Account() {
                                     <AiFillCloseCircle className="icon_fechar" />
                                 </div>
                             </div>
+                            <hr className="Choose_line" />
                             <div className="re-form">
                                 <form>
-                                    <p className="ReP">Preencha os campos abaixo para redefinir a sua senha</p>
+                                    <p className="ReP">
+                                        Preencha os campos abaixo para redefinir
+                                        a sua senha
+                                    </p>
                                     <div className="lines">
-                                        <div className="nome-completo">
-                                            <div className="input-box">
+                                        <div className="Input_design_color">
+                                            <div className="Input_box_border_color">
+                                                <AiFillEye className="Icon_repass" />
                                                 <input
                                                     type="password"
                                                     required
@@ -201,8 +245,9 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="lines">
-                                        <div className="nome-completo">
-                                            <div className="input-box">
+                                        <div className="Input_design_color">
+                                            <div className="Input_box_border_color">
+                                                <HiLockClosed className="Icon_repass" />
                                                 <input
                                                     type="password"
                                                     required
@@ -233,13 +278,13 @@ export default function Account() {
                             <div className="form-box login">
                                 <form>
                                     <div className="lines">
-                                        <div className="nome-completo">
+                                        <div className="Input_design_color">
                                             <div className="input-box">
                                                 <input type="text" required />
                                                 <label>Nome completo</label>
                                             </div>
                                         </div>
-                                        <div className="nome-completo">
+                                        <div className="Input_design_color">
                                             <div className="input-box">
                                                 <input type="text" required />
                                                 <label>CPF</label>
@@ -247,13 +292,13 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="lines">
-                                        <div className="nome-completo">
+                                        <div className="Input_design_color">
                                             <div className="input-box">
                                                 <input type="tel" required />
                                                 <label>Telefone</label>
                                             </div>
                                         </div>
-                                        <div className="nome-completo">
+                                        <div className="Input_design_color">
                                             <div className="input-box">
                                                 <input type="email" required />
                                                 <label>Email</label>
@@ -318,14 +363,150 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="btn-repassword">
-                                        <button type="submit">
+                                        <button
+                                            type="submit"
+                                            onClick={AdicionarEnd}
+                                        >
                                             ADICIONAR ENDEREÇO
                                         </button>
                                     </div>
                                 </div>
+                                <div className="Add_address" id="Address_id">
+                                    <div className="Address_formbox">
+                                        <div className="title_choose">
+                                            <div className="Title_icons">
+                                                <FaLocationArrow className="Icon_choose" />
+                                                <h1 className="Chosse_h1">
+                                                    Cadastrar novo endereço
+                                                </h1>
+                                            </div>
+                                            <div
+                                                className="Close_icons"
+                                                id="Close_img"
+                                                onClick={FecharAddress}
+                                            >
+                                                <AiFillCloseCircle className="icon_fechar" />
+                                            </div>
+                                        </div>
+                                        <hr className="Choose_line" />
+                                        <form className="Form_address">
+                                            <div className="lines">
+                                                <div className="Input_design_color">
+                                                    <div className="Input_box_border_color">
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                        />
+                                                        <label>CEP</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="lines">
+                                                <div className="Input_design_color">
+                                                    <div className="Input_box_border_color">
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                        />
+                                                        <label>
+                                                            Logradouro
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="lines">
+                                                <div className="Input_design_color">
+                                                    <div className="Input_box_border_color">
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                        />
+                                                        <label>Número</label>
+                                                    </div>
+                                                </div>
+
+                                                <div className="Input_design_color">
+                                                    <div className="Input_box_border_color">
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                        />
+                                                        <label>
+                                                            Complemento
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="lines">
+                                                <div className="Input_design_color">
+                                                    <div className="Input_box_border_color">
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                        />
+                                                        <label>
+                                                            Referencia
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div className="Input_design_color">
+                                                    <div className="Input_box_border_color">
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                        />
+                                                        <label>Cidade</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="lines">
+                                                <div className="Input_design_color">
+                                                    <div className="Input_box_border_color">
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                        />
+                                                        <label>Bairro</label>
+                                                    </div>
+                                                </div>
+
+                                                <div className="Input_design_color">
+                                                    <div className="Input_box_border_color">
+                                                        <input
+                                                            type="text"
+                                                            required
+                                                        />
+                                                        <label>UF</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="Flex-button-address">
+                                                <label
+                                                    className="Add_Address_btn"
+                                                    htmlFor="add-address"
+                                                >
+                                                    Adicionar endereço
+                                                </label>
+                                                <input
+                                                    type="submit"
+                                                    name="add-address"
+                                                    id="add-address"
+                                                />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                                 <div className="buttons">
                                     <div className="btn-save">
-                                        <button type="submit">
+                                        <button
+                                            type="submit"
+                                            onClick={showPopupHandler}
+                                        >
                                             SALVAR ALTERAÇÕES
                                         </button>
                                     </div>
@@ -356,6 +537,7 @@ export default function Account() {
                                         </button>
                                     </div>
                                 </div>
+                                <PopupSave />
                             </div>
                         </div>
                     </div>

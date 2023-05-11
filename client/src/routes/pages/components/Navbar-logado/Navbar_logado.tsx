@@ -28,7 +28,7 @@ export default function Navbar_logado() {
                 </div>
                 <div className="account-search-cart">
                     <div className="input-wrapper">
-                        <button className="icon">
+                        <button className="Icons_navbar">
                             <BsSearch className="Icon_search" />
                         </button>
                         {/* <input 
