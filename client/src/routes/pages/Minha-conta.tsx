@@ -16,7 +16,6 @@ import { AiFillEye } from "react-icons/ai";
 import { HiLockClosed } from "react-icons/hi";
 import { FaLocationArrow } from "react-icons/fa";
 
-import PopupSave from "./components/popup_save/popup";
 
 export default function Account() {
     var MinhaConta = document.getElementById("Conta_id") as HTMLDivElement;
@@ -80,19 +79,6 @@ export default function Account() {
         ) as HTMLDivElement;
         newAddress.style.display = "none";
         BlackBack.remove();
-    }
-
-    const [showPopUp, setShowPopUp] = useState(false);
-    const showPopupHandler = () => setShowPopUp(true);
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowPopUp(false);
-        }, 5000);
-        return () => clearTimeout(timer);
-    }, [showPopUp]);
-    let popup = null;
-    if (showPopUp) {
-        popup = <PopupSave />;
     }
 
     return (
@@ -505,7 +491,6 @@ export default function Account() {
                                     <div className="btn-save">
                                         <button
                                             type="submit"
-                                            onClick={showPopupHandler}
                                         >
                                             SALVAR ALTERAÇÕES
                                         </button>
@@ -537,7 +522,6 @@ export default function Account() {
                                         </button>
                                     </div>
                                 </div>
-                                <PopupSave />
                             </div>
                         </div>
                     </div>
