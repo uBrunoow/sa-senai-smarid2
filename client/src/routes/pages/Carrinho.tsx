@@ -19,7 +19,9 @@ export default function Carrinho() {
                     <div className="title-carrinho">
                         <div className="title-h1">
                             <MdArrowLeft className="bx bx-chevron-left "/>
-                            <h1>Continuar comprando</h1>
+                            <a href={"/pesquisa"} className="Link_comprar">
+                                <h1>Continuar comprando</h1>
+                            </a>
                         </div>
                         <div className="title-img">
                             <div className="cart-title">

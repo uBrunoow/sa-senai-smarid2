@@ -1,12 +1,17 @@
 import Stars from "/src/assets/IMG/img-produtos/Stars.svg";
 import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
 import { MdShoppingCart } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
+import '../Produtos/Swiper-2/styles.css'
 
 // SASS É O MESMO ARQUIVO DO PRODUTOS 1
 
 export default function Produtos2() {
     return (
-        <a href={'/compra'} className="Primeiro_produto">
+        <a href={"/compra"} className="Primeiro_produto">
+            <div className="Favorite_produto" id="Favorite_id">
+                <FaHeart className="Favorite_icon" />
+            </div>
             <div className="Promos">
                 <div className="Stars_produto">
                     <img src={Stars} alt="" />

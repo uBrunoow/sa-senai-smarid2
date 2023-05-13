@@ -23,7 +23,6 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import { useRef, useEffect } from "react";
 
 export default function Login() {
-
     const sign_in_btn = useRef(null);
     const sign_up_btn = useRef(null);
     const containerRef = useRef(null);
@@ -49,16 +48,15 @@ export default function Login() {
     }, []);
 
     function ShowHide() {
-        const password = document.getElementById("password") as HTMLInputElement
-        const eyes = document.getElementById("eyes") as HTMLImageElement 
+        const password = document.getElementById(
+            "password"
+        ) as HTMLInputElement;
 
-        if (password.type === "password") {
-            password.setAttribute("type", "text");
-            eyes.classList.add("hide");
+        if (password.type === 'password') {
+            password.type = 'text';
         } else {
-            password.setAttribute("type", "password");
-            eyes.classList.remove("hide");
-        }   
+            password.type = 'password';
+        }
     }
 
     return (
@@ -81,7 +79,11 @@ export default function Login() {
                                 <div className="nome-completo">
                                     <div className="input-box" id="ib2">
                                         <IoLockClosed className="icon" />
-                                        <input type="password" required id="password" />
+                                        <input
+                                            type="password"
+                                            required
+                                            id="password"
+                                        />
                                         <label>Senha</label>
                                     </div>
                                 </div>

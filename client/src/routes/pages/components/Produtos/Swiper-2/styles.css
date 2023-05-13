@@ -24,6 +24,7 @@
     text-decoration: none;
     cursor: pointer;
     color: #fff;
+    position: relative;
 }
 
 .Primeiro_produto:hover .Produtos_restantes{
@@ -36,6 +37,10 @@
 
 .Primeiro_produto:hover .btnComprar button{
     width: 100%;
+}
+
+.Primeiro_produto:hover #Favorite_id {
+    display: block;
 }
 
 .Produto_nome {
@@ -152,6 +157,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     transition: all .5s ease-in-out;
 }
 
@@ -167,4 +173,26 @@
     width: 30px;
     height: 30px;
     color: #fff;
+}
+
+#Favorite_id {
+    display: none;
+}
+
+
+.Favorite_produto {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+
+.Favorite_icon {
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    transition: all .2s ease-in-out;
+}
+
+.Favorite_icon:hover {
+    color: red;
 }
