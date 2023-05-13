@@ -21,6 +21,21 @@
     height: 435px;
     box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
     margin: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+.Primeiro_produto:hover .Produtos_restantes{
+    visibility: hidden;
+}
+
+.Primeiro_produto:hover .Descontos{
+    visibility: hidden;
+}
+
+.Primeiro_produto:hover .btnComprar button{
+    width: 100%;
 }
 
 .Produto_nome {
@@ -51,7 +66,6 @@
     width: 50px;
     height: 50px;
     margin-top: 10px;
-
 }
 
 
@@ -138,6 +152,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all .5s ease-in-out;
 }
 
 .BtnFlexComprar a {
