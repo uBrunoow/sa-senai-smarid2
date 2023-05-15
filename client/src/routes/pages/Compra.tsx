@@ -215,17 +215,85 @@ export default function Compra() {
                             />
                         </div>
                         <hr className="Desc_line" />
-                        <p className="Text_desc" id="Texto_descricao">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Culpa fugiat est et quasi, alias repudiandae
-                            vel aut delectus in quisquam suscipit dolorum iure
-                            architecto enim repellat voluptas. Ad, similique.
-                            Sapiente? Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Iste delectus velit exercitationem
-                            labore consectetur, incidunt, eos doloremque
-                            perferendis, deleniti illum id repellendus sequi
-                            numquam ad? Repudiandae eaque similique eius magni.
-                        </p>
+                        <div id="Texto_descricao">
+                            <p className="Text_desc">
+                                Hardware avançado com gráfico de última geração
+                                para una experiencia impresionantes e
+                                inigualáveis Processador Qualcomm Snapdragon XR2
+                                ultrarrápido com 6 GB de RAM e 128GB de memória
+                                Dois controles Oculus Touch remodelados com
+                                rastreamento das mãos de última geração.
+                                Alto-falantes integrados que fornecem áudio
+                                posicional 3D semelhante ao áudio de cinema.
+                                Espelhamento diretamente para uma TV compatível
+                                ou para o aplicativo Oculus para celular.
+                                Compatível com VR no PC usando o Oculus Link, um
+                                cabo de fibra óptica de alta velocidade (não
+                                incluido). Facilidade na configuração com o
+                                aplicativo Oculus para celular.
+                            </p>
+                            <div className="Title_of_desc">
+                                <h2 className="Titulo_da_desc">
+                                    INFORMAÇÕES TÉCNICAS
+                                </h2>
+                            </div>
+                            <h2 className="Subtitle_desc">
+                                {" "}
+                                Características:{" "}
+                            </h2>
+                            <ul className="List_descrição">
+                                <li>- Marca: Oculus</li>
+                                <li>- Modelo: 899-00182-02</li>
+                                <li className="Bold_list">Especificações:</li>
+                                <li>
+                                    - Processador Qualcomm Snapdragon XR2
+                                    ultrarrápido com 6 GB de RAM e 128GB de
+                                    memória
+                                </li>
+                                <li>
+                                    - Dois controles Oculus Touch remodelados
+                                    com rastreamento das mãos de última geração.
+                                </li>
+                                <li>
+                                    - Alto-falantes integrados que fornecem
+                                    áudio posicional 3D semelhante ao áudio de
+                                    cinema.
+                                </li>
+                                <li>
+                                    - Espelhamento diretamente para uma TV
+                                    compatível ou para o aplicativo Oculus para
+                                    celular.
+                                </li>
+                                <li>
+                                    - Compatível com VR no PC usando o Oculus
+                                    Link, um cabo de fibra óptica de alta
+                                    velocidade (não incluído).
+                                </li>
+                                <li>
+                                    - Facilidade na configuração com o
+                                    aplicativo Oculus para celular.
+                                </li>
+                                <li>
+                                    - Resolução de 1.832 x 1.920 pixels para
+                                    cada olho.
+                                </li>
+                                <li className="Bold_list">
+                                    {" "}
+                                    Conteúdo da embalagem:{" "}
+                                </li>
+                                <li>- VR Headset 2 controles 2 pilhas AA</li>
+                                <li>
+                                    - Adaptador de energia Espaçador de óculos
+                                </li>
+                                <li>- Cabo de carregamento</li>
+                                <li className="Bold_list">
+                                    Garantia do Fornecedor
+                                </li>
+                                <li>6 meses</li>
+                                <li className="Bold_list">Peso:</li>
+                                <li>2000 gramas (bruto com embalagem)</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div className="Perguntas_respostas">
@@ -273,17 +341,33 @@ export default function Compra() {
                             />
                         </div>
                         <hr className="Desc_line" />
-                        <p className="Text_desc" id="Texto_avaliacao">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Culpa fugiat est et quasi, alias repudiandae
-                            vel aut delectus in quisquam suscipit dolorum iure
-                            architecto enim repellat voluptas. Ad, similique.
-                            Sapiente? Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Iste delectus velit exercitationem
-                            labore consectetur, incidunt, eos doloremque
-                            perferendis, deleniti illum id repellendus sequi
-                            numquam ad? Repudiandae eaque similique eius magni.
-                        </p>
+                        <div id="Texto_avaliacao">
+                            <div className="Flex_avaliacao">
+                                <h1 className="avaliacaoh1">4.8</h1>
+                                <div>
+                                    <img src={Stars} alt="" />
+                                    <p className="Pavaliacao">(1282 AVALIAÇÕES)</p>
+                                </div>
+                            </div>
+                            <hr className="Line_avaliacao"/>
+                            <div className="Flex2_avaliacao">
+                                <h1>Opinião do usuário <span className="Date_op">Data</span></h1>
+                                <img src={Stars} alt="" />
+                            </div>
+                            <div className="User_name">
+                                <p>Nome do usuário</p>
+                            </div>
+                            <div className="Geral_opi">
+                                <p>Opinião geral do usuário</p>
+                            </div>
+                            <div className="Pros_user">
+                                <p>Pros do usuário</p>
+                            </div>
+                            <div className="Contra_user">
+                                <p>Contras do usuário</p>
+                            </div>
+                            <hr className="End_line_user"/>
+                        </div>
                     </div>
                 </div>
                 <Rodape />
