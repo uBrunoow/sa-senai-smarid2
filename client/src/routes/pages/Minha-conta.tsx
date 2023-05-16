@@ -15,23 +15,14 @@ import { MdOutlinePassword } from "react-icons/md";
 import { AiFillEye } from "react-icons/ai";
 import { HiLockClosed } from "react-icons/hi";
 import { FaLocationArrow } from "react-icons/fa";
-
+import EditarEndereco from "./editar-endereco/editarendereco";
 
 export default function Account() {
-    var MinhaConta = document.getElementById("Conta_id") as HTMLDivElement;
-    var BlackBack = document.createElement("div");
-    BlackBack.style.width = "100%";
-    BlackBack.style.height = "100%";
-    BlackBack.style.background = "#00000090";
-    BlackBack.style.position = "absolute";
-    BlackBack.style.zIndex = "999";
-
     function ChangePhoto() {
         var ChooseImg = document.getElementById("Choose_id") as HTMLDivElement;
 
         if (ChooseImg.style.display == "none") {
             ChooseImg.style.display = "block";
-            MinhaConta.prepend(BlackBack);
         } else {
             ChooseImg.style.display = "block";
         }
@@ -40,7 +31,6 @@ export default function Account() {
     function FecharAba() {
         var ChooseImg = document.getElementById("Choose_id") as HTMLDivElement;
         ChooseImg.style.display = "none";
-        BlackBack.remove();
     }
 
     function MudarSenha() {
@@ -48,7 +38,6 @@ export default function Account() {
 
         if (redSenha.style.display == "none") {
             redSenha.style.display = "block";
-            MinhaConta.prepend(BlackBack);
         } else {
             redSenha.style.display = "block";
         }
@@ -57,7 +46,6 @@ export default function Account() {
     function FecharSenha() {
         var redSenha = document.getElementById("MudarSenha") as HTMLDivElement;
         redSenha.style.display = "none";
-        BlackBack.remove();
     }
 
     function AdicionarEnd() {
@@ -67,7 +55,6 @@ export default function Account() {
 
         if (newAddress.style.display == "none") {
             newAddress.style.display = "block";
-            MinhaConta.prepend(BlackBack);
         } else {
             newAddress.style.display = "block";
         }
@@ -78,13 +65,23 @@ export default function Account() {
             "Address_id"
         ) as HTMLDivElement;
         newAddress.style.display = "none";
-        BlackBack.remove();
+    }
+
+    function EditEndereco() {
+        var EditAdd = document.getElementById("Edit_address") as HTMLDivElement;
+
+        if (EditAdd.style.display == "none") {
+            EditAdd.style.display = "block";
+        } else {
+            EditAdd.style.display = "block";
+        }
     }
 
     return (
         <div className="Body_page" id="Conta_id">
             <Navbar_logado />
             <main className="minha-conta">
+                <EditarEndereco />
                 <div className="conta-wrapper">
                     <div className="dados-content">
                         <div className="menu">
@@ -321,7 +318,9 @@ export default function Account() {
                                                 </p>
                                             </div>
                                             <div className="endereco-editar">
-                                                <a href="">EDITAR</a>
+                                                <button onClick={EditEndereco}>
+                                                    EDITAR
+                                                </button>
                                             </div>
                                         </div>
                                         <div className="overlay-2"></div>
@@ -340,11 +339,18 @@ export default function Account() {
                                                 </p>
                                             </div>
                                             <div className="endereco-editar">
-                                                <a href="">EDITAR</a>
-                                                <a href="">EXCLUIR</a>
-                                                <a href="" className="padrao">
-                                                    DEIXAR PADRÃO
-                                                </a>
+                                                <button onClick={EditEndereco}>
+                                                    EDITAR
+                                                </button>
+                                                <button onClick={EditEndereco}>
+                                                    EDITAR
+                                                </button>
+                                                <button
+                                                    className="padrao"
+                                                    onClick={EditEndereco}
+                                                >
+                                                    EDITAR
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -489,9 +495,7 @@ export default function Account() {
                                 </div>
                                 <div className="buttons">
                                     <div className="btn-save">
-                                        <button
-                                            type="submit"
-                                        >
+                                        <button type="submit">
                                             SALVAR ALTERAÇÕES
                                         </button>
                                     </div>
