@@ -10,7 +10,43 @@ import { TbTrashXFilled } from "react-icons/tb"
 import { IoLocationSharp } from "react-icons/io5"
 import { TbDiscount } from "react-icons/tb"
 
+import { useRef, useEffect } from "react";
+
 export default function Carrinho() {
+
+    const incrementoRef = useRef(null);
+    const contadorRef = useRef(null);
+    const decrementoRef = useRef(null);
+
+    useEffect(() => {
+        
+        if (
+            incrementoRef.current &&
+            contadorRef.current &&
+            decrementoRef.current
+        ) {
+            const incremento = incrementoRef.current as HTMLDivElement;
+            const contador = contadorRef.current as HTMLDivElement;
+            const decremento = decrementoRef.current as HTMLDivElement;
+            let qtd = 0
+
+            decremento.addEventListener('click', function(){
+                if(qtd > Number(contador.getAttribute('min'))){
+                    qtd--;
+                    contador.setAttribute('value', qtd)
+                }
+            })
+
+            incremento.addEventListener('click', function(){
+                if(qtd < Number(contador.getAttribute('max'))){
+                    qtd++;
+                    contador.setAttribute('value', qtd)
+                }
+            })
+
+        }
+    }, []);
+
     return (
         <div className="Body_page">
             <Navbar_logado />
@@ -51,7 +87,9 @@ export default function Carrinho() {
                                 </div>
                                 <div className="quantidade-produto">
                                     <div className="up-down">
-                                        <div className="numero">1</div>
+                                        <button id="decremento" className="Btn-updown" ref={decrementoRef}>-</button>
+                                        <input type="number" id="qtd" min={1} max={500} readOnly ref={contadorRef}/>
+                                        <button id="incremento" className="Btn-updown" ref={incrementoRef}>+</button>
                                     </div>
                                     <div className="remove">
                                         <TbTrashXFilled className="bx bx-trash trexi"/>

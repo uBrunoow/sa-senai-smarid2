@@ -1,8 +1,7 @@
-* 
-  margin: 0
-  padding: 0
-  font-family: 'Poppins', sans-serif
-
+*
+    margin: 0
+    padding: 0
+    font-family: 'Poppins', sans-serif
 
 $cor1: #A155DB
 $cor2: #44245C
@@ -15,7 +14,7 @@ $cor8: #1A1A1A
 $cor9: #2C2C2C
 $cor10: #111111
 
-.descontos 
+.descontos
     display: flex
     align-items: center
     justify-content: center
@@ -28,15 +27,13 @@ $cor10: #111111
     grid-row: 2
     margin-left: 3px
 
-
-.descontos p  
+.descontos p
     color: #fff
     font-weight: 700
     font-size: .8rem
     text-align: center
 
-
-.img-info 
+.img-info
     display: grid
     grid-template-columns: .2fr 1fr
     align-items: center
@@ -44,66 +41,70 @@ $cor10: #111111
     border: 2px solid $cor8
     box-shadow: 0px 5px 1px #0000008b
 
-
-.img 
+.img
     margin: 25px 50px
-
 
 .img img
     width: 150px
     height: 150px
 
-
-.infos 
+.infos
     display: flex
     flex-direction: column
     margin: 0px 15px
 
-
-.produto-nome 
+.produto-nome
     margin: 5px 0 5px 0
     font-size: 1.5em
     font-weight: 600
     color: #fff
 
+.produto-nome:hover 
+    color: $cor1
+    cursor: pointer
 
-.produto-preco 
+.produto-preco
     margin: 5px 0 5px 0
     font-size: 1.5rem
     font-weight: bolder
     color: $cor1
-    width: 150px    
+    width: 150px
 
-
-.comprar 
+.comprar
     display: grid
     grid-column: 3
     grid-template-rows: 1fr 1fr
     margin: 36px
     height: 65%
-    align-items: flex-end
+    align-items: center
     gap: 50px
+    justify-items: end
 
-
-.btnComprar-favoritos 
+.btnComprar-favoritos
     display: flex
-    width: 50px
+    width: 100%
     height: 50px
     align-items: center
     grid-row: 2
 
-
-.btnComprar-favoritos button 
+.btnComprar-favoritos button
     border: none
     outline: 1px solid $cor1
-    width: 50px
+    width: 250px
     height: 50px
     background: $cor1
-    border-radius: 5px 0px 0px 0px
+    border-radius: 5px
     display: flex
     justify-content: center
     align-items: center
+    gap: 30px
 
+.comprar-favorito
+    color: #fff
+    text-transform: uppercase
+    text-align: center
+    font-weight: 600
+    font-size: 20px
 
 .LineHR
     margin: 0 100px
@@ -116,12 +117,12 @@ $cor10: #111111
     width: 30px
     height: 30px
 
-.Cart 
+.Cart
     width: 30px
     height: 30px
-    color: #fff 
+    color: #fff
 
 #P1
     width: 38px
-    height: 38px    
-    color: red 
+    height: 38px
+    color: red

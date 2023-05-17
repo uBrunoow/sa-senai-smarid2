@@ -40,7 +40,8 @@ export default function Favorito1() {
                       </div>
                       <div className="btnComprar-favoritos">
                           <button type="submit">
-                               <a href="#"> <MdShoppingCart className='Cart'/> </a>
+                               <a href="#"> <MdShoppingCart className='Cart'/></a>
+                               <span className='comprar-favorito'>Comprar</span>
                           </button>
                       </div>
                   </div>
