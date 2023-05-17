@@ -59,26 +59,6 @@ header
   background: $cor1
   transition: .2s ease-in-out
 
-.container label span:nth-child(1)
-  top: 0px
-
-.container label span:nth-child(2)
-  top: 8px
-
-.container label span:nth-child(3)
-  top: 16px
-
-#checkbox-menu:checked+label span:nth-child(1)
-  transform: rotate(-45deg)
-  top: 8px
-
-#checkbox-menu:checked+label span:nth-child(2)
-  opacity: 0
-
-#checkbox-menu:checked+label span:nth-child(3)
-  transform: rotate(45deg)
-  top: 8px
-
 .navbar
   display: flex
   align-items: center
@@ -217,6 +197,7 @@ header
   height: 30px
 
 .sidebar
+  display: none
   position: absolute
   top: 0
   left: 0
@@ -269,7 +250,7 @@ header
   display: flex
   align-items: center
   flex-direction: column
-  height: 70vh
+  height: 80vh
   justify-content: space-between
 
 .Links-sidebar ul
@@ -291,6 +272,8 @@ header
 .logout button
   background: $cor1
   border-radius: 10px
+  outline: none
+  border: none
   width: 400px
   height: 50px
   font-size: 23px
