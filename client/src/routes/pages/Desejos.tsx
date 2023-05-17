@@ -15,12 +15,6 @@ export default function Desejos() {
                         <FaHeart id="Coracao" />
                         <h1>Meus favoritos</h1>
                     </div>
-                    <div className="description-favoritos">
-                        <p className="favoritos-text">
-                            Seus produtos favoritos ficam aqui para você ver
-                            sempre que quiser
-                        </p>
-                    </div>
                     <F1 />
                     <F1 />
                     <F1 />

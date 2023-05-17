@@ -45,7 +45,6 @@ export default function Favorito1() {
                       </div>
                   </div>
             </div>
-            <hr className='LineHR'/>  
             </div>
         </div>    
     )
