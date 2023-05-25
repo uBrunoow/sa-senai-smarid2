@@ -45,7 +45,7 @@ export default function Navbar() {
                         <a href={`/`}>Home</a>
                         <a href={`/initialpage`}>Products</a>
                         <a href="">Games</a>
-                        <a href="">About</a>
+                        <a href={`/sobre`}>About</a>
                     </div>
                     <div className="sign-in-up">
                         <div className="sign-in">

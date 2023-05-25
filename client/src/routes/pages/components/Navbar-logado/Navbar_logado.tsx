@@ -47,25 +47,20 @@ export default function Navbar_logado() {
             </label>
           </div>
           <div className="logo">Logo</div>
-          <div className="navbar">
-            {/* <a href={`/initialpage`}>Home</a>
-                    <a href={`/pesquisa`}>Products</a>
-                    <a href="">Games</a>
-                    <a href="">About</a> */}
-          </div>
+          <div className="navbar"></div>
           <div className="account-search-cart">
             <div className="input-wrapper">
               <button className="Icons_navbar">
                 <BsSearch className="Icon_search" />
               </button>
-              {/* <input 
-                    placeholder="search.." 
-                    className="input2" 
-                    name="text" 
-                    type="text"
-                    onChange={( {target}) => setSearchValue(target.value)}
-                    value={searchValue}
-                    /> */}
+              <input
+                placeholder="Search.."
+                className="Input_wrapper_text"
+                name="text"
+                type="text"
+                onChange={({ target }) => setSearchValue(target.value)}
+                value={searchValue}
+              />
             </div>
 
             <div className="cart-button">

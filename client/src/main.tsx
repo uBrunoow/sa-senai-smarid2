@@ -14,6 +14,7 @@ import Pesquisa from "./routes/pages/Pesquisa";
 import Compra from "./routes/pages/Compra";
 import Pagamento from "./routes/pages/Pagamento";
 import Historico from "./routes/pages/Historico"
+import Sobre from "./routes/pages/Sobre";
 
 const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
     {
         path:"historico",
         element: <Historico />,
+    },
+    {
+        path: "sobre",
+        element: <Sobre />,
     },
 ]);
 

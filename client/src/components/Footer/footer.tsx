@@ -6,13 +6,12 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
 
-
-
-
-
-
-
 export default function Footer() {
+
+    function FuncaoVoltar() {
+        document.documentElement.scrollTop = 0
+    }
+
     return (
         <footer className='footer'> 
             <div className="container-footer">
@@ -53,7 +52,7 @@ export default function Footer() {
                 <div className="copy">
                     <p>©2023 VirtualSkins, All Rights Reserved By  <span>SESI/SENAI</span></p>
                 </div>
-                <div className="back-to-top">
+                <div className="back-to-top" onClick={FuncaoVoltar}>
                     <a href=""> 
                     <IoArrowUpOutline/>
                     </a>
