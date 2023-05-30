@@ -6,7 +6,6 @@ import Conta from "/src/assets/IMG/Rectangle 335.svg";
 import { BsSearch } from "react-icons/bs";
 
 import "/src/components/Navbar/navbar.sass";
-import "/src/components/Navbar/style.css";
 
 import { AiOutlineClose } from "react-icons/ai";
 import { AiFillHome } from "react-icons/ai";
