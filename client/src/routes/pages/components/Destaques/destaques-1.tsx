@@ -1,12 +1,13 @@
 import D1 from "./Destaques-1/destaques-1"
 import './destaques.sass'
+import { Destaque, TittleDestaque } from "./styles"
 
 export default function Destaques() {
     return (
-        <main className="destaques">
+        <Destaque className="destaques">
             <div className="destaques-content">
                 <p className="destaques-p">HIGHLIGHTS PRODUTCS</p>
-                <h1 className="destaques-h1">Super promotion just for you personalize your VR .</h1>
+                <TittleDestaque className="destaques-h1">Super promotion just for you personalize your VR .</TittleDestaque>
                 <div className="purple-line"></div>
                 <div className="destaques">
                     <D1/>
@@ -17,7 +18,7 @@ export default function Destaques() {
                     <D1/>
                 </div>
             </div>
-        </main>
+        </Destaque>
     )
     
 }

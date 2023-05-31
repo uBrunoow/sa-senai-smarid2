@@ -10,44 +10,42 @@ import Questions from "./components/Questions/questions";
 import Highlights from "./components/Highlights/highlights";
 import Footer from "./components/Footer/footer";
 
-
 import GlobalStyleComponent from "./styles/global";
 import { ThemeProvider } from "styled-components";
 import Navbar from "./components/Navbar/navbar";
 import light from "./styles/themes/light";
-import dark from "./styles/themes/dark"
+import dark from "./styles/themes/dark";
 import usePersistedState from "./utils/usePersistedState";
 
-import "./App.css"
+import "./App.css";
 
 function App() {
-    const [ theme, setTheme] = usePersistedState('theme', light);
+  const [theme, setTheme] = usePersistedState("theme", light);
 
-    const toggleTheme = () => {
-        setTheme(theme.title === "light" ? dark : light);
-    };
-    return (
-        <ThemeProvider theme={theme}>
-
-        <div className="App">
-            <div className="Body_page">
-            <GlobalStyleComponent />
-                <Navbar toggleTheme={toggleTheme}/>
-                <Main />
-                <Main2 />
-                <Companies />
-                <Features />
-                <Tellmewhy />
-                <Features2 />
-                <Welcome />
-                <Pricing />
-                <Questions />
-                <Highlights />
-                <Footer />
-            </div>
+  const toggleTheme = () => {
+    setTheme(theme.title === "light" ? dark : light);
+  };
+  return (
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <div className="Body_page">
+          <GlobalStyleComponent />
+          <Navbar toggleTheme={toggleTheme} />
+          <Main />
+          <Main2 />
+          <Companies />
+          <Features />
+          <Tellmewhy />
+          <Features2 />
+          <Welcome />
+          <Pricing />
+          <Questions />
+          <Highlights />
+          <Footer />
         </div>
-        </ThemeProvider>
-    );
+      </div>
+    </ThemeProvider>
+  );
 }
 
 export default App;

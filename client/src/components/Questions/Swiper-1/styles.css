@@ -31,10 +31,10 @@
    border-radius: 25px;
  }
 
-.card {
+/* .card {
     border-radius: 25px;
     background-color: var(--cor7);
-}
+} */
 
  .image-content,
  .card-content{
@@ -95,12 +95,12 @@
    background-color: var(--cor2);
  }
  
- .q-p {
+ /* .q-p {
     font-weight: 400;
     font-size: 20px;
     text-align: center;
     color: #9B9B9B;
-}
+} */
 
 .imagem-questions {
     width: 100%;

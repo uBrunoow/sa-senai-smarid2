@@ -1,5 +1,4 @@
 import '../Welcome/welcome.sass'
-import '../Welcome/style.css'
 
 export default function Welcome() {
     return (

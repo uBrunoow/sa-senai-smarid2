@@ -11,7 +11,8 @@ import "./styles.css";
 // import required modules
 import { Pagination } from "swiper";
 
-import Aspas from '/src/assets/IMG/image 12.svg'
+import Aspas from "/src/assets/IMG/image 12.svg";
+import { CardSwiper, ParagraphSwiper } from "./styles";
 
 export default function Swiper1() {
   return (
@@ -26,173 +27,294 @@ export default function Swiper1() {
         modules={[Pagination]}
         className="quest-container"
       >
-      <SwiperSlide>
-      <div className="card swiper-slide">
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
             <div className="image-content">
-                <div className="text-quest">
-                    <p className="q-p">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem  accusantium
-                    </p>
-                </div>
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
             </div>
             <div className="card-content">
-                <div className="user-quest">
-                    <div className="imagem-questions"></div>
-                    <div className="user-infos">
-                        <h1>Name</h1>
-                        <p>in company</p>
-                    </div>
-                    <div className="user-image">
-                        <img src={Aspas}/>
-                    </div>
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
                 </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
             </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className="card swiper-slide">
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
             <div className="image-content">
-                <div className="text-quest">
-                    <p className="q-p">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem  accusantium
-                    </p>
-                </div>
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
             </div>
             <div className="card-content">
-                <div className="user-quest">
-                    <div className="imagem-questions"></div>
-                    <div className="user-infos">
-                        <h1>Name</h1>
-                        <p>in company</p>
-                    </div>
-                    <div className="user-image">
-                        <img src={Aspas}/>
-                    </div>
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
                 </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
             </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className="card swiper-slide">
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
             <div className="image-content">
-                <div className="text-quest">
-                    <p className="q-p">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem  accusantium
-                    </p>
-                </div>
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
             </div>
             <div className="card-content">
-                <div className="user-quest">
-                    <div className="imagem-questions"></div>
-                    <div className="user-infos">
-                        <h1>Name</h1>
-                        <p>in company</p>
-                    </div>
-                    <div className="user-image">
-                        <img src={Aspas}/>
-                    </div>
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
                 </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
             </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className="card swiper-slide">
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
             <div className="image-content">
-                <div className="text-quest">
-                    <p className="q-p">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem  accusantium
-                    </p>
-                </div>
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
             </div>
             <div className="card-content">
-                <div className="user-quest">
-                    <div className="imagem-questions"></div>
-                    <div className="user-infos">
-                        <h1>Name</h1>
-                        <p>in company</p>
-                    </div>
-                    <div className="user-image">
-                        <img src={Aspas}/>
-                    </div>
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
                 </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
             </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className="card swiper-slide">
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
             <div className="image-content">
-                <div className="text-quest">
-                    <p className="q-p">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem  accusantium
-                    </p>
-                </div>
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
             </div>
             <div className="card-content">
-                <div className="user-quest">
-                    <div className="imagem-questions"></div>
-                    <div className="user-infos">
-                        <h1>Name</h1>
-                        <p>in company</p>
-                    </div>
-                    <div className="user-image">
-                        <img src={Aspas}/>
-                    </div>
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
                 </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
             </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className="card swiper-slide">
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
             <div className="image-content">
-                <div className="text-quest">
-                    <p className="q-p">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem  accusantium
-                    </p>
-                </div>
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
             </div>
             <div className="card-content">
-                <div className="user-quest">
-                    <div className="imagem-questions"></div>
-                    <div className="user-infos">
-                        <h1>Name</h1>
-                        <p>in company</p>
-                    </div>
-                    <div className="user-image">
-                        <img src={Aspas}/>
-                    </div>
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
                 </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
             </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className="card swiper-slide">
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
             <div className="image-content">
-                <div className="text-quest">
-                    <p className="q-p">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem  accusantium
-                    </p>
-                </div>
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
             </div>
             <div className="card-content">
-                <div className="user-quest">
-                    <div className="imagem-questions"></div>
-                    <div className="user-infos">
-                        <h1>Name</h1>
-                        <p>in company</p>
-                    </div>
-                    <div className="user-image">
-                        <img src={Aspas}/>
-                    </div>
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
                 </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
             </div>
-        </div>
-      </SwiperSlide>
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
+            <div className="image-content">
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
+            </div>
+            <div className="card-content">
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
+                </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
+            </div>
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
+            <div className="image-content">
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
+            </div>
+            <div className="card-content">
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
+                </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
+            </div>
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
+            <div className="image-content">
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
+            </div>
+            <div className="card-content">
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
+                </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
+            </div>
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
+            <div className="image-content">
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
+            </div>
+            <div className="card-content">
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
+                </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
+            </div>
+          </CardSwiper>
+        </SwiperSlide>
+        <SwiperSlide>
+          <CardSwiper className="card swiper-slide">
+            <div className="image-content">
+              <div className="text-quest">
+                <ParagraphSwiper className="q-p">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium
+                </ParagraphSwiper>
+              </div>
+            </div>
+            <div className="card-content">
+              <div className="user-quest">
+                <div className="imagem-questions"></div>
+                <div className="user-infos">
+                  <h1>Name</h1>
+                  <p>in company</p>
+                </div>
+                <div className="user-image">
+                  <img src={Aspas} />
+                </div>
+              </div>
+            </div>
+          </CardSwiper>
+        </SwiperSlide>
       </Swiper>
     </>
   );

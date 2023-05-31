@@ -1,10 +1,11 @@
+import { ParagraphContent } from "../Main-1/styles";
 import "../Pricing/pricing.sass";
-import "../Pricing/style.css";
+import { DolarSignPromo, ParagraphPromos, Price, PriceTitlePromo, Promos } from "./styles";
 import Bck1 from "/src/assets/IMG/img-produtos/produto1.svg";
 
 export default function Pricing() {
     return (
-        <main className="pricing">
+        <Price className="pricing">
             <div className="pricing-wrapper">
                 <div className="pricing-content">
                     <div className="pricing-title">
@@ -13,21 +14,21 @@ export default function Pricing() {
                             A pricing that don't hurt the bank
                             <span className="last-letter">.</span>
                         </h1>
-                        <p className="p-branco">
+                        <ParagraphContent className="p-branco">
                             Sed ut perspiciatis unde omnis iste natus error sit
                             voluptatem <br /> accusantium
-                        </p>
+                        </ParagraphContent>
                     </div>
 
                     <div className="promotions-price">
-                        <div className="promo1">
+                        <Promos className="promo1">
                             <h1>Games & apps</h1>
-                            <p className="p-promo">
+                            <ParagraphPromos className="p-promo">
                                 Sed ut perspiciatis unde omnis iste natus error
                                 sit voluptatem accusantium
-                            </p>
-                            <p className="rs">R$</p>
-                            <h3 className="price">120,00</h3>
+                            </ParagraphPromos>
+                            <DolarSignPromo className="rs">R$</DolarSignPromo>
+                            <PriceTitlePromo className="price">120,00</PriceTitlePromo>
                             <div className="produtos-imagens PImg1">
                                 <img src="" alt="" />
                             </div>
@@ -36,30 +37,30 @@ export default function Pricing() {
                                     <a href="">Add to cart</a>
                                 </button>
                             </div>
-                        </div>
-                        <div className="promo2">
+                        </Promos>
+                        <Promos className="promo2">
                             <h1>VR glasses</h1>
-                            <p className="p-promo">
+                            <ParagraphPromos className="p-promo">
                                 Sed ut perspiciatis unde omnis iste natus error
                                 sit voluptatem accusantium
-                            </p>
-                            <p className="rs">R$</p>
-                            <h3 className="price">3400,00</h3>
+                            </ParagraphPromos>
+                            <DolarSignPromo className="rs">R$</DolarSignPromo>
+                            <PriceTitlePromo className="price">3400,00</PriceTitlePromo>
                             <div className="produtos-imagens PImg2"></div>
                             <div className="btnCart purple">
                                 <button>
                                     <a href="">Add to cart</a>
                                 </button>
                             </div>
-                        </div>
-                        <div className="promo3">
+                        </Promos>
+                        <Promos className="promo3">
                             <h1>Acessories</h1>
-                            <p className="p-promo">
+                            <ParagraphPromos className="p-promo">
                                 Sed ut perspiciatis unde omnis iste natus error
                                 sit voluptatem accusantium
-                            </p>
-                            <p className="rs">R$</p>
-                            <h3 className="price">100,00</h3>
+                            </ParagraphPromos>
+                            <DolarSignPromo className="rs">R$</DolarSignPromo>
+                            <PriceTitlePromo className="price">100,00</PriceTitlePromo>
                             <div className="produtos-imagens PImg3">
                                 <img src="" alt="" />
                             </div>
@@ -68,10 +69,10 @@ export default function Pricing() {
                                     <a href="">Add to cart</a>
                                 </button>
                             </div>
-                        </div>
+                        </Promos>
                     </div>
                 </div>
             </div>
-        </main>
+        </Price>
     );
 }
