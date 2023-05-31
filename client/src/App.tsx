@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Navbar from "./components/Navbar/navbar";
 import Main from "./components/Main-1/main-1";
 import Main2 from "./components/Main-2/main-2";
 import Companies from "./components/Companies/companies";
@@ -11,15 +9,30 @@ import Pricing from "./components/Pricing/pricing";
 import Questions from "./components/Questions/questions";
 import Highlights from "./components/Highlights/highlights";
 import Footer from "./components/Footer/footer";
+
+
+import GlobalStyleComponent from "./styles/global";
+import { ThemeProvider } from "styled-components";
+import Navbar from "./components/Navbar/navbar";
+import light from "./styles/themes/light";
+import dark from "./styles/themes/dark"
+import usePersistedState from "./utils/usePersistedState";
+
 import "./App.css"
 
 function App() {
-    const [count, setCount] = useState(0);
+    const [ theme, setTheme] = usePersistedState('theme', light);
 
+    const toggleTheme = () => {
+        setTheme(theme.title === "light" ? dark : light);
+    };
     return (
+        <ThemeProvider theme={theme}>
+
         <div className="App">
             <div className="Body_page">
-                <Navbar />
+            <GlobalStyleComponent />
+                <Navbar toggleTheme={toggleTheme}/>
                 <Main />
                 <Main2 />
                 <Companies />
@@ -33,6 +46,7 @@ function App() {
                 <Footer />
             </div>
         </div>
+        </ThemeProvider>
     );
 }
 
