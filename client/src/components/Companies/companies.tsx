@@ -1,5 +1,5 @@
 import "../Companies/companies.sass";
-import "../Companies/style.css";
+import { BlackBox, Company, CompanyContent } from "./styles";
 
 import { FaPlaystation } from "react-icons/fa";
 import { AiOutlineGoogle } from "react-icons/ai";
@@ -11,10 +11,10 @@ import { SiNvidia } from "react-icons/si";
 export default function Companies() {
     return (
         <div>
-            <main className="black-main"></main>
-            <main className="companies">
+            <BlackBox className="black-main"></BlackBox>
+            <Company className="companies">
                 <div className="compaines-content">
-                    <div className="title-content">
+                    <CompanyContent className="title-content">
                         <h1 className="Title_company">
                             Over 2,000 Company worldwide rely <br /> on
                             VirtualSkins<span className="last-letter">!</span>
@@ -88,9 +88,9 @@ export default function Companies() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </CompanyContent>
                 </div>
-            </main>
+            </Company>
         </div>
     );
 }

@@ -10,7 +10,12 @@ declare module "styled-components" {
 
             background: string;
             text: string;
-            altText: string;
+
+            OneBackground: string,
+            TwoBackground: string,
+            ThreeBackground: string,
+            FourBackground: string,
+            FiveBackground: string,  
         };
     }
 }

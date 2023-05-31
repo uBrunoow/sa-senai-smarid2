@@ -5,8 +5,13 @@ export default {
       primary: '#c62e65',
       secundary: '#d63af9',
 
-      background: '#121212',
+      background: '#000',
       text: "#fff",
-      altText: "#A155DB",
+
+      OneBackground: "#121212",
+      TwoBackground: "#222222",
+      ThreeBackground: "#1A1A1A",
+      FourBackground: "#2C2C2C",
+      FiveBackground: "#111111",    
   }
 };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const InitialContent = styled.div`
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${props => props.theme.colors.OneBackground};
     height: 900px;
     width: 100%;
     display: flex;

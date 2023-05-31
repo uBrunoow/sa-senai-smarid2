@@ -1,17 +1,17 @@
 import '../Features/features.sass'
-import '../Features/style.css'
 import img1 from './img/image 1.jpg'
 import img2 from './img/image 2.jpg'
 import img3 from './img/image 4.png'
 import img from './img/image.jpg'
 
 import { BsFillPlayFill } from "react-icons/bs"
+import { Features } from './styles'
 
 export default function Companies () {
 
     return (
 
-        <main className="f-main">
+        <Features className="f-main">
             <div className='features'>
                 <div className="imagens-features">
                     <div className="overlay-features">
@@ -65,6 +65,6 @@ export default function Companies () {
                     </div>
                 </div>
             </div>
-        </main>
+        </Features>
     )
 }
