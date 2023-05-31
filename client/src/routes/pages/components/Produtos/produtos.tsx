@@ -1,10 +1,11 @@
 import Swiper2 from './Swiper-2/swiper-2'
 import './Swiper-2/styles.css'
 import './produtos.sass'
+import { Produto } from './styles'
 
 export default function Produtos() {
     return (
-        <main className="produtos">
+        <Produto >
             <div className="ofertas-container swiper">
                 <div className="ofertas-content">
                     <div className="card-ofertas-wrapper swiper-wrapper">
@@ -16,6 +17,6 @@ export default function Produtos() {
                     </div>
                 </div>
             </div>
-        </main>
+        </Produto>
     )
 }

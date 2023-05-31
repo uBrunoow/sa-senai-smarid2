@@ -1,5 +1,5 @@
 import "./Navbar_logado.sass";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoCart } from "react-icons/io5";
 import Sun from "/src/assets/IMG/sun.svg";
 import Conta from "/src/assets/IMG/Rectangle 335.svg";
@@ -17,8 +17,18 @@ import { IoFlash } from "react-icons/io5";
 import { IoIosChatboxes } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineAim } from "react-icons/ai";
+import { ThemeContext } from "styled-components";
+import { shade } from "polished";
+import Switch from "react-switch";
+import { InputText, Navbar } from "./styles";
 
-export default function Navbar_logado() {
+interface Props {
+  toggleTheme(): void;
+}
+
+const NavbarLogado: React.FC<Props> = ({ toggleTheme }) => {
+  const { colors, title } = useContext(ThemeContext);
+
   const [searchValue, setSearchValue] = useState("");
   function AbrirSidebar() {
     var sidebar = document.getElementById("sidebar2") as HTMLDivElement;
@@ -36,7 +46,7 @@ export default function Navbar_logado() {
   return (
     <div>
       <nav>
-        <header>
+        <Navbar>
           <div className="container">
             <input type="checkbox" id="checkbox-menu" />
             <label htmlFor="checkbox-menu" onClick={AbrirSidebar}>
@@ -52,7 +62,7 @@ export default function Navbar_logado() {
               <button className="Icons_navbar">
                 <BsSearch className="Icon_search" />
               </button>
-              <input
+              <InputText
                 placeholder="Search.."
                 className="Input_wrapper_text"
                 name="text"
@@ -79,8 +89,19 @@ export default function Navbar_logado() {
 
           <div className="light-dark">
             <img src={Sun} />
+            <Switch
+              onChange={toggleTheme}
+              checked={title === "dark"}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              height={10}
+              width={40}
+              handleDiameter={20}
+              offColor={shade(0.3, colors.primary)}
+              onColor={colors.secundary}
+            />
           </div>
-        </header>
+        </Navbar>
       </nav>
       <main className="sidebar" id="sidebar2">
         <div className="flex-conta">
@@ -142,4 +163,6 @@ export default function Navbar_logado() {
       </main>
     </div>
   );
-}
+};
+
+export default NavbarLogado;

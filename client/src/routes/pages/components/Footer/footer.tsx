@@ -5,17 +5,18 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
-
-
-
-
-
-
+import { Copyright2, FooterContainer2 } from './styles';
+import { FooterContainer, Copyright } from '../../../../components/Footer/styles';
 
 export default function Footer() {
+
+    function FuncaoVoltar() {
+        document.documentElement.scrollTop = 0
+    }
+
     return (
         <footer className='footer'> 
-            <div className="container-footer">
+            <FooterContainer2 className="container-footer">
                 <hr/>
                 <div className="logo">
                 </div>
@@ -51,15 +52,15 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div className="copy">
-                    <p>©2023 VirtualSkins, All Rights Reserved By  <span>SESI/SENAI</span></p>
+                    <Copyright2>©2023 VirtualSkins, All Rights Reserved By  <span>SESI/SENAI</span></Copyright2>
                 </div>
-                <div className="back-to-top">
+                <div className="back-to-top" onClick={FuncaoVoltar}>
                     <a href=""> 
                     <IoArrowUpOutline/>
                     </a>
                 </div>
                 <div className="black-line"/>
-            </div>
+            </FooterContainer2>
         </footer>
     )
 }

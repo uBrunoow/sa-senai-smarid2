@@ -3,10 +3,11 @@ import Stars from "/src/assets/IMG/img-produtos/Stars.svg";
 import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
 import Carrinho from "/src/assets/IMG/img-produtos/Carrinho.svg";
 import { FaHeart } from "react-icons/fa";
+import { DestaqueNome, DestaqueProduto } from "./styles";
 
 export default function destaques_1() {
     return (
-        <a href={"/compra"} className="destaque-produto">
+        <DestaqueProduto href={"/compra"} className="destaque-produto">
             <div className="Favoritar_produto" id="Favorito_id">
                 <FaHeart className="Favorito_icon"/>
             </div>
@@ -37,7 +38,7 @@ export default function destaques_1() {
                     </div>
                 </div>
                 <div className="destaque-nome">
-                    <p>Óculos Realidade Virtual VR Oculus Meta Quest 2 256gb</p>
+                    <DestaqueNome>Óculos Realidade Virtual VR Oculus Meta Quest 2 256gb</DestaqueNome>
                     <div className="destaque-preco">
                         <p>R$ 3.799,99</p>
                     </div>
@@ -53,6 +54,6 @@ export default function destaques_1() {
                     </button>
                 </div>
             </div>
-        </a>
+        </DestaqueProduto>
     );
 }

@@ -18,7 +18,7 @@ export const TitleContent = styled.h1`
   margin: 0 50px;
 `
 
-export const ParagraphContent = styled.h1`
+export const ParagraphContent = styled.p`
   font-weight: 400;
   font-size: 32px;
   line-height: 39px;

@@ -1,10 +1,11 @@
 import './extra_promotion.sass'
+import { Promotion } from './styles'
 
 export default function Extra_promotion() {
     return(
-        <main className="promotion">
+        <Promotion className='promotion'>
             <div className="promotion-1"></div>
             <div className="promotion-2"></div>
-        </main>
+        </Promotion>
     )
 }
