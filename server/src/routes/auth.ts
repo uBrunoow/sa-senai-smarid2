@@ -1,9 +1,9 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance } from 'fastify'
 import axios from 'axios'
-import { z } from "zod";
-import { prisma } from "../lib/prisma";
+import { z } from 'zod'
+import { prisma } from '../lib/prisma'
 
-export async function authRoutes(app: FastifyInstance) { 
+export async function authRoutes(app: FastifyInstance) {
   app.post('/register', async (request) => {
     const bodySchema = z.object({
       code: z.string(),
@@ -11,12 +11,33 @@ export async function authRoutes(app: FastifyInstance) {
 
     const { code } = bodySchema.parse(request.body)
 
+    const accessTokenResponse = await axios.post(
+      'https://github.com/login/oauth/access_token',
+      null,
+      {
+        params: {
+          client_id: process.env.GITHUB_CLIENT_ID,
+          client_secret: process.env.GITHUB_CLIENT_SECRET,
+          code,
+        },
+        headers: {
+          Accept: 'application/json',
+        },
+      },
+    )
+
+    const { access_token } = accessTokenResponse.data
+    console.log(accessTokenResponse)
+    const userResponse = await axios.get('https://api.github.com/user', {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    })
+
     const userSchema = z.object({
       id: z.number(),
-      email: z.string(),
+      login: z.string(),
       name: z.string(),
-      cpf: z.string(),
-      telefone: z.string(),
       avatar_url: z.string().url(),
     })
 
@@ -24,18 +45,16 @@ export async function authRoutes(app: FastifyInstance) {
 
     let user = await prisma.user.findUnique({
       where: {
-        userId: userInfo.id,
+        githubId: userInfo.id,
       },
     })
 
     if (!user) {
       user = await prisma.user.create({
         data: {
-          userId: userInfo.id,
-          email: userInfo.email,
+          githubId: userInfo.id,
+          login: userInfo.login,
           name: userInfo.name,
-          cpf: userInfo.cpf,
-          telefone: userInfo.telefone,
           avatarUrl: userInfo.avatar_url,
         },
       })

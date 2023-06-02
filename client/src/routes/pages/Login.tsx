@@ -187,7 +187,9 @@ export default function Login() {
                                 <a href="#" className="social-icon">
                                     <AiOutlineInstagram className="fas fa-instagram" />
                                 </a>
-                                <a href="#" className="social-icon">
+                                <a 
+                                href={`https://github.com/login/oauth/authorize?client_id=`} 
+                                className="social-icon">
                                     <AiOutlineTwitter className="fas fa-twitter" />
                                 </a>
                                 <a href="#" className="social-icon">
