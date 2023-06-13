@@ -12,6 +12,11 @@ import { TbDiscount } from "react-icons/tb";
 
 import { useRef, useEffect } from "react";
 import AdicionarEndereco from "./adicionar-endereco/addendereco";
+import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
+import { ThemeProvider } from "styled-components";
+import dark from "../../styles/themes/dark";
+import light from "../../styles/themes/light";
+import usePersistedState from "../../utils/usePersistedState";
 
 export default function Carrinho() {
   const incrementoRef = useRef(null);
@@ -51,144 +56,160 @@ export default function Carrinho() {
     } else {
       Add_Address.style.display = "block";
     }
-  }
+  } 
+
+  const [theme, setTheme] = usePersistedState("theme", light);
+
+  const toggleTheme = () => {
+    setTheme(theme.title === "light" ? dark : light);
+  };
 
   return (
-    <div className="Body_page">
-      <Navbar_logado />
-      <main className="carrinho">
-        <div className="carrinho-content">
-          <div className="title-carrinho">
-            <div className="title-h1">
-              <MdArrowLeft className="bx bx-chevron-left " />
-              <a href={"/pesquisa"} className="Link_comprar">
-                <h1>Continuar comprando</h1>
-              </a>
-            </div>
-            <div className="title-img">
-              <div className="cart-title">
-                <h1>Meu carrinho</h1>
-                <MdShoppingCart className="bx bxs-cart" />
+    <ThemeProvider theme={theme}>
+      <div className="Body_page">
+        <NavbarLogado toggleTheme={toggleTheme} />
+        <main className="carrinho">
+          <div className="carrinho-content">
+            <div className="title-carrinho">
+              <div className="title-h1">
+                <MdArrowLeft className="bx bx-chevron-left " />
+                <a href={"/pesquisa"} className="Link_comprar">
+                  <h1>Continuar comprando</h1>
+                </a>
               </div>
-              <img src="" alt="" />
-            </div>
-          </div>
-          <hr className="Linha_carrinho" />
-          <div className="carrinho-resumo">
-            <div className="carrinho-produto">
-              <div className="produto">
-                <img src={Produtos} />
-                <div className="text-produto">
-                  <h1>Óculos Realidade Virtual VR Oculus Meta Quest 2 256gb</h1>
-                  <p>Com desconto de 10%</p>
-                  <div className="h1-span">
-                    <h3>
-                      À vista no pix: <span>R$ 3.799,99</span>
-                    </h3>
-                  </div>
+              <div className="title-img">
+                <div className="cart-title">
+                  <h1>Meu carrinho</h1>
+                  <MdShoppingCart className="bx bxs-cart" />
                 </div>
-                <div className="quantidade-produto">
-                  <div className="up-down">
-                    <button
-                      id="decremento"
-                      className="Btn-updown"
-                      ref={decrementoRef}
-                    >
-                      -
-                    </button>
-                    <input
-                      type="number"
-                      id="qtd"
-                      min={0}
-                      max={500}
-                      readOnly
-                      ref={contadorRef}
-                    />
-                    <button
-                      id="incremento"
-                      className="Btn-updown"
-                      ref={incrementoRef}
-                    >
-                      +
-                    </button>
-                  </div>
-                  <div className="remove">
-                    <TbTrashXFilled className="bx bx-trash trexi" />
-                    <p>REMOVE</p>
-                  </div>
-                </div>
+                <img src="" alt="" />
               </div>
-              <hr className="Algumalinhaaleatoria" />
-              <AdicionarEndereco />
-              <div className="clean-address">
-                <div className="address" id="Add_Address" onClick={Add_Address}>
-                  <button className="Address-button">
-                    <IoLocationSharp className="Location" />
-                    <div className="Link-address">Selecione o seu endereço</div>
-                  </button>
-                </div>
-                <div className="clean-products">
-                  <button className="clean-button">
-                    <TbTrashXFilled className="trexi" />
-                    <div className="UmlinkQuAlquer">
-                      Remover todos os produtos
+            </div>
+            <hr className="Linha_carrinho" />
+            <div className="carrinho-resumo">
+              <div className="carrinho-produto">
+                <div className="produto">
+                  <img src={Produtos} />
+                  <div className="text-produto">
+                    <h1>
+                      Óculos Realidade Virtual VR Oculus Meta Quest 2 256gb
+                    </h1>
+                    <p>Com desconto de 10%</p>
+                    <div className="h1-span">
+                      <h3>
+                        À vista no pix: <span>R$ 3.799,99</span>
+                      </h3>
                     </div>
+                  </div>
+                  <div className="quantidade-produto">
+                    <div className="up-down">
+                      <button
+                        id="decremento"
+                        className="Btn-updown"
+                        ref={decrementoRef}
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        id="qtd"
+                        min={0}
+                        max={500}
+                        readOnly
+                        ref={contadorRef}
+                      />
+                      <button
+                        id="incremento"
+                        className="Btn-updown"
+                        ref={incrementoRef}
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div className="remove">
+                      <TbTrashXFilled className="bx bx-trash trexi" />
+                      <p>REMOVE</p>
+                    </div>
+                  </div>
+                </div>
+                <hr className="Algumalinhaaleatoria" />
+                <AdicionarEndereco />
+                <div className="clean-address">
+                  <div
+                    className="address"
+                    id="Add_Address"
+                    onClick={Add_Address}
+                  >
+                    <button className="Address-button">
+                      <IoLocationSharp className="Location" />
+                      <div className="Link-address">
+                        Selecione o seu endereço
+                      </div>
+                    </button>
+                  </div>
+                  <div className="clean-products">
+                    <button className="clean-button">
+                      <TbTrashXFilled className="trexi" />
+                      <div className="UmlinkQuAlquer">
+                        Remover todos os produtos
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="produto-resumo">
+                <div className="resumo-title">
+                  <h1>Resumo</h1>
+                </div>
+                <div className="frete-preco">
+                  <p>Valor dos produtos:</p>
+                  <hr />
+                  <p>Valor do frete:</p>
+                </div>
+                <div className="resumo-resumo">
+                  <p>à vista</p>
+                  <h1>R$3799,99</h1>
+                  <p>no PIX 15% de desconto</p>
+                  <div className="purple-line"></div>
+                  <h3>R$4310,60</h3>
+                  <p className="less-text">
+                    em até 12x de R$150,40 sem juros no cartão
+                  </p>
+                </div>
+                <div className="finalizar-pedido">
+                  <button className="Fim-button">
+                    <a href="" className="Finalize">
+                      FINALIZAR PEDIDO
+                    </a>
                   </button>
                 </div>
               </div>
             </div>
-
-            <div className="produto-resumo">
-              <div className="resumo-title">
-                <h1>Resumo</h1>
+            <div className="cupom-desconto">
+              <div className="title-cupom-desconto">
+                <TbDiscount className="bx bxs-discount" />
+                <h1>Cupom de desconto</h1>
               </div>
-              <div className="frete-preco">
-                <p>Valor dos produtos:</p>
-                <hr />
-                <p>Valor do frete:</p>
-              </div>
-              <div className="resumo-resumo">
-                <p>à vista</p>
-                <h1>R$3799,99</h1>
-                <p>no PIX 15% de desconto</p>
-                <div className="purple-line"></div>
-                <h3>R$4310,60</h3>
-                <p className="less-text">
-                  em até 12x de R$150,40 sem juros no cartão
-                </p>
-              </div>
-              <div className="finalizar-pedido">
-                <button className="Fim-button">
-                  <a href="" className="Finalize">
-                    FINALIZAR PEDIDO
-                  </a>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="cupom-desconto">
-            <div className="title-cupom-desconto">
-              <TbDiscount className="bx bxs-discount" />
-              <h1>Cupom de desconto</h1>
-            </div>
-            <form action="">
-              <div className="textInputWrapper">
+              <form action="">
+                <div className="textInputWrapper">
+                  <input
+                    placeholder="Cupom de desconto"
+                    type="text"
+                    className="textInput"
+                  />
+                </div>
                 <input
-                  placeholder="Cupom de desconto"
-                  type="text"
-                  className="textInput"
+                  type="submit"
+                  value="APLICAR O CUPOM"
+                  className="input-submit"
                 />
-              </div>
-              <input
-                type="submit"
-                value="APLICAR O CUPOM"
-                className="input-submit"
-              />
-            </form>
+              </form>
+            </div>
           </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
