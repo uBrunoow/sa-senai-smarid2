@@ -15,7 +15,7 @@
     background-color: #222;
 }
 
-/* .Primeiro_produto {
+.Primeiro_produto {
     background: #121212;
     width: 300px;
     height: 435px;
@@ -25,7 +25,7 @@
     cursor: pointer;
     color: #fff;
     position: relative;
-} */
+}
 
 .Primeiro_produto:hover .Produtos_restantes{
     visibility: hidden;

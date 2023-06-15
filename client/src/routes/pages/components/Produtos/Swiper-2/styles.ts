@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FrProducts = styled.div`
+export const FrProducts = styled.a`
   background: ${props => props.theme.colors.OneBackground};
   width: 300px;
   height: 435px;

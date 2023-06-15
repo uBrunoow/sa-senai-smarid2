@@ -58,10 +58,10 @@ export default function Carrinho() {
     }
   } 
 
-  const [theme, setTheme] = usePersistedState("theme", light);
+  const [theme, setTheme] = usePersistedState("theme", dark);
 
   const toggleTheme = () => {
-    setTheme(theme.title === "light" ? dark : light);
+    setTheme(theme.title === "dark" ? light : dark);
   };
 
   return (

@@ -74,7 +74,7 @@ const Navbar: React.FC<Props> = ({ toggleTheme }) => {
 
           <div className="light-dark">
             <img src={Sun} />
-            <Switch
+            {/* <Switch
               onChange={toggleTheme}
               checked={title === "dark"}
               checkedIcon={false}
@@ -84,7 +84,7 @@ const Navbar: React.FC<Props> = ({ toggleTheme }) => {
               handleDiameter={20}
               offColor={shade(0.3, colors.primary)}
               onColor={colors.secundary}
-            />
+            /> */}
           </div>
         </Header>
       </nav>

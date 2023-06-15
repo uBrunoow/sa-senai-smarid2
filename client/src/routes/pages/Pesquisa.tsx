@@ -9,7 +9,6 @@ import { BsFillFilterSquareFill } from "react-icons/bs"
 export default function Pesquisa() {
     return (
         <div className='Body_page'>
-            <Navbar_logado/>
             <main className="pesquisa">
                 <div className="pesquisa-wrapper">
                     <div className="pesquisa-content">
@@ -196,7 +195,6 @@ export default function Pesquisa() {
                     </div>
                 </div>
             </main>
-            <Rodape/>
         </div>
         
     )
