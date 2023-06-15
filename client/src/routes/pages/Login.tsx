@@ -1,6 +1,5 @@
 // ESTILOS
 import "../sass/login.sass";
-import "../css/login.css";
 
 // IMAGENS
 import LostOnline from "/src/assets/IMG/lost-online.svg";
