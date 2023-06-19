@@ -289,6 +289,14 @@ export default function Compra() {
                 />
               </div>
               <hr className="Desc_line" />
+              <div>
+                <div>Bruno Werner</div>
+                <div>(21/02/23)</div>
+                <div>
+                  Gostaria de saber se existe a possibilidade de devolição do
+                  produto
+                </div>
+              </div>
               <div className="Pergunta_flex">
                 <form action="" className="Form_perguntas">
                   <div className="Flex_input_btn_resposta">
