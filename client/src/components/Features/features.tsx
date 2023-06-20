@@ -14,9 +14,6 @@ export default function Companies () {
         <Features className="f-main">
             <div className='features'>
                 <div className="imagens-features">
-                    <div className="overlay-features">
-                        <BsFillPlayFill className='Icons_features'/>
-                    </div>
                     <div className="img-features">
                         <div className="img-1">
                             <img src={img1} alt=""/>

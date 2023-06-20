@@ -289,13 +289,14 @@ export default function Compra() {
                 />
               </div>
               <hr className="Desc_line" />
-              <div>
-                <div>Bruno Werner</div>
-                <div>(21/02/23)</div>
-                <div>
+              <div className="EachQuestion">
+                <div className="NameQuestion">Bruno Werner</div>
+                <div className="DateQuestion">(21/02/23)</div>
+                <div className="UserQuestion">
                   Gostaria de saber se existe a possibilidade de devolição do
                   produto
                 </div>
+                <hr />
               </div>
               <div className="Pergunta_flex">
                 <form action="" className="Form_perguntas">

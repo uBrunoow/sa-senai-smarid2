@@ -1,8 +1,7 @@
-* 
+*
   margin: 0
   padding: 0
   font-family: 'Poppins', sans-serif
-
 
 $cor1: #A155DB
 $cor2: #44245C
@@ -16,6 +15,10 @@ $cor9: #2C2C2C
 $cor10: #111111
 
 .ofertas-container
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: row
   max-width: 1500px
   width: 100%
   padding: 40px 0
@@ -25,13 +28,10 @@ $cor10: #111111
   overflow: hidden
   border-radius: 25px
 
-
 .card-content-ofertas
   display: flex
-  flex-direction: column
   align-items: center
   padding: 10px 14px
-
 
 .swiper-navBtn2
   color: $cor1
@@ -50,13 +50,9 @@ $cor10: #111111
 .swiper-button-prev2
   left: 0
 
-
-@media screen and (max-width: 768px) 
+@media screen and (max-width: 768px)
   .ofertas-content
     margin: 0 10px
-  
+
   .swiper-navBtn
     display: none
-
-
-  
