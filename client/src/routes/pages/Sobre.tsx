@@ -1,15 +1,15 @@
 import "../sass/sobre.sass";
-import Navbar from "../../components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
 import { MdLibraryAddCheck } from "react-icons/md";
 import { HiOutlineEye } from "react-icons/hi";
 import { BsFillBookmarksFill } from "react-icons/bs";
 import bgSobre from "/src/assets/IMG/bg-sobre.svg";
+import Navbar_pag from "./components/Navbar-pagamento/navbar-pag";
 
 export default function Sobre() {
   return (
     <div className="Sobre">
-      <Navbar />
+      <Navbar_pag />
       <div className="Title_page_about">
         <p className="p-roxo">WELCOME TO</p>
         <h1 className="Title_about">
