@@ -1,6 +1,6 @@
 import "../sass/compra.sass";
 
-import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
+import UserImage from '/src/assets/IMG/Rectangle 335.svg'
 import Rodape from "./components/Footer/footer";
 import Stars from "/src/assets/IMG/img-produtos/Stars.svg";
 import { BsCheckLg } from "react-icons/bs";
@@ -19,6 +19,7 @@ import light from "../../styles/themes/light";
 import usePersistedState from "../../utils/usePersistedState";
 import { ThemeProvider } from "styled-components";
 import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
+import Respostas from "./components/Respostas/respostas";
 
 export default function Compra() {
   function Mostrar_Texto_Avaliacao() {
@@ -83,6 +84,33 @@ export default function Compra() {
   const toggleTheme = () => {
     setTheme(theme.title === "dark" ? light : dark);
   };
+
+  function Mostrar_Respostas_Perguntas() {
+    let myImage = document.getElementById(
+      "Arrow_up_descricao"
+    ) as HTMLImageElement;
+
+    let detalhes = document.getElementById(
+      "CadaRespostaDetalhes"
+    ) as HTMLDivElement;
+
+    // Rotação e transição da flecha
+    myImage.style.transition = "all .5s ease-in-out";
+    if (myImage.style.transform == "rotate(180deg)") {
+      myImage.style.transform = "rotate(0deg)";
+    } else {
+      myImage.style.transform = "rotate(180deg)";
+    }
+
+    // Mostrar os detalhes
+
+    detalhes.style.transition = "all .5s ease-in-out";
+    if (detalhes.style.display == "block") {
+      detalhes.style.display = "none";
+    } else {
+      detalhes.style.display = "block";
+    }
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -289,33 +317,66 @@ export default function Compra() {
                 />
               </div>
               <hr className="Desc_line" />
-              <div className="EachQuestion">
-                <div className="NameQuestion">Bruno Werner</div>
-                <div className="DateQuestion">(21/02/23)</div>
-                <div className="UserQuestion">
-                  Gostaria de saber se existe a possibilidade de devolição do
-                  produto
+              <div id="Texto_perguntas">
+                <div className="EachQuestion">
+
+                  <div>
+                    <img src={UserImage} alt="" className="ImageUserDiv"/>
+                  </div>
+
+                  <div>
+                    <div className="NameQuestion">Bruno Werner</div>
+                    <div className="DateQuestion">(21/02/23)</div>
+                    <div className="UserQuestion">
+                      Gostaria de saber se existe a possibilidade de devolição
+                      do produto
+                    </div>
+                  </div>
                 </div>
-                <hr />
-              </div>
-              <div className="Pergunta_flex">
-                <form action="" className="Form_perguntas">
-                  <div className="Flex_input_btn_resposta">
-                    <input
-                      type="text"
-                      className="Input_cep Input_per-res"
-                      placeholder="Faça uma pergunta"
-                    />
-                    <button type="submit" className="Btn_perguntas">
-                      PERGUNTAR
-                    </button>
+
+                <hr className="LineQuestion"/>
+
+                <div
+                  className="EachAnswer"
+                  id="EachAnswer"
+                  onClick={Mostrar_Respostas_Perguntas}
+                >
+                  <div className="divRespostas">
+                    <div className="TituloRespostas">
+                      <h1 className="Respostas">6 RESPOSTAS</h1>
+                      <IoMdArrowDropdown
+                        className="Arrow_up"
+                        id="Arrow_up_perguntas"
+                      />
+                    </div>
+                    <div id="CadaRespostaDetalhes">
+                      <Respostas />
+                      <Respostas />
+                      <Respostas />
+                      <Respostas />
+                    </div>
                   </div>
-                  <div className="Flex_perguntas">
-                    <label htmlFor="check_pergunta" className=""></label>
-                    <input type="checkbox" name="" id="check_pergunta" />
-                    Perguntar como usuário anônimo
-                  </div>
-                </form>
+                </div>
+
+                <div className="Pergunta_flex">
+                  <form action="" className="Form_perguntas">
+                    <div className="Flex_input_btn_resposta">
+                      <input
+                        type="text"
+                        className="Input_cep Input_per-res"
+                        placeholder="Faça uma pergunta"
+                      />
+                      <button type="submit" className="Btn_perguntas">
+                        PERGUNTAR
+                      </button>
+                    </div>
+                    <div className="Flex_perguntas">
+                      <label htmlFor="check_pergunta" className=""></label>
+                      <input type="checkbox" name="" id="check_pergunta" />
+                      Perguntar como usuário anônimo
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
 

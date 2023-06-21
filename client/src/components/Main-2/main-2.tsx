@@ -15,11 +15,11 @@ export default function Main2 () {
                 <DescriptionContent2 className="desc-initial-2">
                     Pretium pharetra est elit sollicitudin mollis habitasse. Lobortis leo justo porta erat laoreet torquent tortor arcu nascetur aliquam inceptos. Montes lacinia egestas elit eleifend vestibulum nisl faucibus eros phasellus.
                 </DescriptionContent2>
-                <button className="btn-initial-1 btn-initial-2">
+                {/* <button className="btn-initial-1 btn-initial-2">
                     <a href="">
                         Read more
                     </a>
-                </button>
+                </button> */}
             </div>
         </InitialContent2>
     </main>
