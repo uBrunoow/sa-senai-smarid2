@@ -24,8 +24,3 @@ export const SignIpButtonLink = styled.a `
     text-decoration: none;
     color: ${props => props.theme.colors.text};
 `;
-
-export const SignUpButtonLink = styled.a `
-   text-decoration: none;
-   color: ${props => props.theme.colors.text};
-`;

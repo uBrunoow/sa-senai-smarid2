@@ -16,7 +16,11 @@ import React, { useContext } from "react";
 import Switch from "react-switch";
 import { ThemeContext } from "styled-components";
 import { shade } from "polished";
-import { Header, NavbarLink, SignIpButtonLink, SignUpButtonLink } from "./styles";
+import {
+  Header,
+  NavbarLink,
+  SignIpButtonLink,
+} from "./styles";
 
 interface Props {
   toggleTheme(): void;
@@ -67,7 +71,7 @@ const Navbar: React.FC<Props> = ({ toggleTheme }) => {
             </div>
             <div className="sign-up">
               <button type="submit">
-                <SignUpButtonLink href={`/login`}>Sign-up</SignUpButtonLink>
+                <a href={`/login`}>Sign-up</a>
               </button>
             </div>
           </div>

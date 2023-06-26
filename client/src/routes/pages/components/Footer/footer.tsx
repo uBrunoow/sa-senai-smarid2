@@ -6,7 +6,6 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
 import { Copyright2, FooterContainer2 } from './styles';
-import { FooterContainer, Copyright } from '../../../../components/Footer/styles';
 
 export default function Footer() {
 

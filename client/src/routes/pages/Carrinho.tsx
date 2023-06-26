@@ -1,6 +1,5 @@
 import "../sass/carrinho.sass";
 
-import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
 import Footer from "./components/Footer/footer";
 import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
 
@@ -13,10 +12,6 @@ import { TbDiscount } from "react-icons/tb";
 import { useRef, useEffect } from "react";
 import AdicionarEndereco from "./adicionar-endereco/addendereco";
 import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
-import { ThemeProvider } from "styled-components";
-import dark from "../../styles/themes/dark";
-import light from "../../styles/themes/light";
-import usePersistedState from "../../utils/usePersistedState";
 
 export default function Carrinho() {
   const incrementoRef = useRef(null);
@@ -58,16 +53,9 @@ export default function Carrinho() {
     }
   } 
 
-  const [theme, setTheme] = usePersistedState("theme", dark);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "dark" ? light : dark);
-  };
-
   return (
-    <ThemeProvider theme={theme}>
       <div className="Body_page">
-        <NavbarLogado toggleTheme={toggleTheme} />
+        <NavbarLogado />
         <main className="carrinho">
           <div className="carrinho-content">
             <div className="title-carrinho">
@@ -210,6 +198,5 @@ export default function Carrinho() {
         </main>
         <Footer />
       </div>
-    </ThemeProvider>
   );
 }

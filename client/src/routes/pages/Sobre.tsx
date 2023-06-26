@@ -1,5 +1,4 @@
 import "../sass/sobre.sass";
-import Footer from "./components/Footer/footer";
 import { MdLibraryAddCheck } from "react-icons/md";
 import { HiOutlineEye } from "react-icons/hi";
 import { BsFillBookmarksFill } from "react-icons/bs";
@@ -76,12 +75,11 @@ export default function Sobre() {
           </p>
         </div>
       </div>
-      <div className="Btn_contact">
+      {/* <div className="Btn_contact">
         <a href="" className="Contact">
           ENTRE EM CONTATO CONOSCO
         </a>
-      </div>
-      <Footer/>
+      </div> */}
     </div>
   );
 }

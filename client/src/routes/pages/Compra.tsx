@@ -1,6 +1,6 @@
 import "../sass/compra.sass";
 
-import UserImage from '/src/assets/IMG/Rectangle 335.svg'
+import UserImage from "/src/assets/IMG/Rectangle 335.svg";
 import Rodape from "./components/Footer/footer";
 import Stars from "/src/assets/IMG/img-produtos/Stars.svg";
 import { BsCheckLg } from "react-icons/bs";
@@ -14,10 +14,6 @@ import { AiFillFileText } from "react-icons/ai";
 import { MdQuestionAnswer } from "react-icons/md";
 import { MdAssessment } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
-import dark from "../../styles/themes/dark";
-import light from "../../styles/themes/light";
-import usePersistedState from "../../utils/usePersistedState";
-import { ThemeProvider } from "styled-components";
 import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
 import Respostas from "./components/Respostas/respostas";
 
@@ -79,12 +75,6 @@ export default function Compra() {
     }
   }
 
-  const [theme, setTheme] = usePersistedState("theme", dark);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "dark" ? light : dark);
-  };
-
   function Mostrar_Respostas_Perguntas() {
     let myImage = document.getElementById(
       "Arrow_up_descricao"
@@ -113,10 +103,9 @@ export default function Compra() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
       <div className="Body_page">
         <main className="Compra">
-          <NavbarLogado toggleTheme={toggleTheme} />
+          <NavbarLogado />
           <div className="Title_compra">
             <p className="Texto_bold">
               Você esta em:
@@ -171,10 +160,12 @@ export default function Compra() {
                   </p>
                 </div>
                 <div className="Button_compra">
-                  <button className="Comprar_compra">
-                    <MdShoppingCart />
-                    <span>Comprar</span>
-                  </button>
+                  <a href="/carrinho" className="Comprar_compra">
+                    <button className="Comprar_compra">
+                      <MdShoppingCart />
+                      <span className="SpanComprar">Comprar</span>
+                    </button>
+                  </a>
                   {/* BOTÃO DE COMPARTILHAR */}
 
                   <button className="btn-cssbuttons">
@@ -319,9 +310,8 @@ export default function Compra() {
               <hr className="Desc_line" />
               <div id="Texto_perguntas">
                 <div className="EachQuestion">
-
                   <div>
-                    <img src={UserImage} alt="" className="ImageUserDiv"/>
+                    <img src={UserImage} alt="" className="ImageUserDiv" />
                   </div>
 
                   <div>
@@ -334,7 +324,7 @@ export default function Compra() {
                   </div>
                 </div>
 
-                <hr className="LineQuestion"/>
+                <hr className="LineQuestion" />
 
                 <div
                   className="EachAnswer"
@@ -430,6 +420,5 @@ export default function Compra() {
           <Rodape />
         </main>
       </div>
-    </ThemeProvider>
   );
 }
