@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Question = styled.div`
   height: 100%;
-  background-color: ${props => props.theme.colors.OneBackground};
+  background-color: #121212;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +15,6 @@ export const ParagraphQuestion = styled.p`
   font-weight: 400;
   font-size: 32px;
   line-height: 39px;
-  color: ${props => props.theme.colors.text};
+  color: #fff;
   margin: 0 50px;
 `

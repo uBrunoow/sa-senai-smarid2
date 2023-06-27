@@ -6,7 +6,7 @@ export const PromotionN2 = styled.div`
     justify-content: center;
     gap: 50px;
     height: 250px;
-    background: ${props => props.theme.colors.OneBackground};
+    background: #121212;
 `
 export const PromotionN3 = styled.div`
     display: flex;
@@ -14,5 +14,5 @@ export const PromotionN3 = styled.div`
     justify-content: center;
     gap: 50px;
     height: 150px;
-    background: ${props => props.theme.colors.TwoBackground};
+    background: #222222;
 `

@@ -1,10 +1,15 @@
+// Importar estilo do sass
 import "../sass/sobre.sass";
+
+// Importar componentes
 import Footer from "./components/Footer/footer";
+import bgSobre from "/src/assets/IMG/bg-sobre.svg";
+import Navbar_pag from "./components/Navbar-pagamento/navbar-pag";
+
+// Importar icones
 import { MdLibraryAddCheck } from "react-icons/md";
 import { HiOutlineEye } from "react-icons/hi";
 import { BsFillBookmarksFill } from "react-icons/bs";
-import bgSobre from "/src/assets/IMG/bg-sobre.svg";
-import Navbar_pag from "./components/Navbar-pagamento/navbar-pag";
 
 export default function Sobre() {
   return (

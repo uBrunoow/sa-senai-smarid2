@@ -1,6 +1,9 @@
-import Swiper2 from './Swiper-2/swiper-2'
+// Importar estilos do css e sass
 import './Swiper-2/styles.css'
 import './produtos.sass'
+
+// Importar swiper
+import Swiper2 from './Swiper-2/swiper-2'
 
 export default function Produtos() {
     return (

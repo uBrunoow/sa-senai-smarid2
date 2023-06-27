@@ -1,7 +1,12 @@
-import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
-import Rodape from "./components/Footer/footer";
+// Importar estilo do sass
 import "../sass/conta.sass";
-import { useEffect, useState } from "react";
+
+// Importar componentes
+import EditarEndereco from "./editar-endereco/editarendereco";
+import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
+import Footer from "./components/Footer/footer";
+
+// Importar icones
 import { MdDataset } from "react-icons/md";
 import { MdLocationOn } from "react-icons/md";
 import { MdHome } from "react-icons/md";
@@ -15,12 +20,6 @@ import { MdOutlinePassword } from "react-icons/md";
 import { AiFillEye } from "react-icons/ai";
 import { HiLockClosed } from "react-icons/hi";
 import { FaLocationArrow } from "react-icons/fa";
-import EditarEndereco from "./editar-endereco/editarendereco";
-import { ThemeProvider } from "styled-components";
-import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
-import dark from "../../styles/themes/dark";
-import light from "../../styles/themes/light";
-import usePersistedState from "../../utils/usePersistedState";
 import { MinhaConta } from "../styles/conta";
 
 export default function Account() {
@@ -79,15 +78,10 @@ export default function Account() {
     }
   }
 
-  const [theme, setTheme] = usePersistedState("theme", dark);
 
-  const toggleTheme = () => {
-    setTheme(theme.title === "dark" ? light : dark);
-  };
   return (
-    <ThemeProvider theme={theme}>
       <div className="Body_page" id="Conta_id">
-        <NavbarLogado toggleTheme={toggleTheme} />
+        <NavbarLogado />
         <MinhaConta className="minha-conta">
           <EditarEndereco />
           <div className="conta-wrapper">
@@ -454,8 +448,7 @@ export default function Account() {
             </div>
           </div>
         </MinhaConta>
-        <Rodape />
+        <Footer />
       </div>
-    </ThemeProvider>
   );
 }

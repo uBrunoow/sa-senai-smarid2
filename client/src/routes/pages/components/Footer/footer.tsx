@@ -1,4 +1,7 @@
+// Importar estilo do sass
 import './footer.sass'
+
+// Importar icones
 import { IoArrowUpOutline } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa";
 import { AiOutlineInstagram } from "react-icons/ai";
@@ -6,7 +9,6 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
 import { Copyright2, FooterContainer2 } from './styles';
-import { FooterContainer, Copyright } from '../../../../components/Footer/styles';
 
 export default function Footer() {
 

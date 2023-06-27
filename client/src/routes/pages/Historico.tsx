@@ -1,9 +1,12 @@
+// Importar estilo do sass
 import "../sass/historico.sass";
 
-import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
+// Importar componentes
 import Footer from "./components/Footer/footer";
+import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
 import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
 
+// Importar icones
 import { MdShoppingBasket } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaTruck } from "react-icons/fa";
@@ -16,12 +19,8 @@ import { HiInboxArrowDown } from "react-icons/hi2";
 import { BsCartCheckFill } from "react-icons/bs";
 import { BsCheckLg } from "react-icons/bs";
 
+// Importar usabilidades do react
 import { useRef, useEffect } from "react";
-import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
-import dark from "../../styles/themes/dark";
-import light from "../../styles/themes/light";
-import usePersistedState from "../../utils/usePersistedState";
-import { ThemeProvider } from "styled-components";
 
 export default function Historico() {
   function Clickinfo() {
@@ -93,16 +92,9 @@ export default function Historico() {
     }
   }, []);
 
-  const [theme, setTheme] = usePersistedState("theme", dark);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "dark" ? light : dark);
-  };
-
   return (
-    <ThemeProvider theme={theme}>
       <div className="Body_page">
-        <NavbarLogado toggleTheme={toggleTheme} />
+        <NavbarLogado />
         <main className="historico">
           <div className="historico-wrapper">
             <div className="historico-content">
@@ -520,6 +512,5 @@ export default function Historico() {
         </main>
         <Footer />
       </div>
-    </ThemeProvider>
   );
 }

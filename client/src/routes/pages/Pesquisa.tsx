@@ -1,14 +1,19 @@
-import P1 from './components/Produtos2/produtos2'
+// Importar estilo do sass
 import '../sass/pesquisa.sass'
 
-import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
-import Rodape from "./components/Footer/footer";
+// Importar componentes
+import P1 from './components/Produtos2/produtos2'
+import NavbarLogado  from "./components/Navbar-logado/Navbar_logado";
+import Footer from './components/Footer/footer';
+
+// Importar icones
 import { IoMdArrowDropdown } from "react-icons/io";
 import { BsFillFilterSquareFill } from "react-icons/bs"
 
 export default function Pesquisa() {
     return (
         <div className='Body_page'>
+            <NavbarLogado/>
             <main className="pesquisa">
                 <div className="pesquisa-wrapper">
                     <div className="pesquisa-content">
@@ -195,6 +200,7 @@ export default function Pesquisa() {
                     </div>
                 </div>
             </main>
+            <Footer/>
         </div>
         
     )

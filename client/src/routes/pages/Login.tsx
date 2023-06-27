@@ -1,11 +1,11 @@
-// ESTILOS
+// Importar estilo do sass
 import "../sass/login.sass";
 
-// IMAGENS
+// Importar imagens
 import LostOnline from "/src/assets/IMG/lost-online.svg";
 import Programming from "/src/assets/IMG/programming.svg";
 
-// ICONS
+// Importar icones
 import { BsFillPersonFill } from "react-icons/bs";
 import { IoLockClosed } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa";
@@ -18,7 +18,7 @@ import { IoMdFingerPrint } from "react-icons/io";
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
-// TS
+// Importar usabilidades do react
 import { useRef, useEffect } from "react";
 
 export default function Login() {

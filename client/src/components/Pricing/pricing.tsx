@@ -1,7 +1,6 @@
 import { ParagraphContent } from "../Main-1/styles";
 import "../Pricing/pricing.sass";
 import { DolarSignPromo, ParagraphPromos, Price, PriceTitlePromo, Promos } from "./styles";
-import Bck1 from "/src/assets/IMG/img-produtos/produto1.svg";
 
 export default function Pricing() {
     return (

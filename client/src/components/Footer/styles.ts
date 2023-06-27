@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
-  background-color: ${props => props.theme.colors.TwoBackground};
+  background-color: #222222;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@ export const FooterContainer = styled.div`
 `;
 
 export const Copyright = styled.p `
-    color: ${props => props.theme.colors.text};
+    color: #fff;
     font-weight: 700;
     font-size: 20px;
     line-height: 39px;

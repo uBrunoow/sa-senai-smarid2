@@ -11,26 +11,15 @@ import Highlights from "./components/Highlights/highlights";
 import Footer from "./components/Footer/footer";
 
 import GlobalStyleComponent from "./styles/global";
-import { ThemeProvider } from "styled-components";
-import Navbar from "./components/Navbar/navbar";
-import light from "./styles/themes/light";
-import dark from "./styles/themes/dark";
-import usePersistedState from "./utils/usePersistedState";
-
 import "./App.css";
+import Navbar from "./components/Navbar/navbar";
 
 function App() {
-  const [theme, setTheme] = usePersistedState("theme", dark);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "dark" ? light : dark);
-  };
   return (
-    <ThemeProvider theme={theme}>
       <div className="App">
         <div className="Body_page">
           <GlobalStyleComponent />
-          <Navbar toggleTheme={toggleTheme} />
+          <Navbar/>
           <Main />
           <Main2 />
           <Companies />
@@ -44,7 +33,6 @@ function App() {
           <Footer />
         </div>
       </div>
-    </ThemeProvider>
   );
 }
 

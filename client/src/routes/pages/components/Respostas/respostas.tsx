@@ -1,4 +1,7 @@
+// Importar estilo do sass
 import "./respostas.sass";
+
+// Importar imagens
 import UserImage from "/src/assets/IMG/Rectangle 335.svg";
 
 export default function Respostas() {

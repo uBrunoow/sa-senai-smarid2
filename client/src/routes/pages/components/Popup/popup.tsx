@@ -1,4 +1,7 @@
+// Importar estilo do sass
 import "./popup.sass"
+
+// Importar icones
 import { BsFillCheckCircleFill } from "react-icons/bs"
 
 

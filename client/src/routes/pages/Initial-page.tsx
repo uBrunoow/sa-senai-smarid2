@@ -1,4 +1,4 @@
-import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
+// Importar componentes
 import Promoções from "./components/Promoções/promos";
 import Countdown from "./components/Countdown/countdown";
 import Produtos from "./components/Produtos/produtos";
@@ -6,24 +6,15 @@ import Extra_promotion from "./components/Extra-promotion/extra_promotion";
 import Departamentos from "./components/Departamentos/departamentos";
 import Destaques from "./components/Destaques/destaques-1";
 import Extra_promotion2 from "./components/Extra-promotion2/extra-promotion2";
-import Rodape from "./components/Footer/footer";
 import Popup from "./components/Popup/popup";
 import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
-import { ThemeProvider } from "styled-components";
-import dark from "../../styles/themes/dark";
-import light from "../../styles/themes/light";
-import usePersistedState from "../../utils/usePersistedState";
+import Footer from "./components/Footer/footer";
 
 export default function Initialpage() {
-    const [theme, setTheme] = usePersistedState("theme", dark);
 
-    const toggleTheme = () => {
-      setTheme(theme.title === "dark" ? light : dark);
-    };
     return (
-        <ThemeProvider theme={theme}>
         <div className="Body_page">
-            <NavbarLogado toggleTheme={toggleTheme}/>
+            <NavbarLogado />
             <Promoções />
             <Countdown />
             <Produtos />
@@ -31,9 +22,8 @@ export default function Initialpage() {
             <Departamentos />
             <Destaques />
             <Extra_promotion2 />
-            <Popup/>
-            <Rodape />
+            {/* <Popup/> */}
+            <Footer />
         </div>
-        </ThemeProvider>
     );
 }

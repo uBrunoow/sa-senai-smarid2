@@ -1,5 +1,8 @@
-import D1 from "./Destaques-1/destaques-1"
+// Importar estilo do sass
 import './destaques.sass'
+
+// Importar
+import D1 from "./Destaques-1/destaques-1"
 import { Destaque, TittleDestaque } from "./styles"
 
 export default function Destaques() {

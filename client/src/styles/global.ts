@@ -21,9 +21,9 @@ export default createGlobalStyle`
     }
 
     body {
-        background: ${props => props.theme.colors.background};
+        background: #000;
         font-size: 14px;
-        color: ${props => props.theme.colors.text};
+        color: #fff;
         font-family: 'Poppins', sans-serif;
     }
 `;

@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
 export const Destaque = styled.div`
-  background: ${props => props.theme.colors.OneBackground};
+  background: #121212;
 `
 
 export const TittleDestaque = styled.h1`
-    color: ${props => props.theme.colors.text};
+    color: #fff;
     font-weight: 700;
     font-size: 50px;
     line-height: 77px  ;

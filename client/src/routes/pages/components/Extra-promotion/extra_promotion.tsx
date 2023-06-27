@@ -1,4 +1,7 @@
+// Importar estilo do sass
 import './extra_promotion.sass'
+
+// Importar styled components
 import { Promotion } from './styles'
 
 export default function Extra_promotion() {

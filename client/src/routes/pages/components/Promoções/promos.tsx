@@ -1,5 +1,8 @@
+// Importar estilos do sass e css
 import "./promos.sass";
 import './Swiper-1/styles.css'
+
+// Importar swiper
 import Swiper1 from './Swiper-1/swiper-1'
 
 export default function Promoções() {

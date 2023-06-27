@@ -1,10 +1,13 @@
-import Stars from "/src/assets/IMG/img-produtos/Stars.svg";
-import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
-import { MdShoppingCart } from "react-icons/md";
-import { FaHeart } from "react-icons/fa";
+// Importar estilos do css
 import '../Produtos/Swiper-2/styles.css'
 
-// SASS É O MESMO ARQUIVO DO PRODUTOS 1
+// Importar imagens
+import Stars from "/src/assets/IMG/img-produtos/Stars.svg";
+import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
+
+// Importar icones
+import { MdShoppingCart } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
 
 export default function Produtos2() {
     return (

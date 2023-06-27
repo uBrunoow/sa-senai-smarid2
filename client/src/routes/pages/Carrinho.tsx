@@ -1,51 +1,57 @@
+// Importar estilo do sass
 import "../sass/carrinho.sass";
 
-import Navbar_logado from "./components/Navbar-logado/Navbar_logado";
+// Importar componentes
 import Footer from "./components/Footer/footer";
 import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
+import AdicionarEndereco from "./adicionar-endereco/addendereco";
+import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
 
+// Importar icones
 import { MdArrowLeft } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
 import { TbTrashXFilled } from "react-icons/tb";
 import { IoLocationSharp } from "react-icons/io5";
 import { TbDiscount } from "react-icons/tb";
 
+// Importar usabilidades do react
 import { useRef, useEffect } from "react";
-import AdicionarEndereco from "./adicionar-endereco/addendereco";
-import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
-import { ThemeProvider } from "styled-components";
-import dark from "../../styles/themes/dark";
-import light from "../../styles/themes/light";
-import usePersistedState from "../../utils/usePersistedState";
 
 export default function Carrinho() {
+  // Chamar a const do documento para o código Type
   const incrementoRef = useRef(null);
   const contadorRef = useRef(null);
   const decrementoRef = useRef(null);
 
   useEffect(() => {
+    // Fazer verificação se a const está realmente no documento
     if (incrementoRef.current && contadorRef.current && decrementoRef.current) {
+
+      // Declarar variaveis
       const incremento = incrementoRef.current as HTMLDivElement;
       const contador = contadorRef.current as HTMLDivElement;
       const decremento = decrementoRef.current as HTMLDivElement;
       let qtd = 0;
 
+      // Código do decremento
       decremento.addEventListener("click", function () {
         if (qtd > Number(contador.getAttribute("min"))) {
           qtd--;
-          contador.setAttribute("value", qtd);
+          // contador.setAttribute("value", qtd);
         }
       });
 
+      // Código do decremento
       incremento.addEventListener("click", function () {
         if (qtd < Number(contador.getAttribute("max"))) {
           qtd++;
-          contador.setAttribute("value", qtd);
+          // contador.setAttribute("value", qtd);
         }
       });
     }
   }, []);
 
+  // Função popup para adicionar endereço quando clicado
   function Add_Address() {
     const Add_Address = document.getElementById(
       "Choose_add_id"
@@ -57,17 +63,10 @@ export default function Carrinho() {
       Add_Address.style.display = "block";
     }
   } 
-
-  const [theme, setTheme] = usePersistedState("theme", dark);
-
-  const toggleTheme = () => {
-    setTheme(theme.title === "dark" ? light : dark);
-  };
-
+  
   return (
-    <ThemeProvider theme={theme}>
       <div className="Body_page">
-        <NavbarLogado toggleTheme={toggleTheme} />
+        <NavbarLogado />
         <main className="carrinho">
           <div className="carrinho-content">
             <div className="title-carrinho">
@@ -210,6 +209,5 @@ export default function Carrinho() {
         </main>
         <Footer />
       </div>
-    </ThemeProvider>
   );
 }

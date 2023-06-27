@@ -1,11 +1,13 @@
-import Produtos from '../Produtos/produtos'
+// Importar estilo do sass
 import './favorito.sass'
+
+// Importar imagens
 import Produto from '/src/assets/IMG/img-produtos/produto1.svg'
 import Stars from '/src/assets/IMG/img-produtos/Stars.svg'
 
+// Importar icones
 import { MdShoppingCart} from "react-icons/md"
 import { FaHeart } from "react-icons/fa"
-
 
 export default function Favorito1() {
     return (

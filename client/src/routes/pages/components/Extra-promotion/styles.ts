@@ -6,5 +6,5 @@ export const Promotion = styled.div`
     justify-content: center;
     gap: 50px;
     height: 500px;
-    background: ${props => props.theme.colors.OneBackground};
+    background: #121212;
 `

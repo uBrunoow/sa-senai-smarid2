@@ -1,12 +1,16 @@
+ // Importar estilo do sass
 import "./Navbar_logado.sass";
-import { useContext, useState } from "react";
-import { IoCart } from "react-icons/io5";
+
+// Importar imagens
 import Sun from "/src/assets/IMG/sun.svg";
 import Conta from "/src/assets/IMG/Rectangle 335.svg";
+
+// Importar usabilidade do react
+import { useContext, useState } from "react";
+
+// Importar imagens
+import { IoCart } from "react-icons/io5";
 import { BsSearch } from "react-icons/bs";
-
-import "/src/components/Navbar/navbar.sass";
-
 import { AiOutlineClose } from "react-icons/ai";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -17,18 +21,14 @@ import { IoFlash } from "react-icons/io5";
 import { IoIosChatboxes } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineAim } from "react-icons/ai";
-import { ThemeContext } from "styled-components";
-import { shade } from "polished";
-import Switch from "react-switch";
 import { InputText, Navbar } from "./styles";
 
-interface Props {
-  toggleTheme(): void;
-}
+// NAO SEI OQ É
+import "/src/components/Navbar/navbar.sass";
 
-const NavbarLogado: React.FC<Props> = ({ toggleTheme }) => {
-  const { colors, title } = useContext(ThemeContext);
 
+
+export function NavbarLogado() {
   const [searchValue, setSearchValue] = useState("");
   function AbrirSidebar() {
     var sidebar = document.getElementById("sidebar2") as HTMLDivElement;

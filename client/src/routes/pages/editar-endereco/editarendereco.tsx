@@ -1,8 +1,10 @@
+// Importar estilo do sass
 import "./editarendereco.sass";
+
+// Importar icones
 import { AiFillLock } from "react-icons/ai";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { MdEditSquare } from "react-icons/md"
-
 
 export default function EditarEndereco() {
 

@@ -12,18 +12,9 @@ import { IoIosChatboxes } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineAim } from "react-icons/ai";
 
-import React, { useContext } from "react";
-import Switch from "react-switch";
-import { ThemeContext } from "styled-components";
-import { shade } from "polished";
 import { Header, NavbarLink, SignIpButtonLink, SignUpButtonLink } from "./styles";
 
-interface Props {
-  toggleTheme(): void;
-}
-
-const Navbar: React.FC<Props> = ({ toggleTheme }) => {
-  const { colors, title } = useContext(ThemeContext);
+export function Navbar(){
 
   function AbrirSidebar() {
     var sidebar = document.getElementById("sidebar") as HTMLDivElement;

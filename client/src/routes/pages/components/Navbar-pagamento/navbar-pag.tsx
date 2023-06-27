@@ -1,6 +1,7 @@
+// Importar estilo do sass
 import "./navbar-pag.sass";
 
-import { IoCart } from "react-icons/io5";
+// Importar imagens
 import Sun from "/src/assets/IMG/sun.svg";
 import Conta from "/src/assets/IMG/Rectangle 335.svg";
 

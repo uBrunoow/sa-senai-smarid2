@@ -10,7 +10,7 @@ export const Price = styled.div`
 `;
 
 export const Promos = styled.div`
-  background: ${props => props.theme.colors.FourBackground};
+  background: #2c2c2c;
   border-radius: 37px;
 `
 
@@ -20,7 +20,7 @@ export const ParagraphPromos = styled.p`
   font-weight: 400;
   font-size: 32px;
   line-height: 39px;
-  color: ${props => props.theme.colors.text};
+  color: #fff;
   margin: 20px 50px;
 `
 
@@ -30,7 +30,7 @@ export const PriceTitlePromo = styled.h3`
   font-weight: 800;
   font-size: 64px;
   line-height: 77px;
-  color: ${props => props.theme.colors.text};
+  color: #fff;
   margin: 0 100px;
 `;
   
@@ -40,6 +40,6 @@ export const DolarSignPromo = styled.p`
   font-weight: 800;
   font-size: 40px;
   line-height: 48px;
-  color: ${props => props.theme.colors.text};
+  color: #fff;
   margin: 5px 50px;
 `
