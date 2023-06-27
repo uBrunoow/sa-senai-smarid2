@@ -1,7 +1,10 @@
 // Importar estilo do sass
 import "../sass/carrinho.sass";
 
+<<<<<<< HEAD
 // Importar componentes
+=======
+>>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
 import Footer from "./components/Footer/footer";
 import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
 import AdicionarEndereco from "./adicionar-endereco/addendereco";
@@ -16,6 +19,11 @@ import { TbDiscount } from "react-icons/tb";
 
 // Importar usabilidades do react
 import { useRef, useEffect } from "react";
+<<<<<<< HEAD
+=======
+import AdicionarEndereco from "./adicionar-endereco/addendereco";
+import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
+>>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
 
 export default function Carrinho() {
   // Chamar a const do documento para o código Type
@@ -63,7 +71,11 @@ export default function Carrinho() {
       Add_Address.style.display = "block";
     }
   } 
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
   return (
       <div className="Body_page">
         <NavbarLogado />

@@ -1,6 +1,5 @@
 // Importar estilo do sass
 import "../sass/sobre.sass";
-
 // Importar componentes
 import Footer from "./components/Footer/footer";
 import bgSobre from "/src/assets/IMG/bg-sobre.svg";
@@ -81,12 +80,11 @@ export default function Sobre() {
           </p>
         </div>
       </div>
-      <div className="Btn_contact">
+      {/* <div className="Btn_contact">
         <a href="" className="Contact">
           ENTRE EM CONTATO CONOSCO
         </a>
-      </div>
-      <Footer/>
+      </div> */}
     </div>
   );
 }

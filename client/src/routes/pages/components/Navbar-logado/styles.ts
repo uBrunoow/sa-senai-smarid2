@@ -12,6 +12,10 @@ export const Navbar = styled.header`
 `
 
 export const InputText = styled.input`
+<<<<<<< HEAD
   color: #fff;
+=======
+  color: #FFF;
+>>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
   background-color: #121212;
 `

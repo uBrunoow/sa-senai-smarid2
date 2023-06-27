@@ -3,11 +3,17 @@ import "../sass/desejos.sass";
 
 // Importar componentes
 import F1 from "./components/Favorito/favorito";
+<<<<<<< HEAD
 import Footer from "./components/Footer/footer";
 import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
 
 // Importar icones
 import { FaHeart } from "react-icons/fa";     
+=======
+import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
+import { FaHeart } from "react-icons/fa";  
+import Footer from "./components/Footer/footer";   
+>>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
 
 export default function Desejos() {
   return (
