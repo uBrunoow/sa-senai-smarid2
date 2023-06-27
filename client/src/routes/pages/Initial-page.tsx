@@ -7,14 +7,14 @@ import Departamentos from "./components/Departamentos/departamentos";
 import Destaques from "./components/Destaques/destaques-1";
 import Extra_promotion2 from "./components/Extra-promotion2/extra-promotion2";
 import Popup from "./components/Popup/popup";
-import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
+import { Navbar } from "../../components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
 
 export default function Initialpage() {
 
     return (
         <div className="Body_page">
-            <NavbarLogado />
+            <Navbar />
             <Promoções />
             <Countdown />
             <Produtos />

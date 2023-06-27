@@ -85,6 +85,7 @@ export default function Sobre() {
           ENTRE EM CONTATO CONOSCO
         </a>
       </div> */}
+      <Footer/>
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import './tellmewhy.sass'
 import Background from './img/peakpx - Copia.jpg'
+import { TellMeWhy } from './styles'
 
 
 export default function Tellmewhy() {
     return(
-        <main className="tellmewhy">
+        <TellMeWhy className="tellmewhy">
             <div className="tellmewhy-content">
                 <div className="tellmewhy-desc">
                     <p className="p-roxo">WHY CHOOSE US?</p>
@@ -46,6 +47,6 @@ export default function Tellmewhy() {
                         <img src={Background} alt=""/>
                 </div>
             </div>
-        </main>
+        </TellMeWhy>
     )
 }

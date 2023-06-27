@@ -12,19 +12,7 @@ import { IoIosChatboxes } from "react-icons/io";
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineAim } from "react-icons/ai";
 
-<<<<<<< HEAD
 import { Header, NavbarLink, SignIpButtonLink, SignUpButtonLink } from "./styles";
-=======
-import React, { useContext } from "react";
-import Switch from "react-switch";
-import { ThemeContext } from "styled-components";
-import { shade } from "polished";
-import {
-  Header,
-  NavbarLink,
-  SignIpButtonLink,
-} from "./styles";
->>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
 
 export function Navbar(){
 
@@ -73,21 +61,6 @@ export function Navbar(){
                 <a href={`/login`}>Sign-up</a>
               </button>
             </div>
-          </div>
-
-          <div className="light-dark">
-            <img src={Sun} />
-            {/* <Switch
-              onChange={toggleTheme}
-              checked={title === "dark"}
-              checkedIcon={false}
-              uncheckedIcon={false}
-              height={10}
-              width={40}
-              handleDiameter={20}
-              offColor={shade(0.3, colors.primary)}
-              onColor={colors.secundary}
-            /> */}
           </div>
         </Header>
       </nav>

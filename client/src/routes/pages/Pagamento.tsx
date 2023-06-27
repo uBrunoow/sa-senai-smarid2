@@ -1,7 +1,7 @@
 import "../sass/pagamento.sass";
 
 import Navbar_pag from "./components/Navbar-pagamento/navbar-pag";
-import Rodape from "./components/Footer/footer";
+import Footer from "./components/Footer/footer";
 import { HiLockClosed } from "react-icons/hi";
 
 export default function Pagamento() {
@@ -36,6 +36,7 @@ export default function Pagamento() {
           </div>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import "./App.css";
+
 import Main from "./components/Main-1/main-1";
 import Main2 from "./components/Main-2/main-2";
 import Companies from "./components/Companies/companies";
@@ -10,16 +12,15 @@ import Questions from "./components/Questions/questions";
 import Highlights from "./components/Highlights/highlights";
 import Footer from "./components/Footer/footer";
 
-import GlobalStyleComponent from "./styles/global";
-import "./App.css";
-import Navbar from "./components/Navbar/navbar";
+// import GlobalStyleComponent from "./styles/global";
+import { Navbar } from "./components/Navbar/navbar";
 
 function App() {
   return (
       <div className="App">
         <div className="Body_page">
-          <GlobalStyleComponent />
-          <Navbar/>
+          {/* <GlobalStyleComponent /> */}
+          <Navbar />
           <Main />
           <Main2 />
           <Companies />

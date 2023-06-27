@@ -3,7 +3,7 @@ import "../sass/conta.sass";
 
 // Importar componentes
 import EditarEndereco from "./editar-endereco/editarendereco";
-import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
+import { NavbarLogado } from "./components/Navbar-logado/Navbar_logado";
 import Footer from "./components/Footer/footer";
 
 // Importar icones

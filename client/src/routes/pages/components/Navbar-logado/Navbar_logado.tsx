@@ -1,11 +1,7 @@
  // Importar estilo do sass
 import "./Navbar_logado.sass";
-<<<<<<< HEAD
 
 // Importar imagens
-=======
-import { IoCart } from "react-icons/io5";
->>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
 import Sun from "/src/assets/IMG/sun.svg";
 import Conta from "/src/assets/IMG/Rectangle 335.svg";
 
@@ -27,17 +23,10 @@ import { AiFillLike } from "react-icons/ai";
 import { AiOutlineAim } from "react-icons/ai";
 import { InputText, Navbar } from "./styles";
 
-<<<<<<< HEAD
 // NAO SEI OQ É
 import "/src/components/Navbar/navbar.sass";
 
-
-
 export function NavbarLogado() {
-  const [searchValue, setSearchValue] = useState("");
-=======
-export default function NavbarLogado() {
->>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
   function AbrirSidebar() {
     var sidebar = document.getElementById("sidebar2") as HTMLDivElement;
   
@@ -91,10 +80,6 @@ export default function NavbarLogado() {
                   </a>
                 </div>
               </div>
-            </div>
-    
-            <div className="light-dark">
-              <img src={Sun} />
             </div>
           </Navbar>
         </nav>

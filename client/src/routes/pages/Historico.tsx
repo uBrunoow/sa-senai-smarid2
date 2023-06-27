@@ -3,7 +3,7 @@ import "../sass/historico.sass";
 
 // Importar componentes
 import Footer from "./components/Footer/footer";
-import NavbarLogado from "./components/Navbar-logado/Navbar_logado";
+import { NavbarLogado } from "./components/Navbar-logado/Navbar_logado";
 import Produtos from "/src/assets/IMG/img-produtos/produto1.svg";
 
 // Importar icones

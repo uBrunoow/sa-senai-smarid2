@@ -17,9 +17,6 @@ export default function Navbar_pag() {
                         </a>
                     </div>
                 </div>
-                <div className="light-dark">
-                    <img src={Sun} />
-                </div>
             </header>
         </nav>
     );

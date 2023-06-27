@@ -1,17 +1,12 @@
 // Importar estilo do sass
 import '../sass/pesquisa.sass'
 
-<<<<<<< HEAD
 // Importar componentes
 import P1 from './components/Produtos2/produtos2'
-import NavbarLogado  from "./components/Navbar-logado/Navbar_logado";
+import { NavbarLogado } from './components/Navbar-logado/Navbar_logado'; 
 import Footer from './components/Footer/footer';
 
 // Importar icones
-=======
-import Footer from './components/Footer/footer';
-import NavbarLogado from './components/Navbar-logado/Navbar_logado';
->>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
 import { IoMdArrowDropdown } from "react-icons/io";
 import { BsFillFilterSquareFill } from "react-icons/bs"
 
