@@ -19,70 +19,62 @@ import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
 // Importar usabilidades do react
-import { useRef, useEffect, useState } from "react";
-import Axios from "axios";
+import { useRef, useEffect, useState, SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import console from "console";
 
 export default function Login() {
-  // REGISTER
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [credential, setCpf] = useState("");
+  // // REGISTER
+  // const [email, setEmail] = useState("");
+  // const [name, setUserName] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [credential, setCpf] = useState("");
 
-  const createUser = () => {
-    Axios.post("http://localhost:3002/register", {
-      email: email,
-      userName: userName,
-      password: password,
-      credential: credential,
-    }).then((response) => {
-      navigateTo(`/`)
+  // const createUser = () => {
+  //   axios.post('http://localhost:3002/auth/register') , {
+  //     setUserName : name,
+  //     setEmail : email,
+  //     setPassword : password
+  //   }
+  // };
 
-      setEmail('')
-      setUserName('')
-      setPassword('')
-      setCpf('')
-    });
-  };
+  // // LOGIN
+  // const [loginUserName, setLoginUserName] = useState("");
+  // const [loginPassword, setLoginPassword] = useState("");
+  // const navigateTo = useNavigate()
 
-  // LOGIN
-  const [loginUserName, setLoginUserName] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const navigateTo = useNavigate()
+  // const [ loginStatus, setLoginStatus ] = useState("")
+  // const [ statusHolder, setStatusHolder ] = useState("message")
 
-  const [ loginStatus, setLoginStatus ] = useState("")
-  const [ statusHolder, setStatusHolder ] = useState("message")
+  // const loginUser = () => {
+  //   axios.post("http://localhost:3002/auth/login", {
+  //     loginUserName: email,
+  //     loginPassword: password,
+  //   }).then((response) => {
+  //     if (response.data.message || loginUserName == '' || loginPassword == '' ) {
+  //       navigateTo('/login')
+  //       setLoginStatus(`Credentials dont exist`)
+  //     } else {
+  //       navigateTo('/initialpage')
+  //     }
+  //   });
+  // };
 
-  const loginUser = () => {
-    Axios.post("http://localhost:3002/login", {
-      loginUserName: loginUserName,
-      loginPassword: loginPassword,
-    }).then((response) => {
-      if (response.data.message || loginUserName == '' || loginPassword == '' ) {
-        navigateTo('/login')
-        setLoginStatus(`Credentials dont exist`)
-      } else {
-        navigateTo('/initialpage')
-      }
-    });
-  };
+  // useEffect(() => {
+  //   if(loginStatus !== '') {
+  //     setStatusHolder('showMessage')
+  //     setTimeout(() => {
+  //       setStatusHolder('message')
+  //     }, 4000)
+  //   }
+  // }, [loginStatus])
 
-  useEffect(() => {
-    if(loginStatus !== '') {
-      setStatusHolder('showMessage')
-      setTimeout(() => {
-        setStatusHolder('message')
-      }, 4000)
-    }
-  }, [loginStatus])
-
-  const onSubmit = ( ) => {
-    setLoginUserName(``)
-    setLoginPassword(``)
-  }
-
-
+  // const onSubmit = ( ) => {
+  //   setLoginUserName(``)
+  //   setLoginPassword(``)
+  // }
+  
   const sign_in_btn = useRef(null);
   const sign_up_btn = useRef(null);
   const containerRef = useRef(null);
@@ -118,9 +110,15 @@ export default function Login() {
       <div className="f-container" ref={containerRef}>
         <div className="forms-container">
           <div className="signin-signup">
-            <form action="" method="post" className="sign-in-form" onSubmit={onSubmit}>
+            <form 
+            action=""
+            method="post" 
+            className="sign-in-form" 
+            // onSubmit={onSubmit}
+            >
               <h2 className="title">Login</h2>
               <span className={statusHolder}>{loginStatus}</span>
+              {/* <span className={statusHolder }>{loginStatus}</span> */}
               <div className="lines">
                 <div className="nome-completo">
                   <div className="input-box" id="ib1">
@@ -129,9 +127,7 @@ export default function Login() {
                       type="text"
                       required
                       id="textLogin"
-                        onChange={(event) => {
-                          setLoginUserName(event.target.value);
-                        }}
+                      // onChange={}
                     />
                     <label>Nome Completo</label>
                   </div>
@@ -146,7 +142,7 @@ export default function Login() {
                       required
                       id="password"
                         onChange={(event) => {
-                          setLoginPassword(event.target.value);
+                          
                         }}
                     />
                     <label>Senha</label>
@@ -156,7 +152,7 @@ export default function Login() {
               <button
                 type="submit"
                 className="buttn solid"
-                onClick={loginUser}
+                // onClick={}
               >
                 Entrar
               </button>
@@ -181,7 +177,12 @@ export default function Login() {
               </div>
             </form>
 
-            <form action="" method="post" className="sign-up-form">
+            <form 
+            action="" 
+            method="post" 
+            className="sign-up-form" 
+            // onSubmit={}
+            >
               <h2 className="title">Registrar</h2>
               <div className="lines">
                 <div className="nome-completo">
@@ -189,10 +190,10 @@ export default function Login() {
                     <BsFillPersonFill className="icon" />
                     <input
                       type="text"
-                        required
+                      required
                       id="text"
                       onChange={(event) => {
-                        setUserName(event.target.value);
+
                       }}
                     />
                     <label>Nome Completo</label>
@@ -208,7 +209,6 @@ export default function Login() {
                         required
                       id="email"
                       onChange={(event) => {
-                        setEmail(event.target.value);
                       }}
                     />
                     <label>Email</label>
@@ -224,7 +224,6 @@ export default function Login() {
                         required
                       id="cpf"
                       onChange={(event) => {
-                        setCpf(event.target.value);
                       }}
                     />
                     <label>CPF</label>
@@ -240,7 +239,6 @@ export default function Login() {
                         required
                       id="password2"
                       onChange={(event) => {
-                        setPassword(event.target.value);
                       }}
                     />
                     <label>Senha</label>
@@ -256,7 +254,13 @@ export default function Login() {
 </div>
 </div>
 </div> */}
-              <button className="buttn solid" id="botao-register" onClick={createUser}> Entrar</button>
+              <button 
+              className="buttn solid" 
+              id="botao-register" 
+              // onClick={createUser}
+              > 
+              Entrar
+              </button>
               <p className="social-text">Entrar com as redes sociais:</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
