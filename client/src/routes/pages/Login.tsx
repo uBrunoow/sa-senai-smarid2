@@ -120,7 +120,7 @@ export default function Login() {
           <div className="signin-signup">
             <form action="" method="post" className="sign-in-form" onSubmit={onSubmit}>
               <h2 className="title">Login</h2>
-              <span className={statusHolder }>{loginStatus}</span>
+              <span className={statusHolder}>{loginStatus}</span>
               <div className="lines">
                 <div className="nome-completo">
                   <div className="input-box" id="ib1">
