@@ -19,62 +19,89 @@ import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
 // Importar usabilidades do react
-import { useRef, useEffect, useState, SetStateAction } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRef, useEffect, ChangeEvent, useState } from "react";
 import axios from "axios";
-import console from "console";
 
 export default function Login() {
-  // // REGISTER
-  // const [email, setEmail] = useState("");
-  // const [name, setUserName] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [credential, setCpf] = useState("");
+  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+    console.log("value is:", e.target.value);
+  };
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    console.log("value is:", e.target.value);
+  };
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+    console.log("value is:", e.target.value);
+  };
+  const handleChangeConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setConfirmPassword(e.target.value);
+    console.log("value is:", e.target.value);
+  };
+  const handleChangeCpf = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCpf(e.target.value);
+    console.log("value is:", e.target.value);
+  };
+  const handleChangeLoginEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginEmail(e.target.value);
+    console.log("value is:", e.target.value);
+  };
+  const handleChangeLoginPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginPassword(e.target.value);
+    console.log("value is:", e.target.value);
+  };
 
-  // const createUser = () => {
-  //   axios.post('http://localhost:3002/auth/register') , {
-  //     setUserName : name,
-  //     setEmail : email,
-  //     setPassword : password
-  //   }
-  // };
+  // User data registration
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+  const [cpf, setCpf] = useState("");
 
-  // // LOGIN
-  // const [loginUserName, setLoginUserName] = useState("");
-  // const [loginPassword, setLoginPassword] = useState("");
-  // const navigateTo = useNavigate()
+  async function doRegistration(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const response = await fetch("http://localhost:3002/auth/register", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: setName,
+        email: setEmail,
+        password: setPassword,
+        confirmpassword: setConfirmPassword,
+        cpf: setCpf,
+      }),
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    console.log("🟢 Usuário cadastrado com sucesso");
+  }
+  // User data login
+  const [ loginEmail, setLoginEmail ] = useState("");
+  const [ loginPassword, setLoginPassword ] = useState("");
 
-  // const [ loginStatus, setLoginStatus ] = useState("")
-  // const [ statusHolder, setStatusHolder ] = useState("message")
+  const doLogin = () => {
+    axios
+      .post("http://localhost:3002/auth/login", {
+        loginEmail: setLoginEmail,
+        loginPassword: setLoginPassword,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    console.log("🟢 Usuário autenticado com sucesso");
+  };
 
-  // const loginUser = () => {
-  //   axios.post("http://localhost:3002/auth/login", {
-  //     loginUserName: email,
-  //     loginPassword: password,
-  //   }).then((response) => {
-  //     if (response.data.message || loginUserName == '' || loginPassword == '' ) {
-  //       navigateTo('/login')
-  //       setLoginStatus(`Credentials dont exist`)
-  //     } else {
-  //       navigateTo('/initialpage')
-  //     }
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   if(loginStatus !== '') {
-  //     setStatusHolder('showMessage')
-  //     setTimeout(() => {
-  //       setStatusHolder('message')
-  //     }, 4000)
-  //   }
-  // }, [loginStatus])
-
-  // const onSubmit = ( ) => {
-  //   setLoginUserName(``)
-  //   setLoginPassword(``)
-  // }
-  
+  // Animation of login
   const sign_in_btn = useRef(null);
   const sign_up_btn = useRef(null);
   const containerRef = useRef(null);
@@ -95,6 +122,7 @@ export default function Login() {
     }
   }, []);
 
+  // Function to show or hide
   function ShowHide() {
     const password = document.getElementById("password") as HTMLInputElement;
 
@@ -110,15 +138,14 @@ export default function Login() {
       <div className="f-container" ref={containerRef}>
         <div className="forms-container">
           <div className="signin-signup">
-            <form 
-            action=""
-            method="post" 
-            className="sign-in-form" 
-            // onSubmit={onSubmit}
+            <form
+              action=""
+              method="post"
+              className="sign-in-form"
+              onSubmit={doLogin}
             >
               <h2 className="title">Login</h2>
-              <span className={statusHolder}>{loginStatus}</span>
-              {/* <span className={statusHolder }>{loginStatus}</span> */}
+              {/* <span className={statusHolder}>{loginStatus}</span> */}
               <div className="lines">
                 <div className="nome-completo">
                   <div className="input-box" id="ib1">
@@ -127,9 +154,10 @@ export default function Login() {
                       type="text"
                       required
                       id="textLogin"
-                      // onChange={}
+                      onChange={handleChangeLoginEmail}
+                      value={loginEmail}
                     />
-                    <label>Nome Completo</label>
+                    <label>Email</label>
                   </div>
                 </div>
               </div>
@@ -141,9 +169,8 @@ export default function Login() {
                       type="password"
                       required
                       id="password"
-                        onChange={(event) => {
-                          
-                        }}
+                      onChange={handleChangeLoginPassword}
+                      value={loginPassword}
                     />
                     <label>Senha</label>
                   </div>
@@ -152,7 +179,7 @@ export default function Login() {
               <button
                 type="submit"
                 className="buttn solid"
-                // onClick={}
+                // onClick={teste}
               >
                 Entrar
               </button>
@@ -177,11 +204,11 @@ export default function Login() {
               </div>
             </form>
 
-            <form 
-            action="" 
-            method="post" 
-            className="sign-up-form" 
-            // onSubmit={}
+            <form
+              action=""
+              method="post"
+              className="sign-up-form"
+              onSubmit={doRegistration}
             >
               <h2 className="title">Registrar</h2>
               <div className="lines">
@@ -192,9 +219,8 @@ export default function Login() {
                       type="text"
                       required
                       id="text"
-                      onChange={(event) => {
-
-                      }}
+                      onChange={handleChangeName}
+                      value={name}
                     />
                     <label>Nome Completo</label>
                   </div>
@@ -206,10 +232,10 @@ export default function Login() {
                     <IoMail className="icon" />
                     <input
                       type="email"
-                        required
+                      required
                       id="email"
-                      onChange={(event) => {
-                      }}
+                      onChange={handleChangeEmail}
+                      value={email}
                     />
                     <label>Email</label>
                   </div>
@@ -221,10 +247,10 @@ export default function Login() {
                     <IoMdFingerPrint className="icon" />
                     <input
                       type="text"
-                        required
+                      required
                       id="cpf"
-                      onChange={(event) => {
-                      }}
+                      onChange={handleChangeCpf}
+                      value={cpf}
                     />
                     <label>CPF</label>
                   </div>
@@ -236,30 +262,35 @@ export default function Login() {
                     <AiFillEye className="icon" id="eyes" onClick={ShowHide} />
                     <input
                       type="password"
-                        required
+                      required
                       id="password2"
-                      onChange={(event) => {
-                      }}
+                      onChange={handleChangePassword}
+                      value={password}
                     />
                     <label>Senha</label>
                   </div>
                 </div>
               </div>
-{/* <div className="lines">
-<div className="nome-completo">
-<div className="input-box" id="ib7">
-<IoLockClosed className="icon" />
-<input type="password" required />
-<label>Confirmar Senha</label>
-</div>
-</div>
-</div> */}
-              <button 
-              className="buttn solid" 
-              id="botao-register" 
-              // onClick={createUser}
-              > 
-              Entrar
+              <div className="lines">
+                <div className="nome-completo">
+                  <div className="input-box" id="ib7">
+                    <IoLockClosed className="icon" />
+                    <input
+                      type="password"
+                      required
+                      onChange={handleChangeConfirmPassword}
+                      value={confirmpassword}
+                    />
+                    <label>Confirmar Senha</label>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="buttn solid"
+                id="botao-register"
+                // onClick={createUser}
+              >
+                Entrar
               </button>
               <p className="social-text">Entrar com as redes sociais:</p>
               <div className="social-media">

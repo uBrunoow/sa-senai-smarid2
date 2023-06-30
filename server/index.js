@@ -3,6 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cors = require('cors')
+const axios = require('axios')
 
 const app = express();
 app.listen(3002, () => {
@@ -14,6 +16,7 @@ const User = require("./models/User");
 
 // Config JSON response
 app.use(express.json());
+app.use(cors())
 
 // Open Route
 app.get("/", (req, res) => {
@@ -54,8 +57,9 @@ function checkToken(req, res, next) {
 }
 
 app.post("/auth/register", async (req, res) => {
-  const { name, email, password, confirmpassword } = req.body;
-  console.log({ name, email, password, confirmpassword })
+
+  const { name, email, password, confirmpassword, cpf } = req.body;
+  console.log({ name, email, password, confirmpassword, cpf})
   // validations
   if (!name) {
     return res.status(422).json({ msg: "🟡 O nome é obrigatório!" });
