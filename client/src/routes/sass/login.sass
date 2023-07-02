@@ -15,9 +15,19 @@ $cor8: #1A1A1A
 $cor9: #2C2C2C
 $cor10: #111111
 
-.statusHolder
+.showMessage
+  width: 450px
+  display: block
   color: #fff 
   background: red
+  padding: 10px
+  margin: 20px
+  border-radius: 5px
+  font-weight: 600
+  text-align: center
+
+.message
+  display: none
 
 .f-container 
   position: relative
@@ -87,15 +97,15 @@ form.sign-in-form
 
 
 .lines
-    display: flex
+  display: flex
   
   
 .nome-completo 
-    width: 500px
+  width: 500px
   
 
 .password 
-    width: 500px
+  width: 500px
   
 .input-box .icon 
   position: absolute
@@ -126,7 +136,7 @@ form.sign-in-form
   transition: .5s
   
   
-.input-box input:focus~label,
+.input-box input:focus~label
 .input-box input:valid~label 
     top: -5px
   

@@ -6,15 +6,14 @@ import Extra_promotion from "./components/Extra-promotion/extra_promotion";
 import Departamentos from "./components/Departamentos/departamentos";
 import Destaques from "./components/Destaques/destaques-1";
 import Extra_promotion2 from "./components/Extra-promotion2/extra-promotion2";
-import Popup from "./components/Popup/popup";
-import { Navbar } from "../../components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
+import { NavbarLogado } from "./components/Navbar-logado/Navbar_logado";
 
 export default function Initialpage() {
 
     return (
         <div className="Body_page">
-            <Navbar />
+            <NavbarLogado />
             <Promoções />
             <Countdown />
             <Produtos />

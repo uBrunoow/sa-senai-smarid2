@@ -11,7 +11,6 @@ import Pricing from "./components/Pricing/pricing";
 import Questions from "./components/Questions/questions";
 import Highlights from "./components/Highlights/highlights";
 import Footer from "./components/Footer/footer";
-
 // import GlobalStyleComponent from "./styles/global";
 import { Navbar } from "./components/Navbar/navbar";
 

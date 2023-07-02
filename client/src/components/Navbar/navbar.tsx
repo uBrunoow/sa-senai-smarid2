@@ -43,7 +43,9 @@ export function Navbar(){
               <span></span>
             </label>
           </div>
-          <div className="logo">Logo</div>
+          <div className="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/VR_Logo_Virtual_Reality_Logo.svg/512px-VR_Logo_Virtual_Reality_Logo.svg.png" alt="" />
+          </div>
           <div className="navbar">
             <NavbarLink href={`/`}>Home</NavbarLink>
             <NavbarLink href={`/initialpage`}>Products</NavbarLink>

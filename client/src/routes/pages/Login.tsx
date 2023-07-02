@@ -19,37 +19,130 @@ import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
 // Importar usabilidades do react
-import { useRef, useEffect, ChangeEvent, useState } from "react";
-import axios from "axios";
+import React, { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
+
 
 export default function Login() {
+  // Validations
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
-    console.log("value is:", e.target.value);
   };
+  const [isEmailValid, setEmailIsValid] = useState(false);
   const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-    console.log("value is:", e.target.value);
+    const { value } = e.target;
+    setEmail(value);
+    setEmailIsValid(validateEmail(value));
   };
+
+  const validateEmail = (email: string): boolean => {
+    // Regex para validar o formato do email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const [isPasswordValid, setPasswordIsValid] = useState(false);
   const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-    console.log("value is:", e.target.value);
+    const { value } = e.target;
+    setPassword(value);
+    setPasswordIsValid(value === confirmpassword);
   };
-  const handleChangeConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setConfirmPassword(e.target.value);
-    console.log("value is:", e.target.value);
+
+  const handleChangeConfirmPassword = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { value } = e.target;
+    setConfirmPassword(value);
+    setPasswordIsValid(value === password);
   };
-  const handleChangeCpf = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCpf(e.target.value);
-    console.log("value is:", e.target.value);
+
+  const [isCpfValid, setCpfIsValid] = useState(false);
+  const handleChangeCpf = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    const digitsOnly = value.replace(/\D/g, ""); // Remove caracteres não numéricos
+    const formattedCpf = formatCpf(digitsOnly); // Formata o CPF com os pontos
+
+    setCpf(formattedCpf);
+    setCpfIsValid(validateCpf(digitsOnly));
   };
+
+  const validateCpf = (cpf: string): boolean => {
+    // Verifique se o CPF possui 11 dígitos
+    if (cpf.length !== 11) {
+      return false;
+    }
+
+    // Verifique se todos os dígitos são iguais (ex: 111.111.111-11)
+    if (/^(\d)\1+$/.test(cpf)) {
+      return false;
+    }
+
+    // Cálculo dos dígitos verificadores
+    let sum = 0;
+    let remainder: number;
+
+    for (let i = 1; i <= 9; i++) {
+      sum += parseInt(cpf[i - 1]) * (11 - i);
+    }
+
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) {
+      remainder = 0;
+    }
+
+    if (remainder !== parseInt(cpf[9])) {
+      return false;
+    }
+
+    sum = 0;
+    for (let i = 1; i <= 10; i++) {
+      sum += parseInt(cpf[i - 1]) * (12 - i);
+    }
+
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) {
+      remainder = 0;
+    }
+
+    if (remainder !== parseInt(cpf[10])) {
+      return false;
+    }
+
+    return true;
+  };
+
+  const formatCpf = (digits: string): string => {
+    if (digits.length <= 3) {
+      return digits;
+    } else if (digits.length <= 6) {
+      return `${digits.slice(0, 3)}.${digits.slice(3)}`;
+    } else if (digits.length <= 9) {
+      return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6)}`;
+    } else {
+      return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(
+        6,
+        9
+      )}-${digits.slice(9)}`;
+    }
+  };
+  const [isLoginEmailValid, setLoginEmailIsValid] = useState(false);
   const handleChangeLoginEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLoginEmail(e.target.value);
-    console.log("value is:", e.target.value);
+    const { value } = e.target;
+    setLoginEmail(value);
+    setLoginEmailIsValid(validateLoginEmail(value));
   };
-  const handleChangeLoginPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const validateLoginEmail = (email: string): boolean => {
+    // Regex para validar o formato do email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(loginEmail);
+  };
+
+  const handleChangeLoginPassword = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setLoginPassword(e.target.value);
-    console.log("value is:", e.target.value);
   };
 
   // User data registration
@@ -60,46 +153,167 @@ export default function Login() {
   const [cpf, setCpf] = useState("");
 
   async function doRegistration(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault();
+    if (
+      email == "" ||
+      name == "" ||
+      password == "" ||
+      confirmpassword == "" ||
+      cpf == ""
+    ) {
+      console.log("🔴 Preencha todos os campos");
+      setLoginStatus(`🔴 Preencha todos os campos`);
+      return;
+    }
+    if (isEmailValid !== true) {
+      console.log("🔴 Email inválido");
+      setLoginStatus(`🔴 Email inválido`);
+      return;
+    } else if (isCpfValid !== true) {
+      console.log("🔴 O CPF inserido não é válido");
+      setLoginStatus(`🔴 O CPF inserido não é válido`);
+      return;
+    } else if (isPasswordValid !== true) {
+      console.log("🔴 As senhas não conferem");
+      setLoginStatus(`🔴 As senhas não conferem`);
+      return;
+    }
+
+    const obj = {
+      name,
+      email,
+      password,
+      confirmpassword,
+      cpf,
+    };
     const response = await fetch("http://localhost:3002/auth/register", {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: setName,
-        email: setEmail,
-        password: setPassword,
-        confirmpassword: setConfirmPassword,
-        cpf: setCpf,
+        name: obj.name,
+        email: obj.email,
+        password: obj.password,
+        confirmpassword: obj.password,
+        cpf: obj.cpf,
       }),
     })
       .then(function (response) {
         console.log(response);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-    console.log("🟢 Usuário cadastrado com sucesso");
-  }
-  // User data login
-  const [ loginEmail, setLoginEmail ] = useState("");
-  const [ loginPassword, setLoginPassword ] = useState("");
+        if (response.status == 201) {
+          console.log("🟢 Usuário cadastrado com sucesso");
+          navigateTo("/initialpage");
 
-  const doLogin = () => {
-    axios
-      .post("http://localhost:3002/auth/login", {
-        loginEmail: setLoginEmail,
-        loginPassword: setLoginPassword,
-      })
-      .then(function (response) {
-        console.log(response);
+          setName("");
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
+          setCpf("");
+        } else {
+          console.log("🔴 As credenciais não estão corretas");
+          if (
+            response.status !== 201 ||
+            email == "" ||
+            name == "" ||
+            password == "" ||
+            confirmpassword == "" ||
+            cpf == ""
+          ) {
+            console.log("🔴 Preencha todos os campos");
+            setLoginStatus(`🔴 Preencha todos os campos`);
+            return;
+          }
+        }
       })
       .catch(function (error) {
         console.error(error);
       });
-    console.log("🟢 Usuário autenticado com sucesso");
+  }
+
+  const navigateTo = useNavigate();
+  const [statusLogin, setLoginStatus] = useState("");
+  const [statusHolder, setStatusHolder] = useState("message");
+  const [token, setToken] = useState('');
+
+  // User data login
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [validationError, setValidationError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Validação do email e senha
+  const validateForm = () => {
+    if ( isLoginEmailValid !== true || password) {
+      setValidationError(true);
+      console.log("🔴 Dados de login inválidos");
+      setLoginStatus(`🔴 Dados de login inválidos`);
+      return false;
+    }
+    return true;
   };
+
+  // Autenticação
+  const Authenticate = async () => {
+    setIsLoading(true);
+    const obj = {
+      loginEmail,
+      loginPassword,
+    };
+
+    const response = await fetch("http://localhost:3002/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: obj.loginEmail,
+        password: obj.loginPassword,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setToken(data.token);
+        Cookies.set('jwtToken', data.token, { expires: 30 });
+        if (
+          loginEmail == "" ||
+          loginPassword == ""
+        ) {
+          setLoginStatus(`🔴 Credenciais não estão corretas`);
+          console.log("🔴 As credenciais não estão corretas");
+        } else {
+          navigateTo("/initialpage");
+          setLoginEmail("");
+          setLoginPassword("");
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+
+    setIsLoading(false);
+  };
+
+  function doLogin(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const isValid = validateForm();
+    if (isValid) {
+      Authenticate();
+      console.log("🟢 Usuário autenticado com sucesso");
+    } else {
+      console.log("🔴 As credenciais não estão corretas");
+    }
+  }
+
+  useEffect(() => {
+    if (statusLogin !== "") {
+      setStatusHolder("showMessage");
+      setTimeout(() => {
+        setStatusHolder("message");
+      }, 4000);
+    }
+  }, [statusLogin]);
 
   // Animation of login
   const sign_in_btn = useRef(null);
@@ -145,15 +359,15 @@ export default function Login() {
               onSubmit={doLogin}
             >
               <h2 className="title">Login</h2>
-              {/* <span className={statusHolder}>{loginStatus}</span> */}
+              <span className={statusHolder}>{statusLogin}</span>
               <div className="lines">
                 <div className="nome-completo">
                   <div className="input-box" id="ib1">
                     <BsFillPersonFill className="icon" />
                     <input
-                      type="text"
-                      required
+                      type="email"
                       id="textLogin"
+                      autoComplete="off"
                       onChange={handleChangeLoginEmail}
                       value={loginEmail}
                     />
@@ -167,8 +381,8 @@ export default function Login() {
                     <IoLockClosed className="icon" />
                     <input
                       type="password"
-                      required
                       id="password"
+                      autoComplete="off"
                       onChange={handleChangeLoginPassword}
                       value={loginPassword}
                     />
@@ -176,13 +390,14 @@ export default function Login() {
                   </div>
                 </div>
               </div>
-              <button
-                type="submit"
-                className="buttn solid"
-                // onClick={teste}
-              >
-                Entrar
-              </button>
+              {/* {validationError && <p>Dados de login inválidos.</p>}
+              {isLoading ? (
+                <p>Realizando autenticação...</p>
+              ) : ( */}
+                <button type="submit" className="buttn solid">
+                  Entrar
+                </button>
+              {/* )} */}
 
               <p className="social-text">Entrar com as redes sociais:</p>
               <div className="social-media">
@@ -211,14 +426,16 @@ export default function Login() {
               onSubmit={doRegistration}
             >
               <h2 className="title">Registrar</h2>
+              <span className={statusHolder}>{statusLogin}</span>
               <div className="lines">
                 <div className="nome-completo">
                   <div className="input-box" id="ib3">
                     <BsFillPersonFill className="icon" />
                     <input
                       type="text"
-                      required
+                      // required
                       id="text"
+                      autoComplete="off"
                       onChange={handleChangeName}
                       value={name}
                     />
@@ -231,9 +448,10 @@ export default function Login() {
                   <div className="input-box" id="ib4">
                     <IoMail className="icon" />
                     <input
-                      type="email"
-                      required
+                      type="text"
+                      // required
                       id="email"
+                      autoComplete="off"
                       onChange={handleChangeEmail}
                       value={email}
                     />
@@ -247,11 +465,14 @@ export default function Login() {
                     <IoMdFingerPrint className="icon" />
                     <input
                       type="text"
-                      required
+                      // required
                       id="cpf"
+                      autoComplete="off"
+                      maxLength={14}
                       onChange={handleChangeCpf}
                       value={cpf}
                     />
+                    {/* <span className="">{isCpfValid ? <p>O CPF é válido.</p> : <p>O CPF é inválido.</p>}</span>  */}
                     <label>CPF</label>
                   </div>
                 </div>
@@ -262,8 +483,9 @@ export default function Login() {
                     <AiFillEye className="icon" id="eyes" onClick={ShowHide} />
                     <input
                       type="password"
-                      required
+                      // required
                       id="password2"
+                      autoComplete="off"
                       onChange={handleChangePassword}
                       value={password}
                     />
@@ -277,19 +499,17 @@ export default function Login() {
                     <IoLockClosed className="icon" />
                     <input
                       type="password"
-                      required
+                      // required
+                      autoComplete="off"
                       onChange={handleChangeConfirmPassword}
                       value={confirmpassword}
                     />
+                    {/* {isPasswordValid ? <p>As senhas coincidem.</p> : <p>As senhas não coincidem.</p>} */}
                     <label>Confirmar Senha</label>
                   </div>
                 </div>
               </div>
-              <button
-                className="buttn solid"
-                id="botao-register"
-                // onClick={createUser}
-              >
+              <button className="buttn solid" id="botao-register">
                 Entrar
               </button>
               <p className="social-text">Entrar com as redes sociais:</p>

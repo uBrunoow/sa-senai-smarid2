@@ -21,6 +21,9 @@ import { AiFillEye } from "react-icons/ai";
 import { HiLockClosed } from "react-icons/hi";
 import { FaLocationArrow } from "react-icons/fa";
 import { MinhaConta } from "../styles/conta";
+import { ChangeEvent, useEffect, useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 export default function Account() {
   function ChangePhoto() {
@@ -78,51 +81,117 @@ export default function Account() {
     }
   }
 
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+  const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      setProfileImage(URL.createObjectURL(file));
+      await uploadImage(file);
+    }
+  };
 
+  const uploadImage = async (file: File) => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      await axios.post("http://localhost:3002/api/uploads", formData);
+      console.log("Arquivo enviado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao enviar o arquivo:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Buscar as informações do usuário quando o componente for montado
+    fetchUserData();
+  }, []);
+
+  const fetchUserData = async () => {
+    const jwtToken = Cookies.get("jwtToken");
+    try {
+      const response = await axios.get(
+        "http://localhost:3002/user/64a092c59502c6bfdc630756",
+        {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        }
+      );
+      const userData = response.data;
+      setProfileImage(userData.profileImage);
+    } catch (error) {
+      console.error("Erro ao buscar as informações do usuário:", error);
+    }
+  };
+
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    // Verificar se o usuário está autenticado
+    const jwtToken = Cookies.get("jwtToken");
+
+    if (jwtToken) {
+      // Fazer uma requisição ao backend para obter os dados do usuário
+      fetch("http://localhost:3002/user/64a092c59502c6bfdc630756", {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Armazenar os dados do usuário no estado
+          setUserData(data);
+        })
+        .catch((error) => {
+          console.error("Erro ao obter os dados do usuário:", error);
+        });
+    } else {
+      // O usuário não está autenticado, redirecionar para a página de login
+      window.location.href = "/login";
+    }
+  }, []);
+  
+  if (userData) {
   return (
-      <div className="Body_page" id="Conta_id">
-        <NavbarLogado />
-        <MinhaConta className="minha-conta">
-          <EditarEndereco />
-          <div className="conta-wrapper">
-            <div className="dados-content">
-              <div className="menu">
-                <div className="menu-flex">
-                  <div className="home">
-                    <a href={`/conta`}>
-                      <MdHome className="IconsConta2" />
-                    </a>
-                    <p className="desc-menu">HOME</p>
-                  </div>
-                  <div className="favs">
-                    <a href={`/lista-de-desejos`}>
-                      <FaHeart className="IconsConta2" />
-                    </a>
-                    <p className="desc-menu">HOME</p>
-                  </div>
-                  <div className="history">
-                    <a href={`/historico`}>
-                      <HiSortAscending className="IconsConta2" />
-                    </a>
-                    <p className="desc-menu">HOME</p>
-                  </div>
+    <div className="Body_page" id="Conta_id">
+      <NavbarLogado />
+      <MinhaConta className="minha-conta">
+        <EditarEndereco />
+        <div className="conta-wrapper">
+          <div className="dados-content">
+            <div className="menu">
+              <div className="menu-flex">
+                <div className="home">
+                  <a href={`/conta`}>
+                    <MdHome className="IconsConta2" />
+                  </a>
+                  <p className="desc-menu">HOME</p>
+                </div>
+                <div className="favs">
+                  <a href={`/lista-de-desejos`}>
+                    <FaHeart className="IconsConta2" />
+                  </a>
+                  <p className="desc-menu">HOME</p>
+                </div>
+                <div className="history">
+                  <a href={`/historico`}>
+                    <HiSortAscending className="IconsConta2" />
+                  </a>
+                  <p className="desc-menu">HOME</p>
                 </div>
               </div>
-              <div id="Choose_id" className="Choose_img">
-                <div className="title_choose">
-                  <div className="Title_icons">
-                    <IoMdCamera className="Icon_choose" />
-                    <h1 className="Chosse_h1">Atualizar sua foto de perfil</h1>
-                  </div>
-                  <div
-                    className="Close_icons"
-                    id="Close_img"
-                    onClick={FecharAba}
-                  >
-                    <AiFillCloseCircle className="icon_fechar" />
-                  </div>
+            </div>
+            <div id="Choose_id" className="Choose_img">
+              <div className="title_choose">
+                <div className="Title_icons">
+                  <IoMdCamera className="Icon_choose" />
+                  <h1 className="Chosse_h1">Atualizar sua foto de perfil</h1>
                 </div>
-                <hr className="Choose_line" />
+                <div className="Close_icons" id="Close_img" onClick={FecharAba}>
+                  <AiFillCloseCircle className="icon_fechar" />
+                </div>
+              </div>
+              <hr className="Choose_line" />
+              <form action="">
                 <div className="fotos_perfil">
                   <AiOutlineCloudUpload className="Cloud_icon" />
                   <p>
@@ -131,324 +200,336 @@ export default function Account() {
                   <label className="File_upload" htmlFor="arquivo">
                     Carregar foto
                   </label>
-                  <input type="file" name="arquivo" id="arquivo" />
+                  <input
+                    type="file"
+                    name="arquivo"
+                    id="arquivo"
+                    onChange={handleFileChange}
+                  />
                 </div>
-              </div>
+              </form>
+            </div>
 
-              <div className="conta-cupom">
-                <div className="conta-content">
-                  <div className="imagem-conta" id="Imagem_hover">
-                    <img src="https://i1.sndcdn.com/artworks-bEMhExX1BoD6F5Tu-atmOiw-t500x500.jpg" />
-                    <div
-                      className="Pencil"
-                      id="Pencil_id"
-                      onClick={ChangePhoto}
-                    >
-                      <HiPencilAlt className="Pencil_icon" />
-                    </div>
+            <div className="conta-cupom">
+              <div className="conta-content">
+                <div className="imagem-conta" id="Imagem_hover">
+                  {profileImage ? (
+                    <img src={profileImage} alt="Profile Image" />
+                  ) : (
+                    <img
+                      src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
+                      alt="No profile image"
+                    />
+                  )}
+                  <div className="Pencil" id="Pencil_id" onClick={ChangePhoto}>
+                    <HiPencilAlt className="Pencil_icon" />
                   </div>
+                </div>
 
-                  <div className="description-conta">
-                    <h1 className="nome-conta">Olá, Cliente</h1>
-                    <p className="email-conta">nome.user@gmail.com</p>
-                  </div>
-                </div>
-                <div className="cupom-content">
-                  <div className="description-cupom">
-                    <h1 className="nome-conta">Cupons de desconto</h1>
-                    <div className="input-cupom">
-                      <input
-                        type="text"
-                        className="textoBusca"
-                        placeholder="Cupom"
-                      />
-                      <button type="submit" className="imgCupons">
-                        {" "}
-                        <a href=""> RESGATAR CUPOM </a>
-                      </button>
-                    </div>
-                  </div>
+                <div className="description-conta">
+                  <h1 className="nome-conta">Olá, Cliente</h1>
+                  <p className="email-conta">nome.user@gmail.com</p>
                 </div>
               </div>
-              <div className="dados-titulo">
-                <MdDataset className="IconsConta" />
-                <h1>Meus dados</h1>
-              </div>
-              <hr className="line" />
-              <div className="re-password" id="MudarSenha">
-                <div className="re-titulo">
-                  <div className="Title-icon">
-                    <MdOutlinePassword className="Re_icon" />
-                    <h1 className="reh1">Redefinir sua senha</h1>
-                  </div>
-                  <div
-                    className="Close_icons"
-                    id="Close_img"
-                    onClick={FecharSenha}
-                  >
-                    <AiFillCloseCircle className="icon_fechar" />
-                  </div>
-                </div>
-                <hr className="Choose_line" />
-                <div className="re-form">
-                  <form>
-                    <p className="ReP">
-                      Preencha os campos abaixo para redefinir a sua senha
-                    </p>
-                    <div className="lines">
-                      <div className="Input_design_color">
-                        <div className="Input_box_border_color">
-                          <AiFillEye className="Icon_repass" />
-                          <input type="password" required />
-                          <label>Digite sua nova senha</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="lines">
-                      <div className="Input_design_color">
-                        <div className="Input_box_border_color">
-                          <HiLockClosed className="Icon_repass" />
-                          <input type="password" required />
-                          <label>Confirmar sua nova senha</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="Flex-button-repass">
-                      <label className="Redefine_pass" htmlFor="repass">
-                        Redefinir
-                      </label>
-                      <input type="submit" name="repass" id="repass" />
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div className="wrapper">
-                <div className="form-box login">
-                  <form>
-                    <div className="lines">
-                      <div className="Input_design_color">
-                        <div className="input-box">
-                          <input type="text" required />
-                          <label>Nome completo</label>
-                        </div>
-                      </div>
-                      <div className="Input_design_color">
-                        <div className="input-box">
-                          <input type="text" required />
-                          <label>CPF</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="lines">
-                      <div className="Input_design_color">
-                        <div className="input-box">
-                          <input type="tel" required />
-                          <label>Telefone</label>
-                        </div>
-                      </div>
-                      <div className="Input_design_color">
-                        <div className="input-box">
-                          <input type="email" required />
-                          <label>Email</label>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                  <div className="btn-repassword">
-                    <button type="submit" onClick={MudarSenha}>
-                      REDEFINIR SENHA
+              <div className="cupom-content">
+                <div className="description-cupom">
+                  <h1 className="nome-conta">Cupons de desconto</h1>
+                  <div className="input-cupom">
+                    <input
+                      type="text"
+                      className="textoBusca"
+                      placeholder="Cupom"
+                    />
+                    <button type="submit" className="imgCupons">
+                      {" "}
+                      <a href=""> RESGATAR CUPOM </a>
                     </button>
                   </div>
-                  <div className="enderecos-content">
-                    <div className="enderecos-titulo">
-                      <MdLocationOn className="IconsConta" />
-                      <h1>Endereços</h1>
-                    </div>
-                    <hr className="line" />
-                    <div className="flex-endereco">
-                      <div className="overlay-1"></div>
-                      <div className="endereco-principal">
-                        <div className="enderecos-infos">
-                          <h1>Endereço Principal</h1>
-                          <h2>(PADRÃO)</h2>
-                        </div>
-                        <div className="enderecos-subinfos">
-                          <p>
-                            {" "}
-                            RUA ARNALDO PINTO DA ROÇA
-                            <br />
-                            Número: 6889
-                            <br />
-                            CEP 89234-881, CARPAZINHA-SR
-                          </p>
-                        </div>
-                        <div className="endereco-editar">
-                          <button onClick={EditEndereco}>EDITAR</button>
-                        </div>
+                </div>
+              </div>
+            </div>
+            <div className="dados-titulo">
+              <MdDataset className="IconsConta" />
+              <h1>Meus dados</h1>
+            </div>
+            <hr className="line" />
+            <div className="re-password" id="MudarSenha">
+              <div className="re-titulo">
+                <div className="Title-icon">
+                  <MdOutlinePassword className="Re_icon" />
+                  <h1 className="reh1">Redefinir sua senha</h1>
+                </div>
+                <div
+                  className="Close_icons"
+                  id="Close_img"
+                  onClick={FecharSenha}
+                >
+                  <AiFillCloseCircle className="icon_fechar" />
+                </div>
+              </div>
+              <hr className="Choose_line" />
+              <div className="re-form">
+                <form>
+                  <p className="ReP">
+                    Preencha os campos abaixo para redefinir a sua senha
+                  </p>
+                  <div className="lines">
+                    <div className="Input_design_color">
+                      <div className="Input_box_border_color">
+                        <AiFillEye className="Icon_repass" />
+                        <input type="password" required />
+                        <label>Digite sua nova senha</label>
                       </div>
-                      <div className="overlay-2"></div>
-                      <div className="endereco-outros">
-                        <div className="enderecos-infos">
-                          <h1>Endereço Secundário</h1>
-                        </div>
-                        <div className="enderecos-subinfos">
-                          <p>
-                            {" "}
-                            RUA ARNALDO PINTO DA ROÇA
-                            <br />
-                            Número: 6889
-                            <br />
-                            CEP 89234-881, CARPAZINHA-SR
-                          </p>
-                        </div>
-                        <div className="endereco-editar">
-                          <button onClick={EditEndereco}>EDITAR</button>
-                          <button>EXCLUIR</button>
-                          <button className="padrao">DEIXAR PADRÃO</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="btn-repassword">
-                      <button type="submit" onClick={AdicionarEnd}>
-                        ADICIONAR ENDEREÇO
-                      </button>
                     </div>
                   </div>
-                  <div className="Add_address" id="Address_id">
-                    <div className="Address_formbox">
-                      <div className="title_choose">
-                        <div className="Title_icons">
-                          <FaLocationArrow className="Icon_choose" />
-                          <h1 className="Chosse_h1">Cadastrar novo endereço</h1>
-                        </div>
-                        <div
-                          className="Close_icons"
-                          id="Close_img"
-                          onClick={FecharAddress}
-                        >
-                          <AiFillCloseCircle className="icon_fechar" />
-                        </div>
+                  <div className="lines">
+                    <div className="Input_design_color">
+                      <div className="Input_box_border_color">
+                        <HiLockClosed className="Icon_repass" />
+                        <input type="password" required />
+                        <label>Confirmar sua nova senha</label>
                       </div>
-                      <hr className="Choose_line" />
-                      <form className="Form_address">
-                        <div className="lines">
-                          <div className="Input_design_color">
-                            <div className="Input_box_border_color">
-                              <input type="text" required />
-                              <label>CEP</label>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="lines">
-                          <div className="Input_design_color">
-                            <div className="Input_box_border_color">
-                              <input type="text" required />
-                              <label>Logradouro</label>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="lines">
-                          <div className="Input_design_color">
-                            <div className="Input_box_border_color">
-                              <input type="text" required />
-                              <label>Número</label>
-                            </div>
-                          </div>
-
-                          <div className="Input_design_color">
-                            <div className="Input_box_border_color">
-                              <input type="text" required />
-                              <label>Complemento</label>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="lines">
-                          <div className="Input_design_color">
-                            <div className="Input_box_border_color">
-                              <input type="text" required />
-                              <label>Referencia</label>
-                            </div>
-                          </div>
-
-                          <div className="Input_design_color">
-                            <div className="Input_box_border_color">
-                              <input type="text" required />
-                              <label>Cidade</label>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="lines">
-                          <div className="Input_design_color">
-                            <div className="Input_box_border_color">
-                              <input type="text" required />
-                              <label>Bairro</label>
-                            </div>
-                          </div>
-
-                          <div className="Input_design_color">
-                            <div className="Input_box_border_color">
-                              <input type="text" required />
-                              <label>UF</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="Flex-button-address">
-                          <label
-                            className="Add_Address_btn"
-                            htmlFor="add-address"
-                          >
-                            Adicionar endereço
-                          </label>
-                          <input
-                            type="submit"
-                            name="add-address"
-                            id="add-address"
-                          />
-                        </div>
-                      </form>
                     </div>
                   </div>
-                  <div className="buttons">
-                    <div className="btn-save">
-                      <button type="submit">SALVAR ALTERAÇÕES</button>
+                  <div className="Flex-button-repass">
+                    <label className="Redefine_pass" htmlFor="repass">
+                      Redefinir
+                    </label>
+                    <input type="submit" name="repass" id="repass" />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="wrapper">
+              <div className="form-box login">
+                <form>
+                  <div className="lines">
+                    <div className="Input_design_color">
+                      <div className="input-box">
+                        <input type="text" required />
+                        <label>Nome completo</label>
+                      </div>
                     </div>
-                    <div className="btn-reset">
-                      <button type="reset">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="refresh-button"
-                          viewBox="0 0 512 512"
+                    <div className="Input_design_color">
+                      <div className="input-box">
+                        <input type="text" required />
+                        <label>CPF</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="lines">
+                    <div className="Input_design_color">
+                      <div className="input-box">
+                        <input type="tel" required />
+                        <label>Telefone</label>
+                      </div>
+                    </div>
+                    <div className="Input_design_color">
+                      <div className="input-box">
+                        <input type="email" required />
+                        <label>Email</label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div className="btn-repassword">
+                  <button type="submit" onClick={MudarSenha}>
+                    REDEFINIR SENHA
+                  </button>
+                </div>
+                <div className="enderecos-content">
+                  <div className="enderecos-titulo">
+                    <MdLocationOn className="IconsConta" />
+                    <h1>Endereços</h1>
+                  </div>
+                  <hr className="line" />
+                  <div className="flex-endereco">
+                    <div className="overlay-1"></div>
+                    <div className="endereco-principal">
+                      <div className="enderecos-infos">
+                        <h1>Endereço Principal</h1>
+                        <h2>(PADRÃO)</h2>
+                      </div>
+                      <div className="enderecos-subinfos">
+                        <p>
+                          {" "}
+                          RUA ARNALDO PINTO DA ROÇA
+                          <br />
+                          Número: 6889
+                          <br />
+                          CEP 89234-881, CARPAZINHA-SR
+                        </p>
+                      </div>
+                      <div className="endereco-editar">
+                        <button onClick={EditEndereco}>EDITAR</button>
+                      </div>
+                    </div>
+                    <div className="overlay-2"></div>
+                    <div className="endereco-outros">
+                      <div className="enderecos-infos">
+                        <h1>Endereço Secundário</h1>
+                      </div>
+                      <div className="enderecos-subinfos">
+                        <p>
+                          {" "}
+                          RUA ARNALDO PINTO DA ROÇA
+                          <br />
+                          Número: 6889
+                          <br />
+                          CEP 89234-881, CARPAZINHA-SR
+                        </p>
+                      </div>
+                      <div className="endereco-editar">
+                        <button onClick={EditEndereco}>EDITAR</button>
+                        <button>EXCLUIR</button>
+                        <button className="padrao">DEIXAR PADRÃO</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="btn-repassword">
+                    <button type="submit" onClick={AdicionarEnd}>
+                      ADICIONAR ENDEREÇO
+                    </button>
+                  </div>
+                </div>
+                <div className="Add_address" id="Address_id">
+                  <div className="Address_formbox">
+                    <div className="title_choose">
+                      <div className="Title_icons">
+                        <FaLocationArrow className="Icon_choose" />
+                        <h1 className="Chosse_h1">Cadastrar novo endereço</h1>
+                      </div>
+                      <div
+                        className="Close_icons"
+                        id="Close_img"
+                        onClick={FecharAddress}
+                      >
+                        <AiFillCloseCircle className="icon_fechar" />
+                      </div>
+                    </div>
+                    <hr className="Choose_line" />
+                    <form className="Form_address">
+                      <div className="lines">
+                        <div className="Input_design_color">
+                          <div className="Input_box_border_color">
+                            <input type="text" required />
+                            <label>CEP</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="lines">
+                        <div className="Input_design_color">
+                          <div className="Input_box_border_color">
+                            <input type="text" required />
+                            <label>Logradouro</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="lines">
+                        <div className="Input_design_color">
+                          <div className="Input_box_border_color">
+                            <input type="text" required />
+                            <label>Número</label>
+                          </div>
+                        </div>
+
+                        <div className="Input_design_color">
+                          <div className="Input_box_border_color">
+                            <input type="text" required />
+                            <label>Complemento</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="lines">
+                        <div className="Input_design_color">
+                          <div className="Input_box_border_color">
+                            <input type="text" required />
+                            <label>Referencia</label>
+                          </div>
+                        </div>
+
+                        <div className="Input_design_color">
+                          <div className="Input_box_border_color">
+                            <input type="text" required />
+                            <label>Cidade</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="lines">
+                        <div className="Input_design_color">
+                          <div className="Input_box_border_color">
+                            <input type="text" required />
+                            <label>Bairro</label>
+                          </div>
+                        </div>
+
+                        <div className="Input_design_color">
+                          <div className="Input_box_border_color">
+                            <input type="text" required />
+                            <label>UF</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="Flex-button-address">
+                        <label
+                          className="Add_Address_btn"
+                          htmlFor="add-address"
                         >
-                          <path
-                            d="M320 146s24.36-12-64-12a160 160 0 10160 160"
-                            fill="none"
-                            stroke="#D2042D"
-                            stroke-linecap="round"
-                            stroke-miterlimit="10"
-                            stroke-width="32"
-                          />
-                          <path
-                            fill="none"
-                            stroke="#D2042D"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="32"
-                            d="M256 58l80 80-80 80"
-                          />
-                        </svg>
-                      </button>
-                    </div>
+                          Adicionar endereço
+                        </label>
+                        <input
+                          type="submit"
+                          name="add-address"
+                          id="add-address"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div className="buttons">
+                  <div className="btn-save">
+                    <button type="submit">SALVAR ALTERAÇÕES</button>
+                  </div>
+                  <div className="btn-reset">
+                    <button type="reset">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="refresh-button"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M320 146s24.36-12-64-12a160 160 0 10160 160"
+                          fill="none"
+                          stroke="#D2042D"
+                          stroke-linecap="round"
+                          stroke-miterlimit="10"
+                          stroke-width="32"
+                        />
+                        <path
+                          fill="none"
+                          stroke="#D2042D"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="32"
+                          d="M256 58l80 80-80 80"
+                        />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </MinhaConta>
-        <Footer />
-      </div>
+        </div>
+      </MinhaConta>
+      <Footer />
+    </div>
   );
+  } else {
+    return <p>Carregando...</p>;
+  }
 }
