@@ -23,7 +23,6 @@ import React, { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
-
 export default function Login() {
   // Validations
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -203,7 +202,8 @@ export default function Login() {
         console.log(response);
         if (response.status == 201) {
           console.log("🟢 Usuário cadastrado com sucesso");
-          navigateTo("/initialpage");
+          window.location.reload();
+          navigateTo("/login");
 
           setName("");
           setEmail("");
@@ -260,43 +260,48 @@ export default function Login() {
       loginEmail,
       loginPassword,
     };
-
-    const response = await fetch("http://localhost:3002/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: obj.loginEmail,
-        password: obj.loginPassword,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setToken(data.token);
-        Cookies.set('jwtToken', data.token, { expires: 30 });
-        if (
-          loginEmail == "" ||
-          loginPassword == ""
-        ) {
-          setLoginStatus(`🔴 Credenciais não estão corretas`);
-          console.log("🔴 As credenciais não estão corretas");
-        } else {
-          navigateTo("/initialpage");
-          setLoginEmail("");
-          setLoginPassword("");
-        }
-      })
-      .catch(function (error) {
-        console.error(error);
+  
+    try {
+      const response = await fetch("http://localhost:3002/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: obj.loginEmail,
+          password: obj.loginPassword,
+        }),
       });
 
-    setIsLoading(false);
-  };
+      const data = await response.json();
 
+      if (!response.ok) {
+        throw new Error(data.msg); // Lança um erro com a mensagem de erro retornada pela API
+      }
+  
+      setToken(data.token);
+      Cookies.set("jwtToken", data.token, { expires: 30 });
+  
+      if (loginEmail === "" || loginPassword === "") {
+        setLoginStatus(`🔴 Credenciais não estão corretas`);
+        console.log("🔴 As credenciais não estão corretas");
+      } else {
+        navigateTo("/initialpage");
+        setLoginEmail("");
+        setLoginPassword("");
+        console.log(`Nome do usuário: ${name}`);
+      }
+  
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  };
+  
   function doLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
+  
     const isValid = validateForm();
     if (isValid) {
       Authenticate();
@@ -305,6 +310,7 @@ export default function Login() {
       console.log("🔴 As credenciais não estão corretas");
     }
   }
+  
 
   useEffect(() => {
     if (statusLogin !== "") {

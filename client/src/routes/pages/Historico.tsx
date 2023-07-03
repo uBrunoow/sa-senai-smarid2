@@ -20,7 +20,9 @@ import { BsCartCheckFill } from "react-icons/bs";
 import { BsCheckLg } from "react-icons/bs";
 
 // Importar usabilidades do react
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import Error404 from "./Error404";
 
 export default function Historico() {
   function Clickinfo() {
@@ -40,59 +42,34 @@ export default function Historico() {
     }
   }
 
-  const Status1Ref = useRef(null);
-  const Status2Ref = useRef(null);
-  const Status3Ref = useRef(null);
-  const PurpleStatsRef = useRef(null);
-  const GrayRef = useRef(null);
-  const GrayRef2 = useRef(null);
-
+  const [userData, setUserData] = useState(null);
   useEffect(() => {
-    if (
-      Status1Ref.current &&
-      Status2Ref.current &&
-      Status3Ref.current &&
-      GrayRef.current &&
-      GrayRef2.current &&
-      PurpleStatsRef.current
-    ) {
-      const Status1 = Status1Ref.current as HTMLDivElement;
-      const Status2 = Status2Ref.current as HTMLDivElement;
-      const Status3 = Status3Ref.current as HTMLDivElement;
-      const GrayS = GrayRef.current as HTMLDivElement;
-      const GrayS2 = GrayRef2.current as HTMLDivElement;
-      const PurpleS = PurpleStatsRef.current as HTMLDivElement;
+    // Verificar se o usuário está autenticado
+    const jwtToken = Cookies.get("jwtToken");
 
-      Status1.addEventListener("click", () => {
-        PurpleS.classList.add("Purple_stats");
-        PurpleS.classList.remove("cinza");
-        GrayS.classList.add("cinza");
-        GrayS.classList.remove("Purple_stats");
-        GrayS2.classList.add("cinza2");
-        GrayS2.classList.remove("Purple_stats");
-      });
-
-      Status2.addEventListener("click", () => {
-        GrayS.classList.add("Purple_stats");
-        GrayS.classList.remove("cinza");
-        PurpleS.classList.remove("Purple_stats");
-        PurpleS.classList.add("cinza");
-        GrayS2.classList.add("cinza2");
-        GrayS2.classList.remove("Purple_stats");
-      });
-
-      Status3.addEventListener("click", () => {
-        GrayS2.classList.add("Purple_stats");
-        GrayS2.classList.remove("cinza2");
-        GrayS.classList.add("cinza");
-        GrayS.classList.remove("Purple_stats");
-        PurpleS.classList.remove("Purple_stats");
-        PurpleS.classList.add("cinza");
-      });
+    if (jwtToken) {
+      // Fazer uma requisição ao backend para obter os dados do usuário
+      fetch("http://localhost:3002/user/64a092c59502c6bfdc630756", {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Armazenar os dados do usuário no estado
+          setUserData(data);
+        })
+        .catch((error) => {
+          console.error("Erro ao obter os dados do usuário:", error);
+        });
+    } else {
+      // O usuário não está autenticado, redirecionar para a página de login
+      window.location.href = "/login";
     }
   }, []);
 
-  return (
+  if (userData) {
+    return (
       <div className="Body_page">
         <NavbarLogado />
         <main className="historico">
@@ -104,23 +81,23 @@ export default function Historico() {
               </div>
               <hr className="Historico_linha" />
               <div className="status-pedidos">
-                <div id="Status_pedido1" ref={Status1Ref}>
+                <div id="Status_pedido1">
                   <div className="flex-pedidos">
                     <p>Pedidos</p>
                   </div>
-                  <div className="Purple_stats" ref={PurpleStatsRef}></div>
+                  <div className="Purple_stats" ></div>
                 </div>
-                <div id="Status_pedido2" ref={Status2Ref}>
+                <div id="Status_pedido2">
                   <div className="flex-pedidos">
                     <p>Ainda não entregue</p>
                   </div>
-                  <div className="cinza" ref={GrayRef}></div>
+                  <div className="cinza"></div>
                 </div>
-                <div id="Status_pedido3" ref={Status3Ref}>
+                <div id="Status_pedido3">
                   <div className="flex-pedidos">
                     <p>Pendente</p>
                   </div>
-                  <div className="cinza2" ref={GrayRef2}></div>
+                  <div className="cinza2"></div>
                 </div>
               </div>
               <div id="PD-1">
@@ -512,5 +489,8 @@ export default function Historico() {
         </main>
         <Footer />
       </div>
-  );
+    );
+  } else {
+    return <Error404/>;
+  }
 }

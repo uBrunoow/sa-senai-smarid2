@@ -9,6 +9,8 @@ import Respostas from "./components/Respostas/respostas";
 import UserImage from "/src/assets/IMG/Rectangle 335.svg";
 import Rodape from "./components/Footer/footer";
 import Stars from "/src/assets/IMG/img-produtos/Stars.svg";
+import ProductImage from "/src/assets/IMG/back2.jpg";
+import ProdutcImage2 from "/src/assets/IMG/back3.jpg";
 
 // Importar icones
 import { BsCheckLg } from "react-icons/bs";
@@ -115,19 +117,17 @@ export default function Compra() {
   }
 
   return (
-      <div className="Body_page">
-        <main className="Compra">
-          <NavbarLogado />
-          <div className="Title_compra">
-            <p className="Texto_bold">
-              Você esta em:
-              <span className="Texto_thin">
-                VR / Óculos / com acessório &gt;
-              </span>
-              <span className="Texto_roxo">código #234234</span>
-            </p>
-            <hr className="Line_compra" />
-          </div>
+    <div className="Body_page">
+      <main className="Compra">
+        <NavbarLogado />
+        <div className="Title_compra">
+          <p className="Texto_bold">
+            Você esta em:
+            <span className="Texto_thin">VR / Óculos / com acessório &gt;</span>
+            <span className="Texto_roxo">código #234234</span>
+          </p>
+          <hr className="Line_compra" />
+        </div>
         <div className="Grid_compra">
           <div className="Produto_compra">
             <div className="Imagens_compra">
@@ -172,9 +172,12 @@ export default function Compra() {
               </div>
               <div className="Button_compra">
                 <button className="Comprar_compra">
-                  <MdShoppingCart />
-                  <span>Comprar</span>
+                  <a href="/carrinho">
+                    <MdShoppingCart />
+                    <span>Comprar</span>
+                  </a>
                 </button>
+
                 {/* BOTÃO DE COMPARTILHAR */}
 
                 <button className="btn-cssbuttons">
@@ -252,6 +255,10 @@ export default function Compra() {
                 cabo de fibra óptica de alta velocidade (não incluido).
                 Facilidade na configuração com o aplicativo Oculus para celular.
               </p>
+              <div className="ImageFlex">
+                <img className="ImageProduct" src={ProdutcImage2} alt="" />
+                <img className="ImageProduct" src={ProductImage} alt="" />
+              </div>
               <div className="Title_of_desc">
                 <h2 className="Titulo_da_desc">INFORMAÇÕES TÉCNICAS</h2>
               </div>

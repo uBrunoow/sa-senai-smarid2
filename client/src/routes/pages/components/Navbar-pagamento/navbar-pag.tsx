@@ -10,10 +10,12 @@ export default function Navbar_pag() {
     <nav>
       <header>
         <div className="logo">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/VR_Logo_Virtual_Reality_Logo.svg/512px-VR_Logo_Virtual_Reality_Logo.svg.png"
-            alt=""
-          />
+          <a href="/initialpage">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/VR_Logo_Virtual_Reality_Logo.svg/512px-VR_Logo_Virtual_Reality_Logo.svg.png"
+              alt=""
+            />
+          </a>
         </div>
         <div className="account-button">
           <div className="account-img">

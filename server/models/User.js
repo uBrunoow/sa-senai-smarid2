@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcrypt')
 
 const userSchema = new mongoose.Schema({
+  userId: {    
+    type: String,
+    unique: true
+  },
   name: {
     type: String,
     required: true,
@@ -22,11 +26,10 @@ const userSchema = new mongoose.Schema({
     require: true
   },
   profileImage: {
-    type: String,
-    default: null
-  }
+    type: String, // Tipo de dado é um ObjectId
+    ref: "File" // Referência ao model "File" para relacionamento
+  },  
 });
-
 
 userSchema.pre('save' , async function  (next) {
   this.password = await bcrypt.hash(this.password, 12)

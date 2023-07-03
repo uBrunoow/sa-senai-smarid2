@@ -15,7 +15,9 @@ import { IoLocationSharp } from "react-icons/io5";
 import { TbDiscount } from "react-icons/tb";
 
 // Importar usabilidades do react
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import Error404 from "./Error404";
 
 export default function Carrinho() {
   // Chamar a const do documento para o código Type
@@ -63,6 +65,34 @@ export default function Carrinho() {
       Add_Address.style.display = "block";
     }
   } 
+
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    // Verificar se o usuário está autenticado
+    const jwtToken = Cookies.get("jwtToken");
+
+    if (jwtToken) {
+      // Fazer uma requisição ao backend para obter os dados do usuário
+      fetch("http://localhost:3002/user/64a092c59502c6bfdc630756", {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Armazenar os dados do usuário no estado
+          setUserData(data);
+        })
+        .catch((error) => {
+          console.error("Erro ao obter os dados do usuário:", error);
+        });
+    } else {
+      // O usuário não está autenticado, redirecionar para a página de login
+      window.location.href = "/login";
+    }
+  }, []);
+  
+  if (userData) {
   return (
       <div className="Body_page">
         <NavbarLogado />
@@ -209,4 +239,7 @@ export default function Carrinho() {
         <Footer />
       </div>
   );
+  } else {
+    return <Error404/>;
+  }
 }
