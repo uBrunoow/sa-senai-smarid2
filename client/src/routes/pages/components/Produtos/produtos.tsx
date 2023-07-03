@@ -3,7 +3,8 @@ import './Swiper-2/styles.css'
 import './produtos.sass'
 
 // Importar swiper
-import Swiper2 from './Swiper-2/swiper-2'
+import P1 from "../Produtos2/produtos2";
+
 
 export default function Produtos() {
     return (
@@ -13,10 +14,10 @@ export default function Produtos() {
                     <div className="card-ofertas-wrapper">
                         <div className="card-ofertas">
                             <div className="card-content-ofertas">
-                                <Swiper2/>
-                                <Swiper2/>
-                                <Swiper2/>
-                                <Swiper2/>
+                                <P1/>
+                                <P1/>
+                                <P1/>
+                                <P1/>   
                             </div>
                         </div>
                     </div>

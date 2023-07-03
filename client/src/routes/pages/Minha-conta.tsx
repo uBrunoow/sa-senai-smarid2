@@ -101,7 +101,7 @@ export default function Account() {
       formData.append("file", file);
 
       const response = await fetch(
-        "http://localhost:3002/perfil/64a1a9bc145c26bedfc79958",
+        "http://localhost:3002/perfil/64a2d806416e4ef3da121f5b",
         {
           method: "POST",
           headers: {
@@ -131,7 +131,7 @@ export default function Account() {
 
     if (jwtToken) {
       // Fazer uma requisição ao backend para obter os dados do usuário
-      fetch("http://localhost:3002/user/64a1a9bc145c26bedfc79958", {
+      fetch("http://localhost:3002/user/64a2d806416e4ef3da121f5b", {
         headers: {
           Authorization: `Bearer ${jwtToken}`,
         },
@@ -157,7 +157,7 @@ export default function Account() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:3002/dadosusuario/64a23dce545afa241197a83c');
+        const response = await fetch('http://localhost:3002/dadosusuario/64a2d806416e4ef3da121f5b');
         if (response.ok) {
           const data = await response.json();
           const { name } = data;
