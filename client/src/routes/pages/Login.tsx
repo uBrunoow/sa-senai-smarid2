@@ -210,20 +210,6 @@ export default function Login() {
           setPassword("");
           setConfirmPassword("");
           setCpf("");
-        } else {
-          // console.log("🔴 As credenciais não estão corretas");
-          // if (
-          //   response.status !== 201 ||
-          //   email == "" ||
-          //   name == "" ||
-          //   password == "" ||
-          //   confirmpassword == "" ||
-          //   cpf == ""
-          // ) {
-          //   console.log("🔴 Preencha todos os campos");
-          //   setLoginStatus(`🔴 Preencha todos os campos`);
-          //   return;
-          // }
         }
       })
       .catch(function (error) {
