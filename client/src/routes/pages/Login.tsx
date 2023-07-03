@@ -21,7 +21,7 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 // Importar usabilidades do react
 import React, { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 export default function Login() {
   // Validations
@@ -211,19 +211,19 @@ export default function Login() {
           setConfirmPassword("");
           setCpf("");
         } else {
-          console.log("🔴 As credenciais não estão corretas");
-          if (
-            response.status !== 201 ||
-            email == "" ||
-            name == "" ||
-            password == "" ||
-            confirmpassword == "" ||
-            cpf == ""
-          ) {
-            console.log("🔴 Preencha todos os campos");
-            setLoginStatus(`🔴 Preencha todos os campos`);
-            return;
-          }
+          // console.log("🔴 As credenciais não estão corretas");
+          // if (
+          //   response.status !== 201 ||
+          //   email == "" ||
+          //   name == "" ||
+          //   password == "" ||
+          //   confirmpassword == "" ||
+          //   cpf == ""
+          // ) {
+          //   console.log("🔴 Preencha todos os campos");
+          //   setLoginStatus(`🔴 Preencha todos os campos`);
+          //   return;
+          // }
         }
       })
       .catch(function (error) {
@@ -234,21 +234,25 @@ export default function Login() {
   const navigateTo = useNavigate();
   const [statusLogin, setLoginStatus] = useState("");
   const [statusHolder, setStatusHolder] = useState("message");
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
 
   // User data login
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [validationError, setValidationError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage , setErrorMessage] = useState ('')
 
   // Validação do email e senha
   const validateForm = () => {
-    if ( isLoginEmailValid !== true || password) {
+    if (isLoginEmailValid !== true) {
       setValidationError(true);
       console.log("🔴 Dados de login inválidos");
       setLoginStatus(`🔴 Dados de login inválidos`);
       return false;
+    } else if (loginEmail === "" || loginPassword === "") {
+      setLoginStatus(`🔴 Preencha todos os campos`);
+      console.log("🔴 Preencha todos os campos");
     }
     return true;
   };
@@ -260,7 +264,7 @@ export default function Login() {
       loginEmail,
       loginPassword,
     };
-  
+      
     try {
       const response = await fetch("http://localhost:3002/auth/login", {
         method: "POST",
@@ -273,17 +277,8 @@ export default function Login() {
         }),
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.msg); // Lança um erro com a mensagem de erro retornada pela API
-      }
-  
-      setToken(data.token);
-      Cookies.set("jwtToken", data.token, { expires: 30 });
-  
-      if (loginEmail === "" || loginPassword === "") {
-        setLoginStatus(`🔴 Credenciais não estão corretas`);
+      if (response.status == 401) {
+        setErrorMessage("🔴 As credenciais não estão corretas");
         console.log("🔴 As credenciais não estão corretas");
       } else {
         navigateTo("/initialpage");
@@ -291,26 +286,34 @@ export default function Login() {
         setLoginPassword("");
         console.log(`Nome do usuário: ${name}`);
       }
-  
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.msg); // Lança um erro com a mensagem de erro retornada pela API
+      }
+
+      setToken(data.token);
+      Cookies.set("jwtToken", data.token, { expires: 30 });
+
+
       setIsLoading(false);
     } catch (error) {
       console.error(error);
       setIsLoading(false);
     }
   };
-  
+
   function doLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-  
+
     const isValid = validateForm();
     if (isValid) {
       Authenticate();
-      console.log("🟢 Usuário autenticado com sucesso");
     } else {
       console.log("🔴 As credenciais não estão corretas");
     }
   }
-  
 
   useEffect(() => {
     if (statusLogin !== "") {
@@ -366,6 +369,7 @@ export default function Login() {
             >
               <h2 className="title">Login</h2>
               <span className={statusHolder}>{statusLogin}</span>
+              {errorMessage && <p className="errorMessage">{errorMessage}</p>}
               <div className="lines">
                 <div className="nome-completo">
                   <div className="input-box" id="ib1">
@@ -400,9 +404,9 @@ export default function Login() {
               {isLoading ? (
                 <p>Realizando autenticação...</p>
               ) : ( */}
-                <button type="submit" className="buttn solid">
-                  Entrar
-                </button>
+              <button type="submit" className="buttn solid">
+                Entrar
+              </button>
               {/* )} */}
 
               <p className="social-text">Entrar com as redes sociais:</p>
