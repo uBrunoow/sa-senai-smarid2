@@ -30,7 +30,6 @@ export function Navbar(){
     var sidebar = document.getElementById("sidebar") as HTMLDivElement;
     sidebar.style.display = "none";
   }
-
   return (
     <div>
       <nav>

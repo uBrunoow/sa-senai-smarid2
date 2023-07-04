@@ -25,7 +25,6 @@ import { AiOutlineAim } from "react-icons/ai";
 import { InputText, Navbar } from "./styles";
 import NavbarTsx from "../../../../components/Navbar/navbar";
 
-// NAO SEI OQ É
 import "/src/components/Navbar/navbar.sass";
 import Cookies from "js-cookie";
 

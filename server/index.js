@@ -201,13 +201,6 @@ app.post("/auth/register", async (req, res) => {
   }
   });
 
-// Retorna todos os arquivos adicionados ao banco
-app.get("/posts", async (req, res) => {
-  const files = await File.find();
-  
-  return res.json(files);
-});
-
 
 // Configuração do Multer para lidar com o upload de arquivos
 const storage = multer.diskStorage({

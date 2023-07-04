@@ -22,14 +22,10 @@ export const NavbarLink = styled.a `
 
 export const SignIpButtonLink = styled.a `
     text-decoration: none;
-<<<<<<< HEAD
     color: #fff;
 `;
 
 export const SignUpButtonLink = styled.a `
    text-decoration: none;
    color: #fff;
-=======
-    color: ${props => props.theme.colors.text};
->>>>>>> bf8ce5ae7a09dedd3bde8d673b1cca6020123e6d
-`;
+    color: ${props => props.theme.colors.text}; `;

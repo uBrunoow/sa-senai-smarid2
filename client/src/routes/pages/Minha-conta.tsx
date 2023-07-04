@@ -169,28 +169,50 @@ export default function Account() {
 
   const [userData, setUserData] = useState(null);
   useEffect(() => {
-    // Verificar se o usuário está autenticado
-    const jwtToken = Cookies.get("jwtToken");
-
-    if (jwtToken) {
-      // Fazer uma requisição ao backend para obter os dados do usuário
-      fetch("http://localhost:3002/user/64a092c59502c6bfdc630756", {
-        headers: {
-          Authorization: `Bearer ${jwtToken}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Armazenar os dados do usuário no estado
-          setUserData(data);
-        })
-        .catch((error) => {
-          console.error("Erro ao obter os dados do usuário:", error);
+    const fetchUserAuthentication = async () => {
+      try {
+        // Verificar se o usuário está autenticado
+        const jwtToken = Cookies.get("jwtToken");
+        const response = await fetch("http://localhost:3000/users", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
         });
-    } else {
-      // O usuário não está autenticado, redirecionar para a página de login
-      window.location.href = "/login";
-    }
+        if (!response.ok) {
+          throw new Error("Erro ao obter os dados do usuário");
+        }
+        const data = await response.json();
+        console.log(data);
+        const objectId = data._id;
+        console.log(objectId);
+
+        if (jwtToken) {
+          // Fazer uma requisição ao backend para obter os dados do usuário
+          fetch(`http://localhost:3002/user/${objectId}`, {
+            headers: {
+              Authorization: `Bearer ${jwtToken}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Armazenar os dados do usuário no estado
+              setUserData(data);
+            })
+            .catch((error) => {
+              console.error("Erro ao obter os dados do usuário:", error);
+            });
+        } else {
+          // O usuário não está autenticado, redirecionar para a página de login
+          window.location.href = "/login";
+        }
+      } catch (error) {
+        console.error(error);
+        // Trate o erro de acordo com sua lógica de aplicativo
+        window.location.href = "/login";
+      }
+    };
+    fetchUserAuthentication();
   }, []);
 
   if (userData) {
