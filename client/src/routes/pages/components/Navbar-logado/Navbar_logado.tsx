@@ -59,7 +59,7 @@ export function NavbarLogado() {
 
     if (jwtToken) {
       // Fazer uma requisição ao backend para obter os dados do usuário
-      fetch("http://localhost:3002/user/64a1a9bc145c26bedfc79958", {
+      fetch("http://localhost:3002/user/64a2d806416e4ef3da121f5b", {
         headers: {
           Authorization: `Bearer ${jwtToken}`,
         },

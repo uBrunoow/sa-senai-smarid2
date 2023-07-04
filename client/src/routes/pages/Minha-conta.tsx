@@ -150,25 +150,39 @@ export default function Account() {
     }
   }, []);
 
-
-  const [ NomeUsuario, setNomeUsuario ] = useState('');
-  const [ emailLogado, setEmailLogado ] = useState('');
+  const [nomeUsuario, setNomeUsuario] = useState<string>("");
+  const [emailLogado, setEmailLogado] = useState<string>("");
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:3002/dadosusuario/64a2d806416e4ef3da121f5b');
-        if (response.ok) {
-          const data = await response.json();
-          const { name } = data;
-          const { email } = data;
-          setNomeUsuario(name);
-          setEmailLogado(email)
-        } else {
-          throw new Error('Erro ao obter os dados do usuário');
+        const jwtToken = Cookies.get("jwtToken");
+        const response = await fetch("http://localhost:3000/users",{
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error("Erro ao obter os dados do usuário");
         }
+        const data = await response.json();
+        console.log(data)
+        const objectId = data._id;
+        console.log(objectId)
+        const userDataResponse = await fetch(
+          `http://localhost:3002/dadosusuario/${objectId}`
+        );
+        if (!userDataResponse.ok) {
+          throw new Error("Erro ao obter os dados do usuário");
+        }
+        const userData = await userDataResponse.json();
+        const { name, email } = userData;
+        setNomeUsuario(name);
+        setEmailLogado(email);
       } catch (error) {
         console.error(error);
+        // Trate o erro de acordo com sua lógica de aplicativo
       }
     };
 
@@ -264,7 +278,7 @@ export default function Account() {
                     </div>
 
                     <div className="description-conta">
-                      <h1 className="nome-conta">Olá, {NomeUsuario}</h1>
+                      <h1 className="nome-conta">Olá, {nomeUsuario}</h1>
                       <p className="email-conta">{emailLogado}</p>
                     </div>
                   </div>

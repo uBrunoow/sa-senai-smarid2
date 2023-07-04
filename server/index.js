@@ -7,6 +7,21 @@ const multer = require('multer')
 const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require('uuid');
 
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASS;
+
+mongoose
+  .connect(
+    `mongodb+srv://${dbUser}:${dbPassword}@smartidbd.8mfges4.mongodb.net/?retryWrites=true&w=majority`
+  )
+  .then(() => {
+    console.log(`🟢 Connection established with SmartID_BD`);
+    app.listen(3000);
+  })
+  .catch((err) => {
+    console.log(`🔴 Error connecting to Database because ${err}`);
+    return
+  })
 
 // Models
 const User = require('./models/User');
@@ -41,6 +56,9 @@ app.get("/user/:id", checkToken , async (req, res) => {
 });
 
 app.get('/dadosusuario/:id', async (req, res) => {
+  console.log("🟪 Bem vindo a API!");
+  console.log("ID do usuário:", req.params.id);
+
   try {
     const user = await User.findById(req.params.id);
     res.json(user);
@@ -70,19 +88,22 @@ function checkToken(req, res, next) {
 }
 
 // Mostrar todos os usuários na tela
-app.get("/users", async (req, res) => {
-  const getAllUsers = async () => {
-    try {
-      const users = await User.find();
-      return users;
-    } catch (error) {
-      // Trate o erro de forma adequada
-      throw new Error('Erro ao buscar os usuários');
+app.get("/users", checkToken, async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    const decodedToken = jwt.verify(token, process.env.SECRET);
+    const userId = decodedToken.id;
+    const user = await User.findOne({ _id: userId }); // Busca o usuário com base no ID
+
+    if (!user) {
+      throw new Error("Usuário não encontrado");
     }
-  };
-  const users = await getAllUsers();
-  res.send({ users });
-})
+
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao obter os dados do usuário" });
+  }
+});
 
 // Com o método post para fazer login do usuário
 app.post("/auth/login", async (req, res) => {
@@ -248,19 +269,3 @@ app.post('/perfil/:id', upload.single('file'), checkToken, async (req, res) => {
       res.status(500).send('Erro ao enviar o arquivo e atualizar o perfil.');
     }
 });
-
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASS;
-
-mongoose
-  .connect(
-    `mongodb+srv://${dbUser}:${dbPassword}@smartidbd.8mfges4.mongodb.net/?retryWrites=true&w=majority`
-  )
-  .then(() => {
-    console.log(`🟢 Connection established with SmartID_BD`);
-    app.listen(3000);
-  })
-  .catch((err) => {
-    console.log(`🔴 Error connecting to Database because ${err}`);
-    return
-  })

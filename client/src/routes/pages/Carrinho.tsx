@@ -21,37 +21,22 @@ import Error404 from "./Error404";
 
 export default function Carrinho() {
   // Chamar a const do documento para o código Type
-  const incrementoRef = useRef(null);
-  const contadorRef = useRef(null);
-  const decrementoRef = useRef(null);
-
-  useEffect(() => {
-    // Fazer verificação se a const está realmente no documento
-    if (incrementoRef.current && contadorRef.current && decrementoRef.current) {
-
-      // Declarar variaveis
-      const incremento = incrementoRef.current as HTMLDivElement;
-      const contador = contadorRef.current as HTMLDivElement;
-      const decremento = decrementoRef.current as HTMLDivElement;
-      let qtd = 0;
-
-      // Código do decremento
-      decremento.addEventListener("click", function () {
-        if (qtd > Number(contador.getAttribute("min"))) {
-          qtd--;
-          // contador.setAttribute("value", qtd);
-        }
-      });
-
-      // Código do decremento
-      incremento.addEventListener("click", function () {
-        if (qtd < Number(contador.getAttribute("max"))) {
-          qtd++;
-          // contador.setAttribute("value", qtd);
-        }
-      });
+  const contador = document.getElementById("qtd") as HTMLInputElement;
+  const [qtd, setQtd] = useState(1);
+  // Código do decremento
+  const handleDecrement = () => {
+    if (qtd > 0) {
+      setQtd(qtd - 1);
     }
-  }, []);
+  };
+
+  // Código do incremento
+  const handleIncrement = () => {
+    const max = parseInt(contador.getAttribute("max") || "0", 10);
+    if (qtd < max) {
+      setQtd(qtd + 1);
+    }
+  };
 
   // Função popup para adicionar endereço quando clicado
   function Add_Address() {
@@ -64,7 +49,7 @@ export default function Carrinho() {
     } else {
       Add_Address.style.display = "block";
     }
-  } 
+  }
 
   const [userData, setUserData] = useState(null);
   useEffect(() => {
@@ -91,10 +76,10 @@ export default function Carrinho() {
       window.location.href = "/login";
     }
   }, []);
-  
+
   if (userData) {
-  return (
-      <div className="Body_page">
+    return (
+      <section>
         <NavbarLogado />
         <main className="carrinho">
           <div className="carrinho-content">
@@ -131,26 +116,18 @@ export default function Carrinho() {
                   </div>
                   <div className="quantidade-produto">
                     <div className="up-down">
-                      <button
-                        id="decremento"
-                        className="Btn-updown"
-                        ref={decrementoRef}
-                      >
+                      <button id="decremento" className="Btn-updown" onClick={handleDecrement}>
                         -
                       </button>
                       <input
                         type="number"
                         id="qtd"
+                        value={qtd}
+                        max={10}
                         min={0}
-                        max={500}
                         readOnly
-                        ref={contadorRef}
                       />
-                      <button
-                        id="incremento"
-                        className="Btn-updown"
-                        ref={incrementoRef}
-                      >
+                      <button id="incremento" className="Btn-updown" onClick={handleIncrement}>
                         +
                       </button>
                     </div>
@@ -237,9 +214,9 @@ export default function Carrinho() {
           </div>
         </main>
         <Footer />
-      </div>
-  );
+      </section>
+    );
   } else {
-    return <Error404/>;
+    return <Error404 />;
   }
 }
