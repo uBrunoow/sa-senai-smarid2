@@ -124,6 +124,49 @@ export default function Account() {
     }
   };
 
+  const [nomeUsuario, setNomeUsuario] = useState<string>("");
+  const [emailLogado, setEmailLogado] = useState<string>("");
+  const [cpfLogado, setCpfLogado] = useState<string>("");
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const jwtToken = Cookies.get("jwtToken");
+        const response = await fetch("http://localhost:3000/users", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error("Erro ao obter os dados do usuário");
+        }
+        const data = await response.json();
+        console.log(data);
+        const objectId = data._id;
+        console.log(objectId);
+
+        // Rota para receber dados do usuário
+        const userDataResponse = await fetch(
+          `http://localhost:3002/dadosusuario/${objectId}`
+        );
+        if (!userDataResponse.ok) {
+          throw new Error("Erro ao obter os dados do usuário");
+        }
+        const userData = await userDataResponse.json();
+        const { name, email, cpf } = userData;
+        setNomeUsuario(name);
+        setEmailLogado(email);
+        setCpfLogado(cpf);
+      } catch (error) {
+        console.error(error);
+        // Trate o erro de acordo com sua lógica de aplicativo
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
   const [userData, setUserData] = useState(null);
   useEffect(() => {
     // Verificar se o usuário está autenticado
@@ -131,7 +174,7 @@ export default function Account() {
 
     if (jwtToken) {
       // Fazer uma requisição ao backend para obter os dados do usuário
-      fetch("http://localhost:3002/user/64a2d806416e4ef3da121f5b", {
+      fetch("http://localhost:3002/user/64a092c59502c6bfdc630756", {
         headers: {
           Authorization: `Bearer ${jwtToken}`,
         },
@@ -148,45 +191,6 @@ export default function Account() {
       // O usuário não está autenticado, redirecionar para a página de login
       window.location.href = "/login";
     }
-  }, []);
-
-  const [nomeUsuario, setNomeUsuario] = useState<string>("");
-  const [emailLogado, setEmailLogado] = useState<string>("");
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const jwtToken = Cookies.get("jwtToken");
-        const response = await fetch("http://localhost:3000/users",{
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${jwtToken}`,
-          },
-        });
-        if (!response.ok) {
-          throw new Error("Erro ao obter os dados do usuário");
-        }
-        const data = await response.json();
-        console.log(data)
-        const objectId = data._id;
-        console.log(objectId)
-        const userDataResponse = await fetch(
-          `http://localhost:3002/dadosusuario/${objectId}`
-        );
-        if (!userDataResponse.ok) {
-          throw new Error("Erro ao obter os dados do usuário");
-        }
-        const userData = await userDataResponse.json();
-        const { name, email } = userData;
-        setNomeUsuario(name);
-        setEmailLogado(email);
-      } catch (error) {
-        console.error(error);
-        // Trate o erro de acordo com sua lógica de aplicativo
-      }
-    };
-
-    fetchUserData();
   }, []);
 
   if (userData) {
@@ -357,13 +361,13 @@ export default function Account() {
                       <div className="lines">
                         <div className="Input_design_color">
                           <div className="input-box">
-                            <input type="text" required />
+                            <input type="text" value={nomeUsuario} />
                             <label>Nome completo</label>
                           </div>
                         </div>
                         <div className="Input_design_color">
                           <div className="input-box">
-                            <input type="text" required />
+                            <input type="text" value={cpfLogado} />
                             <label>CPF</label>
                           </div>
                         </div>
@@ -371,13 +375,13 @@ export default function Account() {
                       <div className="lines">
                         <div className="Input_design_color">
                           <div className="input-box">
-                            <input type="tel" required />
+                            <input type="tel" value={"(__) _____-____"} />
                             <label>Telefone</label>
                           </div>
                         </div>
                         <div className="Input_design_color">
                           <div className="input-box">
-                            <input type="email" required />
+                            <input type="email" value={emailLogado} />
                             <label>Email</label>
                           </div>
                         </div>
